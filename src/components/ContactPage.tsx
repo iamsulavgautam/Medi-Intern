@@ -37,10 +37,10 @@ const ContactPage = () => {
       icon: <Phone className="h-6 w-6" />,
       title: "Phone Numbers",
       details: [
-        "Main Office: +977-1-4567890",
-        "Emergency: +977-9851234567",
-        "WhatsApp: +977-9841234567",
-        "Fax: +977-1-4567891"
+        "Main Office: +977-9862728072",
+        "Emergency: +977-9862728072",
+        "WhatsApp: +977-9862728072",
+        "Fax: +977-9862728072"
       ]
     },
     {
@@ -304,7 +304,7 @@ const ContactPage = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <div className="flex items-center space-x-2">
               <Phone className="h-6 w-6" />
-              <span className="text-xl font-semibold">+977-9851234567</span>
+              <span className="text-xl font-semibold">+977-9862728072</span>
             </div>
             <span className="hidden sm:inline text-red-200">|</span>
             <div className="flex items-center space-x-2">

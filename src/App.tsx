@@ -3,6 +3,10 @@ import { Menu, X, Stethoscope } from 'lucide-react';
 import HomePage from './components/HomePage';
 import AboutPage from './components/AboutPage';
 import ProgramsPage from './components/ProgramsPage';
+import DentalElectivePage from './components/DentalElectivePage';
+import PhysiotherapyInternshipPage from './components/PhysiotherapyInternshipPage';
+import MedicalElectivePage from './components/MedicalElectivePage';
+import MidwiferyElectivePage from './components/MidwiferyElectivePage';
 import AccommodationPage from './components/AccommodationPage';
 import FAQsPage from './components/FAQsPage';
 import TestimonialsPage from './components/TestimonialsPage';
@@ -28,7 +32,11 @@ function App() {
     switch (currentPage) {
       case 'home': return <HomePage setCurrentPage={setCurrentPage} />;
       case 'about': return <AboutPage />;
-      case 'programs': return <ProgramsPage />;
+      case 'programs': return <ProgramsPage setCurrentPage={setCurrentPage} />;
+      case 'program-dental-electives': return <DentalElectivePage setCurrentPage={setCurrentPage} />;
+      case 'program-physiotherapy-internship': return <PhysiotherapyInternshipPage setCurrentPage={setCurrentPage} />;
+      case 'program-medical-elective': return <MedicalElectivePage setCurrentPage={setCurrentPage} />;
+      case 'program-midwifery-elective': return <MidwiferyElectivePage setCurrentPage={setCurrentPage} />;
       case 'accommodation': return <AccommodationPage />;
       case 'faqs': return <FAQsPage />;
       case 'testimonials': return <TestimonialsPage />;
@@ -47,7 +55,7 @@ function App() {
             {/* Logo */}
             <div className="flex items-center space-x-2">
               <Stethoscope className="h-8 w-8 text-teal-600" />
-              <span className="text-xl font-bold text-gray-900">Medical Internship Nepal</span>
+              <span className="text-xl font-bold text-gray-900">Medi Intern</span>
             </div>
 
             {/* Desktop Navigation */}
@@ -134,7 +142,7 @@ function App() {
             <div>
               <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
               <p className="text-gray-300 mb-2">Kathmandu, Nepal</p>
-              <p className="text-gray-300 mb-2">+977-1-4567890</p>
+              <p className="text-gray-300 mb-2">+977-9862728072</p>
               <p className="text-gray-300">info@medicalinternshipnepal.com</p>
             </div>
           </div>

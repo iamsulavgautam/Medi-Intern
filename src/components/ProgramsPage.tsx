@@ -1,135 +1,83 @@
 import React from 'react';
-import { Clock, Users, MapPin, CheckCircle } from 'lucide-react';
+import { Clock, Users, MapPin, CheckCircle, ArrowRight } from 'lucide-react';
 
-const ProgramsPage = () => {
+interface ProgramsPageProps {
+  setCurrentPage?: (page: string) => void;
+}
+
+const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
   const programs = [
     {
-      title: "General Medicine",
-      duration: "4-12 weeks",
-      capacity: "6-8 interns",
-      location: "Tribhuvan University Teaching Hospital",
-      image: "https://images.pexels.com/photos/8439093/pexels-photo-8439093.jpeg?auto=compress&cs=tinysrgb&w=800",
-      description: "Comprehensive internal medicine training with direct patient care experience.",
+      id: 'dental-electives',
+      title: "Dental Electives",
+      duration: "2-12 weeks",
+      capacity: "4-8 interns",
+      location: "Dental Hospitals & Clinics",
+      image: "../../assets/images/dental.png",
+      description: "Comprehensive dental training program offering hands-on experience in various dental specialties including oral surgery, orthodontics, and general dentistry.",
       highlights: [
-        "Daily ward rounds with senior physicians",
-        "Outpatient clinic experience",
-        "Emergency department rotations",
-        "Case presentation sessions",
-        "Medical research opportunities"
-      ],
-      requirements: [
-        "Currently enrolled in medical school",
-        "Completed basic clinical rotations",
-        "English proficiency",
-        "Valid medical insurance"
+        "Clinical dental procedures",
+        "Oral surgery observations",
+        "Orthodontic treatments",
+        "Preventive dentistry",
+        "Patient consultation skills"
       ]
     },
     {
-      title: "Surgery",
-      duration: "6-16 weeks",
-      capacity: "4-6 interns",
-      location: "Bir Hospital & Patan Hospital",
-      image: "https://images.pexels.com/photos/7659564/pexels-photo-7659564.jpeg?auto=compress&cs=tinysrgb&w=800",
-      description: "Hands-on surgical training in various specialties including general surgery, orthopedics, and neurosurgery.",
+      id: 'physiotherapy-internship',
+      title: "Physiotherapy Internship",
+      duration: "4-16 weeks",
+      capacity: "6-10 interns",
+      location: "Rehabilitation Centers",
+      image: "../../assets/images/physio.png",
+      description: "Specialized physiotherapy training focusing on rehabilitation techniques, therapeutic exercises, and patient care in various clinical settings.",
       highlights: [
-        "Operating room observations",
-        "Pre and post-operative care",
-        "Surgical technique workshops",
-        "Emergency surgery exposure",
-        "Specialized surgical units"
-      ],
-      requirements: [
-        "Advanced medical student status",
-        "Previous surgical rotation experience",
-        "Physical fitness certification",
-        "Hepatitis B vaccination"
+        "Musculoskeletal rehabilitation",
+        "Neurological physiotherapy",
+        "Sports injury treatment",
+        "Therapeutic exercise programs",
+        "Manual therapy techniques"
       ]
     },
     {
-      title: "Pediatrics",
-      duration: "4-10 weeks",
-      capacity: "4-6 interns",
-      location: "Kanti Children's Hospital",
-      image: "https://images.pexels.com/photos/8376375/pexels-photo-8376375.jpeg?auto=compress&cs=tinysrgb&w=800",
-      description: "Specialized training in pediatric medicine and child healthcare.",
-      highlights: [
-        "Neonatal intensive care unit",
-        "Pediatric emergency medicine",
-        "Child development assessment",
-        "Vaccination programs",
-        "Pediatric surgery observation"
-      ],
-      requirements: [
-        "Pediatric rotation completion",
-        "Child protection training",
-        "Immunization records",
-        "Background check clearance"
-      ]
-    },
-    {
-      title: "Community Health",
-      duration: "2-8 weeks",
+      id: 'medical-elective',
+      title: "Medical Elective",
+      duration: "4-20 weeks",
       capacity: "8-12 interns",
-      location: "Rural Health Posts",
-      image: "https://images.pexels.com/photos/8376306/pexels-photo-8376306.jpeg?auto=compress&cs=tinysrgb&w=800",
-      description: "Experience healthcare delivery in rural communities and public health initiatives.",
+      location: "Teaching Hospitals",
+      image: "../../assets/images/medical_electives.png",
+      description: "Comprehensive medical elective program covering multiple specialties including internal medicine, surgery, pediatrics, and emergency medicine.",
       highlights: [
-        "Rural health camp participation",
-        "Preventive medicine programs",
-        "Health education campaigns",
-        "Community health assessments",
-        "Traditional medicine integration"
-      ],
-      requirements: [
-        "Public health coursework",
-        "Cultural sensitivity training",
-        "Basic Nepali language skills",
-        "Flexibility for travel"
+        "Multi-specialty rotations",
+        "Direct patient care",
+        "Clinical decision making",
+        "Medical research opportunities",
+        "Case presentations"
       ]
     },
     {
-      title: "Emergency Medicine",
-      duration: "3-8 weeks",
-      capacity: "4-6 interns",
-      location: "Teaching Hospital Emergency",
-      image: "https://images.pexels.com/photos/8376297/pexels-photo-8376297.jpeg?auto=compress&cs=tinysrgb&w=800",
-      description: "Fast-paced emergency medicine training with trauma and critical care exposure.",
-      highlights: [
-        "24/7 emergency department",
-        "Trauma management",
-        "Critical care procedures",
-        "Ambulance service participation",
-        "Disaster response training"
-      ],
-      requirements: [
-        "Emergency medicine interest",
-        "ACLS certification preferred",
-        "High stress tolerance",
-        "Night shift availability"
-      ]
-    },
-    {
-      title: "Obstetrics & Gynecology",
+      id: 'midwifery-elective',
+      title: "Midwifery Elective",
       duration: "4-12 weeks",
-      capacity: "4-6 interns",
-      location: "Paropakar Maternity Hospital",
-      image: "https://images.pexels.com/photos/5452270/pexels-photo-5452270.jpeg?auto=compress&cs=tinysrgb&w=800",
-      description: "Comprehensive women's health training including obstetrics and gynecological care.",
+      capacity: "4-8 interns",
+      location: "Maternity Hospitals",
+      image: "../../assets/images/mid_wifery.png",
+      description: "Specialized midwifery program focusing on maternal and newborn care, labor and delivery, and women's reproductive health.",
       highlights: [
-        "Labor and delivery experience",
+        "Labor and delivery assistance",
         "Prenatal and postnatal care",
-        "Gynecological procedures",
+        "Newborn care procedures",
         "Family planning counseling",
-        "High-risk pregnancy management"
-      ],
-      requirements: [
-        "OB/GYN rotation completion",
-        "Gender-sensitive approach",
-        "Cultural awareness training",
-        "Professional maturity"
+        "Emergency obstetric care"
       ]
     }
   ];
+
+  const handleProgramClick = (programId: string) => {
+    if (setCurrentPage) {
+      setCurrentPage(`program-${programId}`);
+    }
+  };
 
   return (
     <div className="py-16">
@@ -176,35 +124,30 @@ const ProgramsPage = () => {
 
                   <p className="text-gray-600 mb-6">{program.description}</p>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-3">Program Highlights</h4>
-                      <ul className="space-y-2">
-                        {program.highlights.map((highlight, idx) => (
-                          <li key={idx} className="flex items-start space-x-2 text-sm text-gray-600">
-                            <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                            <span>{highlight}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-3">Requirements</h4>
-                      <ul className="space-y-2">
-                        {program.requirements.map((requirement, idx) => (
-                          <li key={idx} className="flex items-start space-x-2 text-sm text-gray-600">
-                            <CheckCircle className="h-4 w-4 text-blue-500 mt-0.5 flex-shrink-0" />
-                            <span>{requirement}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                  <div className="mb-6">
+                    <h4 className="font-semibold text-gray-900 mb-3">Program Highlights</h4>
+                    <ul className="space-y-2">
+                      {program.highlights.map((highlight, idx) => (
+                        <li key={idx} className="flex items-start space-x-2 text-sm text-gray-600">
+                          <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                          <span>{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-gray-200">
-                    <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg font-semibold transition-colors duration-200">
-                      Apply for {program.title}
+                  <div className="flex gap-3">
+                    <button 
+                      onClick={() => handleProgramClick(program.id)}
+                      className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg font-semibold transition-colors duration-200 flex items-center justify-center space-x-2"
+                    >
+                      <span>Learn More</span>
+                      <ArrowRight className="h-4 w-4" />
+                    </button>
+                    <button  
+                      onClick={() => setCurrentPage('application')}
+                      className="flex-1 bg-teal-600 hover:bg-teal-700 text-white py-3 px-4 rounded-lg font-semibold transition-colors duration-200">
+                      Apply Now
                     </button>
                   </div>
                 </div>
@@ -267,7 +210,9 @@ const ProgramsPage = () => {
           <p className="text-xl mb-8 text-green-100">
             Join our programs and gain the experience that will shape your medical career.
           </p>
-          <button className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-200">
+          <button 
+            onClick={() => setCurrentPage('application')}
+            className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-200">
             Start Your Application
           </button>
         </div>

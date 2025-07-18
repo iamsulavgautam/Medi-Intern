@@ -30,7 +30,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
             </div>
             <div className="relative">
               <img 
-                src="https://images.pexels.com/photos/4269705/pexels-photo-4269705.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                src="../../assets/images/home_screen_1.png" 
                 alt="Medical students in Nepal hospital"
                 className="rounded-lg shadow-2xl"
               />
@@ -45,17 +45,17 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div className="bg-teal-50 p-8 rounded-lg">
               <Heart className="h-12 w-12 text-teal-600 mx-auto mb-4" />
-              <h3 className="text-3xl font-bold text-gray-900 mb-2">500+</h3>
+              <h3 className="text-3xl font-bold text-gray-900 mb-2">100+</h3>
               <p className="text-gray-600">Medical Interns Trained</p>
             </div>
             <div className="bg-emerald-50 p-8 rounded-lg">
               <Users className="h-12 w-12 text-emerald-600 mx-auto mb-4" />
-              <h3 className="text-3xl font-bold text-gray-900 mb-2">25+</h3>
+              <h3 className="text-3xl font-bold text-gray-900 mb-2">10+</h3>
               <p className="text-gray-600">Partner Hospitals</p>
             </div>
             <div className="bg-blue-50 p-8 rounded-lg">
               <Award className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-              <h3 className="text-3xl font-bold text-gray-900 mb-2">15</h3>
+              <h3 className="text-3xl font-bold text-gray-900 mb-2">3</h3>
               <p className="text-gray-600">Years of Excellence</p>
             </div>
             <div className="bg-indigo-50 p-8 rounded-lg">
@@ -85,7 +85,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">General Medicine</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Internal Medicine</h3>
                 <p className="text-gray-600 mb-4">
                   Comprehensive training in internal medicine with experienced physicians in Nepal's top hospitals.
                 </p>
@@ -120,7 +120,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
 
             <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
               <img 
-                src="https://images.pexels.com/photos/8376375/pexels-photo-8376375.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                src="../../assets/images/community_health.png" 
                 alt="Community Health"
                 className="w-full h-48 object-cover"
               />

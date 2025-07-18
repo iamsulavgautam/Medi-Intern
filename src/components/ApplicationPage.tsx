@@ -1,393 +1,315 @@
 import React, { useState } from 'react';
-import { Calendar, FileText, CheckCircle, Clock, Download } from 'lucide-react';
+import { FileText, CheckCircle, Clock, Download } from 'lucide-react';
+
+interface FormData {
+  familyName: string;
+  firstName: string;
+  email: string;
+  nationality: string;
+  dob: string;
+  gender: string;
+  passportNumber: string;
+  medicalSchool: string;
+  yearOfStudy: string;
+  graduationLevel: string;
+  country: string;
+  program: string[];
+  startDateA: string;
+  endDateA: string;
+  departmentA: string;
+  startDateB: string;
+  endDateB: string;
+  departmentB: string;
+  clerkshipType: string;
+  accommodation: string;
+  documentFile: File | null;
+  photoFile: File | null;
+}
 
 const ApplicationPage = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
+    familyName: '',
     firstName: '',
-    lastName: '',
     email: '',
-    phone: '',
-    country: '',
+    nationality: '',
+    dob: '',
+    gender: '',
+    passportNumber: '',
     medicalSchool: '',
     yearOfStudy: '',
-    program: '',
-    duration: '',
-    startDate: '',
-    experience: '',
-    motivation: '',
-    accommodation: ''
+    graduationLevel: '',
+    country: '',
+    program: [],
+    startDateA: '',
+    endDateA: '',
+    departmentA: '',
+    startDateB: '',
+    endDateB: '',
+    departmentB: '',
+    clerkshipType: '',
+    accommodation: '',
+    documentFile: null,
+    photoFile: null
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission here
-  };
-
-  const programs = [
-    "General Medicine",
-    "Surgery", 
-    "Pediatrics",
-    "Community Health",
-    "Emergency Medicine",
-    "Obstetrics & Gynecology"
-  ];
-
-  const durations = [
-    "2-4 weeks",
-    "4-6 weeks", 
-    "6-8 weeks",
-    "8-12 weeks",
-    "12-16 weeks"
-  ];
-
+  const programs = ["Medical", "Nursing", "Radiology", "Radiography", "Pharmacy", "Dental", "Physiotherapy"];
   const accommodationOptions = [
     "Medical Intern House (Shared)",
-    "Host Family Stay", 
+    "Host Family Stay",
     "Private Apartment",
     "Hotel Partnership"
   ];
 
-  const applicationSteps = [
-    {
-      step: 1,
-      title: "Complete Application",
-      description: "Fill out the online application form with your personal and academic information.",
-      icon: <FileText className="h-8 w-8" />
-    },
-    {
-      step: 2,
-      title: "Submit Documents",
-      description: "Upload required documents including transcripts, recommendation letters, and passport copy.",
-      icon: <Download className="h-8 w-8" />
-    },
-    {
-      step: 3,
-      title: "Application Review",
-      description: "Our team reviews your application and may contact you for additional information.",
-      icon: <Clock className="h-8 w-8" />
-    },
-    {
-      step: 4,
-      title: "Acceptance & Payment",
-      description: "Upon acceptance, secure your spot with the required deposit and complete pre-arrival preparations.",
-      icon: <CheckCircle className="h-8 w-8" />
-    }
+  const clerkshipTypes = [
+    "Pre-clinical Clerkship",
+    "Clinical Clerkship"
   ];
 
-  const requiredDocuments = [
-    "Medical school enrollment letter",
-    "Official academic transcripts",
-    "Curriculum Vitae (CV)",
-    "Passport copy (valid for 6+ months)",
-    "Medical insurance certificate", 
-    "Letter of recommendation from faculty",
-    "Passport-size photographs (2)",
-    "Health certificate from physician"
-  ];
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleProgramCheckboxChange = (program: string) => {
+    setFormData((prev) => {
+      const exists = prev.program.includes(program);
+      const updatedPrograms = exists
+        ? prev.program.filter((p) => p !== program)
+        : [...prev.program, program];
+      return { ...prev, program: updatedPrograms };
+    });
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, files } = e.target;
+    if (!files || files.length === 0) return;
+
+    const file = files[0];
+
+    if (name === 'documentFile' && file.size > 4 * 1024 * 1024) {
+      alert("Document must be less than 4MB");
+      return;
+    }
+
+    if (name === 'photoFile') {
+      if (!file.type.startsWith('image/')) {
+        alert("Photo must be an image file");
+        return;
+      }
+      if (file.size > 1 * 1024 * 1024) {
+        alert("Photo must be less than 1MB");
+        return;
+      }
+    }
+
+    setFormData((prev) => ({ ...prev, [name]: file }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Form Data:', formData);
+  };
 
   return (
-    <div className="py-16">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-teal-600 to-blue-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-5xl font-bold mb-6">Apply for Medical Internship</h1>
-            <p className="text-xl text-teal-100 max-w-3xl mx-auto">
-              Take the first step towards an transformative medical experience in Nepal. Apply now to secure your spot.
-            </p>
-          </div>
+    <section className="py-20 bg-white">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Online Application Form</h2>
+          <p className="text-xl text-gray-600">Please complete all required fields to submit your application.</p>
         </div>
-      </section>
 
-      {/* Application Process */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Application Process</h2>
-            <p className="text-xl text-gray-600">
-              Follow these simple steps to complete your application.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {applicationSteps.map((step, index) => (
-              <div key={index} className="text-center">
-                <div className="bg-white p-6 rounded-lg shadow-lg mb-4">
-                  <div className="bg-teal-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-teal-600">
-                    {step.icon}
-                  </div>
-                  <div className="bg-teal-600 text-white w-8 h-8 rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-bold">
-                    {step.step}
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">{step.title}</h3>
-                  <p className="text-gray-600 text-sm">{step.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Application Form */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Online Application Form</h2>
-            <p className="text-xl text-gray-600">
-              Please complete all required fields to submit your application.
-            </p>
-          </div>
-
-          <form onSubmit={handleSubmit} className="bg-gray-50 p-8 rounded-lg shadow-lg">
-            {/* Personal Information */}
-            <div className="mb-8">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">Personal Information</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
-                  <input
-                    type="text"
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
-                  <input
-                    type="text"
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Country *</label>
-                  <input
-                    type="text"
-                    name="country"
-                    value={formData.country}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                  />
-                </div>
-              </div>
+        <form onSubmit={handleSubmit} className="space-y-12 bg-gray-50 p-8 rounded-lg shadow-lg">
+          <Section title="Personal Information">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <InputField name="familyName" label="Family Name *" value={formData.familyName} onChange={handleInputChange} required />
+              <InputField name="firstName" label="First Name *" value={formData.firstName} onChange={handleInputChange} required />
+              <InputField name="email" label="Email *" type="email" value={formData.email} onChange={handleInputChange} required />
+              <InputField name="nationality" label="Nationality *" value={formData.nationality} onChange={handleInputChange} required />
+              <InputField name="dob" label="Date of Birth *" type="date" value={formData.dob} onChange={handleInputChange} required />
+              <SelectField name="gender" label="Gender *" value={formData.gender} onChange={handleInputChange} required options={["Male", "Female", "Other"]} />
+              <InputField name="passportNumber" label="Passport Number *" value={formData.passportNumber} onChange={handleInputChange} required />
             </div>
+          </Section>
 
-            {/* Academic Information */}
-            <div className="mb-8">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">Academic Information</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Medical School *</label>
-                  <input
-                    type="text"
-                    name="medicalSchool"
-                    value={formData.medicalSchool}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Year of Study *</label>
-                  <select
-                    name="yearOfStudy"
-                    value={formData.yearOfStudy}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                  >
-                    <option value="">Select Year</option>
-                    <option value="3rd Year">3rd Year</option>
-                    <option value="4th Year">4th Year</option>
-                    <option value="5th Year">5th Year</option>
-                    <option value="6th Year">6th Year</option>
-                    <option value="Graduate">Graduate</option>
-                  </select>
-                </div>
-              </div>
+          <Section title="Academic Information">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <InputField name="medicalSchool" label="Medical School *" value={formData.medicalSchool} onChange={handleInputChange} required />
+              <SelectField name="yearOfStudy" label="Year of Study *" value={formData.yearOfStudy} onChange={handleInputChange} required options={["3rd Year", "4th Year", "5th Year", "6th Year", "Graduate"]} />
+              <InputField name="graduationLevel" label="Graduation Level *" value={formData.graduationLevel} onChange={handleInputChange} required />
+              <InputField name="country" label="Country *" value={formData.country} onChange={handleInputChange} required />
             </div>
+          </Section>
 
-            {/* Program Selection */}
-            <div className="mb-8">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">Program Selection</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Program *</label>
-                  <select
-                    name="program"
-                    value={formData.program}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                  >
-                    <option value="">Select Program</option>
-                    {programs.map((program) => (
-                      <option key={program} value={program}>{program}</option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Duration *</label>
-                  <select
-                    name="duration"
-                    value={formData.duration}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                  >
-                    <option value="">Select Duration</option>
-                    {durations.map((duration) => (
-                      <option key={duration} value={duration}>{duration}</option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Start Date *</label>
+          <Section title="Program Selection">
+            <fieldset className="space-y-3">
+              <legend className="text-sm font-medium text-gray-700 mb-2">Preferred Programs *</legend>
+              {programs.map((program) => (
+                <label key={program} className="flex items-center space-x-2">
                   <input
-                    type="date"
-                    name="startDate"
-                    value={formData.startDate}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                    type="checkbox"
+                    checked={formData.program.includes(program)}
+                    onChange={() => handleProgramCheckboxChange(program)}
+                    className="text-teal-600"
                   />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Accommodation Preference</label>
-                  <select
-                    name="accommodation"
-                    value={formData.accommodation}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                  >
-                    <option value="">Select Accommodation</option>
-                    {accommodationOptions.map((option) => (
-                      <option key={option} value={option}>{option}</option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-            </div>
+                  <span className="text-gray-700">{program}</span>
+                </label>
+              ))}
+            </fieldset>
+            <p>*Preferred Departments (You should stay in one department for at least two weeks)*</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+              <InputField name="departmentA" label="Department" value={formData.departmentA} onChange={handleInputChange} />
+              <InputField name="startDateA" label="Start Date" type="date" value={formData.startDateA} onChange={handleInputChange} required />
+              <InputField name="endDateA" label="End Date" type="date" value={formData.endDateA} onChange={handleInputChange} required />
 
-            {/* Personal Statement */}
-            <div className="mb-8">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">Personal Statement</h3>
+              <InputField name="departmentB" label="Department" value={formData.departmentB} onChange={handleInputChange} />
+              <InputField name="startDateB" label="Start Date" type="date" value={formData.startDateB} onChange={handleInputChange} />
+              <InputField name="endDateB" label="End Date" type="date" value={formData.endDateB} onChange={handleInputChange} />
+            </div>
+            <SelectField name="clerkshipType" label="Desired Type of Clerkship" value={formData.clerkshipType} onChange={handleInputChange} options={clerkshipTypes} />
+            <SelectField name="accommodation" label="Accommodation Preference" value={formData.accommodation} onChange={handleInputChange} options={accommodationOptions} />
+          </Section>
+
+
+
+          <Section title="Uploads">
+            <div>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-6">Upload Documents</h3>
               <div className="space-y-6">
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Previous Medical Experience
+                    Upload Required Documents (PDF, max 4MB) *
                   </label>
-                  <textarea
-                    name="experience"
-                    value={formData.experience}
-                    onChange={handleInputChange}
-                    rows={4}
-                    placeholder="Describe your previous clinical experience, rotations, and any relevant medical work..."
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Motivation for Internship *
-                  </label>
-                  <textarea
-                    name="motivation"
-                    value={formData.motivation}
-                    onChange={handleInputChange}
-                    rows={4}
+                  <input
+                    type="file"
+                    name="documentFile"
+                    accept=".pdf"
+                    onChange={handleFileChange}
                     required
-                    placeholder="Why do you want to complete your internship in Nepal? What do you hope to achieve?"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg file:bg-teal-600 file:text-white file:px-4 file:py-2 file:rounded file:cursor-pointer"
                   />
                 </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Upload Passport-size Photo (JPEG/PNG, max 1MB) *
+                  </label>
+                  <input
+                    type="file"
+                    name="photoFile"
+                    accept="image/jpeg,image/png"
+                    onChange={handleFileChange}
+                    required
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg file:bg-teal-600 file:text-white file:px-4 file:py-2 file:rounded file:cursor-pointer"
+                  />
+                </div>
+
               </div>
             </div>
 
-            {/* Submit Button */}
-            <div className="text-center">
-              <button
-                type="submit"
-                className="bg-teal-600 hover:bg-teal-700 text-white px-12 py-4 rounded-lg font-semibold text-lg transition-colors duration-200"
-              >
-                Submit Application
-              </button>
-              <p className="text-sm text-gray-500 mt-4">
-                By submitting this application, you agree to our terms and conditions.
-              </p>
-            </div>
-          </form>
-        </div>
-      </section>
+          </Section>
 
-      {/* Required Documents */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Required Documents</h2>
-            <p className="text-xl text-gray-600">
-              Please prepare these documents for upload after form submission.
-            </p>
+          <div className="text-center">
+            <button type="submit" className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-3 rounded-lg font-semibold text-lg">
+              Submit Application
+            </button>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {requiredDocuments.map((document, index) => (
-              <div key={index} className="flex items-center space-x-3 bg-white p-4 rounded-lg shadow">
-                <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                <span className="text-gray-700">{document}</span>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-8 p-6 bg-blue-50 rounded-lg">
-            <h3 className="text-lg font-semibold text-blue-900 mb-3">Important Notes:</h3>
-            <ul className="text-blue-800 space-y-2">
-              <li>• All documents must be in English or officially translated</li>
-              <li>• Documents should be scanned in high resolution (PDF format preferred)</li>
-              <li>• Application fee of $100 is required upon document submission</li>
-              <li>• Incomplete applications will not be processed</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-    </div>
+        </form>
+      </div>
+    </section>
   );
 };
+
+// Reusable UI Components
+
+const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
+  <div>
+    <h3 className="text-2xl font-semibold text-gray-900 mb-4">{title}</h3>
+    <div className="space-y-4">{children}</div>
+  </div>
+);
+
+const InputField = ({
+  name,
+  label,
+  value,
+  onChange,
+  type = 'text',
+  required = false
+}: {
+  name: string;
+  label: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  type?: string;
+  required?: boolean;
+}) => (
+  <div>
+    <label htmlFor={name} className="block text-sm font-medium text-gray-700 mb-1">{label}</label>
+    <input id={name} name={name} type={type} value={value} onChange={onChange} required={required} className="w-full px-4 py-2 border rounded-lg" />
+  </div>
+);
+
+const SelectField = ({
+  name,
+  label,
+  value,
+  onChange,
+  options,
+  required = false
+}: {
+  name: string;
+  label: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  options: string[];
+  required?: boolean;
+}) => (
+  <div>
+    <label htmlFor={name} className="block text-sm font-medium text-gray-700 mb-1">{label}</label>
+    <select id={name} name={name} value={value} onChange={onChange} required={required} className="w-full px-4 py-2 border rounded-lg">
+      <option value="">Select</option>
+      {options.map((opt) => (
+        <option key={opt} value={opt}>{opt}</option>
+      ))}
+    </select>
+  </div>
+);
+
+const TextAreaField = ({
+  name,
+  label,
+  value,
+  onChange,
+  required = false
+}: {
+  name: string;
+  label: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  required?: boolean;
+}) => (
+  <div>
+    <label htmlFor={name} className="block text-sm font-medium text-gray-700 mb-1">{label}</label>
+    <textarea id={name} name={name} value={value} onChange={onChange} rows={4} required={required} className="w-full px-4 py-2 border rounded-lg" />
+  </div>
+);
+
+const FileInputField = ({
+  name,
+  label,
+  onChange
+}: {
+  name: keyof FormData;
+  label: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}) => (
+  <div>
+    <label htmlFor={name} className="block text-sm font-medium text-gray-700 mb-1">{label}</label>
+    <input type="file" name={name} id={name} onChange={onChange} className="w-full" />
+  </div>
+);
 
 export default ApplicationPage;
