@@ -48,7 +48,7 @@ const DentalElectivePage: React.FC<DentalElectivePageProps> = ({ setCurrentPage 
             </div>
             <div>
               <img 
-                src="../../assets/images/dental.png" 
+                src="https://raw.githubusercontent.com/coder-backend/Medical-Internship/refs/heads/main/assets/images/dental.png" 
                 alt="Dental Electives"
                 className="rounded-lg shadow-2xl"
               />

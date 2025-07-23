@@ -72,7 +72,7 @@ const PhysiotherapyInternshipPage: React.FC<PhysiotherapyInternshipPageProps> = 
             </div>
             <div>
               <img 
-                src="../../assets/images/medical_electives.png" 
+                src="https://raw.githubusercontent.com/coder-backend/Medical-Internship/refs/heads/main/assets/images/medical_electives.png" 
                 alt="Physiotherapy Internship"
                 className="rounded-lg shadow-2xl"
               />

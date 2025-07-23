@@ -13,7 +13,7 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
       duration: "2-12 weeks",
       capacity: "4-8 interns",
       location: "Dental Hospitals & Clinics",
-      image: "../../assets/images/dental.png",
+      image: "https://raw.githubusercontent.com/coder-backend/Medical-Internship/refs/heads/main/assets/images/dental.png",
       description: "Comprehensive dental training program offering hands-on experience in various dental specialties including oral surgery, orthodontics, and general dentistry.",
       highlights: [
         "Clinical dental procedures",

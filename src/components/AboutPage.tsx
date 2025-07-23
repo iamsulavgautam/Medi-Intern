@@ -98,7 +98,7 @@ const AboutPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <img 
-                src="../../assets/images/rohit.jpeg" 
+                src="https://raw.githubusercontent.com/coder-backend/Medical-Internship/refs/heads/main/assets/images/rohit.jpeg" 
                 alt="Dr. Rajesh Sharma"
                 className="w-48 h-48 rounded-full mx-auto mb-4 object-cover"
               />

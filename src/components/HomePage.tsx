@@ -30,7 +30,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
             </div>
             <div className="relative">
               <img 
-                src="../../assets/images/home_screen_1.png" 
+                src="https://raw.githubusercontent.com/coder-backend/Medical-Internship/refs/heads/main/assets/images/home_screen_1.png" 
                 alt="Medical students in Nepal hospital"
                 className="rounded-lg shadow-2xl"
               />
@@ -120,7 +120,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
 
             <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
               <img 
-                src="../../assets/images/community_health.png" 
+                src="https://raw.githubusercontent.com/coder-backend/Medical-Internship/refs/heads/main/assets/images/community_health.png" 
                 alt="Community Health"
                 className="w-full h-48 object-cover"
               />

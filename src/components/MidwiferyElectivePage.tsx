@@ -47,7 +47,7 @@ const MidwiferyElectivePage: React.FC<MidwiferyElectivePageProps> = ({ setCurren
             </div>
             <div>
               <img 
-                src="../../assets/images/mid_wifery.png" 
+                src="https://raw.githubusercontent.com/coder-backend/Medical-Internship/refs/heads/main/assets/images/mid_wifery.png" 
                 alt="Midwifery Elective"
                 className="rounded-lg shadow-2xl"
               />
