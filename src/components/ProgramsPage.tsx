@@ -29,7 +29,7 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
       duration: "4-16 weeks",
       capacity: "6-10 interns",
       location: "Rehabilitation Centers",
-      image: "../../assets/images/physio.png",
+      image: "https://raw.githubusercontent.com/coder-backend/Medical-Internship/refs/heads/main/assets/images/physio.png",
       description: "Specialized physiotherapy training focusing on rehabilitation techniques, therapeutic exercises, and patient care in various clinical settings.",
       highlights: [
         "Musculoskeletal rehabilitation",
@@ -45,7 +45,7 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
       duration: "4-20 weeks",
       capacity: "8-12 interns",
       location: "Teaching Hospitals",
-      image: "../../assets/images/medical_electives.png",
+      image: "https://raw.githubusercontent.com/coder-backend/Medical-Internship/refs/heads/main/assets/images/medical_electives.png",
       description: "Comprehensive medical elective program covering multiple specialties including internal medicine, surgery, pediatrics, and emergency medicine.",
       highlights: [
         "Multi-specialty rotations",
@@ -61,7 +61,7 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
       duration: "4-12 weeks",
       capacity: "4-8 interns",
       location: "Maternity Hospitals",
-      image: "../../assets/images/mid_wifery.png",
+      image: "https://raw.githubusercontent.com/coder-backend/Medical-Internship/refs/heads/main/assets/images/mid_wifery.png",
       description: "Specialized midwifery program focusing on maternal and newborn care, labor and delivery, and women's reproductive health.",
       highlights: [
         "Labor and delivery assistance",
