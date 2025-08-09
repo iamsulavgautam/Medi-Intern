@@ -12,11 +12,17 @@ import FAQsPage from './components/FAQsPage';
 import TestimonialsPage from './components/TestimonialsPage';
 import ApplicationPage from './components/ApplicationPage';
 import ContactPage from './components/ContactPage';
+import AdminLoginPage from './components/AdminLoginPage';
+import AdminDashboardPage from './components/AdminDashboardPage';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
+  const [adminToken, setAdminToken] = useState('');
+  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  var adminId = isAdminLoggedIn? 'admin-dashboard' : 'admin-login';
+  var adminLoginLabel = isAdminLoggedIn ? 'Admin Dashboard' : 'Admin Login';
   const pages = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
@@ -25,7 +31,8 @@ function App() {
     { id: 'faqs', label: 'FAQs' },
     { id: 'testimonials', label: 'Testimonials' },
     { id: 'application', label: 'Application' },
-    { id: 'contact', label: 'Contact' }
+    { id: 'contact', label: 'Contact' },
+    {id: adminId, label: adminLoginLabel}
   ];
 
   const renderPage = () => {
@@ -42,6 +49,8 @@ function App() {
       case 'testimonials': return <TestimonialsPage />;
       case 'application': return <ApplicationPage />;
       case 'contact': return <ContactPage />;
+      case 'admin-login': return <AdminLoginPage setCurrentPage={setCurrentPage} setAdminToken={setAdminToken} setIsAdminLoggedIn={setIsAdminLoggedIn} />;
+      case 'admin-dashboard': return <AdminDashboardPage setCurrentPage={setCurrentPage} setIsAdminLoggedIn={setIsAdminLoggedIn}  adminToken={adminToken} />;
       default: return <HomePage setCurrentPage={setCurrentPage} />;
     }
   };

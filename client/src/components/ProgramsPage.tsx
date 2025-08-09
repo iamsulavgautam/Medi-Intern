@@ -145,7 +145,7 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
                       <ArrowRight className="h-4 w-4" />
                     </button>
                     <button  
-                      onClick={() => setCurrentPage('application')}
+                      onClick={() => setCurrentPage && setCurrentPage('application')}
                       className="flex-1 bg-teal-600 hover:bg-teal-700 text-white py-3 px-4 rounded-lg font-semibold transition-colors duration-200">
                       Apply Now
                     </button>
@@ -211,7 +211,7 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
             Join our programs and gain the experience that will shape your medical career.
           </p>
           <button 
-            onClick={() => setCurrentPage('application')}
+            onClick={() => setCurrentPage && setCurrentPage('application')}
             className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-200">
             Start Your Application
           </button>

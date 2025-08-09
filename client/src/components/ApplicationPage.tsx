@@ -52,6 +52,9 @@ const ApplicationPage = () => {
     photoFile: null
   });
 
+  const [submitMessage, setSubmitMessage] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+
   const programs = ["Medical", "Nursing", "Radiology", "Radiography", "Pharmacy", "Dental", "Physiotherapy"];
   const accommodationOptions = [
     "Medical Intern House (Shared)",
@@ -107,10 +110,83 @@ const ApplicationPage = () => {
     setFormData((prev) => ({ ...prev, [name]: file }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form Data:', formData);
-  };
+    const handleSubmit = async (e: React.FormEvent) => {
+      e.preventDefault();
+      setIsSubmitting(true);
+      setSubmitMessage(null);
+    
+      try {
+        const payload = new FormData();
+    
+        // Append all non-file fields
+        Object.entries(formData).forEach(([key, value]) => {
+          if (key === "documentFile" || key === "photoFile") return; // skip files here
+          if (Array.isArray(value)) {
+            value.forEach((item) => payload.append(key, item));
+          } else {
+            payload.append(key, value as string);
+          }
+        });
+    
+        // Append files
+        if (formData.documentFile) {
+          payload.append("documentFile", formData.documentFile);
+        }
+        if (formData.photoFile) {
+          payload.append("photoFile", formData.photoFile);
+        }
+    
+        const res = await fetch("http://localhost:5000/api/applications/submit", {
+          method: "POST",
+          body: payload
+        });
+    
+        const data = await res.json();
+    
+        if (!res.ok) {
+          throw new Error(data.message || "Failed to submit application");
+        }
+    
+        setSubmitMessage("Application submitted successfully!");
+        setFormData({
+          familyName: '',
+          firstName: '',
+          email: '',
+          nationality: '',
+          dob: '',
+          gender: '',
+          passportNumber: '',
+          medicalSchool: '',
+          yearOfStudy: '',
+          graduationLevel: '',
+          country: '',
+          program: [],
+          startDateA: '',
+          endDateA: '',
+          departmentA: '',
+          startDateB: '',
+          endDateB: '',
+          departmentB: '',
+          clerkshipType: '',
+          accommodation: '',
+          documentFile: null,
+          photoFile: null
+        });
+      } catch (err: any) {
+        console.error("Submission error:", err);
+        setSubmitMessage(`Error: ${err.message}`);
+      } finally {
+        setIsSubmitting(false);
+      }
+    };
+    
+    // console.log('Form Data:', formData);
+    // setTimeout(() => {
+    //   setIsSubmitting(false);
+    //   setSubmitMessage('Application submitted successfully!');
+    // }, 2000); // Simulate submission delay
+    // console.log('Form Data:', formData);
+
 
   return (
     <section className="py-20 bg-white">
@@ -212,8 +288,17 @@ const ApplicationPage = () => {
           </Section>
 
           <div className="text-center">
+            {submitMessage && (
+              <div className={`mb-6 p-4 rounded-lg ${
+                submitMessage.includes('Error') 
+                  ? 'bg-red-100 text-red-700 border border-red-300' 
+                  : 'bg-green-100 text-green-700 border border-green-300'
+              }`}>
+                {submitMessage}
+              </div>
+            )}
             <button type="submit" className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-3 rounded-lg font-semibold text-lg">
-              Submit Application
+              {isSubmitting ? 'Submitting...' : 'Submit Application'}
             </button>
           </div>
         </form>
