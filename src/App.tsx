@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X, Stethoscope } from 'lucide-react';
 import HomePage from './components/HomePage';
 import AboutPage from './components/AboutPage';
@@ -12,6 +12,8 @@ import FAQsPage from './components/FAQsPage';
 import TestimonialsPage from './components/TestimonialsPage';
 import ApplicationPage from './components/ApplicationPage';
 import ContactPage from './components/ContactPage';
+import AdminLoginPage from './components/AdminLoginPage';
+import AdminDashboardPage from './components/AdminDashboardPage';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -25,10 +27,17 @@ function App() {
     { id: 'faqs', label: 'FAQs' },
     { id: 'testimonials', label: 'Testimonials' },
     { id: 'application', label: 'Application' },
-    { id: 'contact', label: 'Contact' }
+    { id: 'contact', label: 'Contact' },
+    { id: 'admin-login', label: 'Admin' }
   ];
 
   const renderPage = () => {
+    if (currentPage === 'admin-login' && !isAdminLoggedIn) {
+      return <AdminLoginPage setCurrentPage={setCurrentPage} setIsAdminLoggedIn={setIsAdminLoggedIn} setAdminToken={setAdminToken} />;
+    }
+    if (currentPage === 'admin-dashboard' && isAdminLoggedIn) {
+      return <AdminDashboardPage setCurrentPage={setCurrentPage} setIsAdminLoggedIn={setIsAdminLoggedIn} adminToken={adminToken} />;
+    }
     switch (currentPage) {
       case 'home': return <HomePage setCurrentPage={setCurrentPage} />;
       case 'about': return <AboutPage />;
@@ -42,12 +51,16 @@ function App() {
       case 'testimonials': return <TestimonialsPage />;
       case 'application': return <ApplicationPage />;
       case 'contact': return <ContactPage />;
+      case 'admin-login': return <AdminLoginPage setCurrentPage={setCurrentPage} setIsAdminLoggedIn={setIsAdminLoggedIn} setAdminToken={setAdminToken} />;
       default: return <HomePage setCurrentPage={setCurrentPage} />;
     }
   };
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Don't show navigation for admin pages */}
+      {currentPage !== 'admin-login' && currentPage !== 'admin-dashboard' && (
+        <>
       {/* Navigation */}
       <nav className="bg-white shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -111,12 +124,16 @@ function App() {
           )}
         </div>
       </nav>
+        </>
+      )}
 
       {/* Page Content */}
       <main>
         {renderPage()}
       </main>
 
+      {/* Don't show footer for admin pages */}
+      {currentPage !== 'admin-login' && currentPage !== 'admin-dashboard' && (
       {/* Footer */}
       <footer className="bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -151,6 +168,7 @@ function App() {
           </div>
         </div>
       </footer>
+      )}
     </div>
   );
 }

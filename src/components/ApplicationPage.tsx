@@ -212,8 +212,17 @@ const ApplicationPage = () => {
           </Section>
 
           <div className="text-center">
+            {submitMessage && (
+              <div className={`mb-6 p-4 rounded-lg ${
+                submitMessage.includes('Error') 
+                  ? 'bg-red-100 text-red-700 border border-red-300' 
+                  : 'bg-green-100 text-green-700 border border-green-300'
+              }`}>
+                {submitMessage}
+              </div>
+            )}
             <button type="submit" className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-3 rounded-lg font-semibold text-lg">
-              Submit Application
+              {isSubmitting ? 'Submitting...' : 'Submit Application'}
             </button>
           </div>
         </form>
