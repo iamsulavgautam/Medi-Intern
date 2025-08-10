@@ -82,7 +82,7 @@ const AdminDashboardPage: React.FC<AdminDashboardPageProps> = ({
 
   const fetchApplications = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/applications', {
+      const response = await axios.get('/api/applications', {
         headers: {
           'Authorization': `Bearer ${adminToken}`
         }
@@ -131,7 +131,7 @@ const AdminDashboardPage: React.FC<AdminDashboardPageProps> = ({
   const handleDownloadFile = async (applicationId: string, fileType: 'document' | 'photo') => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/applications/download/${applicationId}/${fileType}`,
+        `/api/applications/download/${applicationId}/${fileType}`,
         {
           headers: {
             'Authorization': `Bearer ${adminToken}`
@@ -172,7 +172,7 @@ const AdminDashboardPage: React.FC<AdminDashboardPageProps> = ({
     }
 
     try {
-      await axios.delete(`http://localhost:5000/api/applications/${applicationId}`, {
+      await axios.delete(`/api/applications/${applicationId}`, {
         headers: {
           'Authorization': `Bearer ${adminToken}`
         }
