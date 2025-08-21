@@ -1,11 +1,32 @@
-import React from 'react';
-import { ArrowRight, Heart, Users, Award, Globe } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowRight, Heart, Users, Award, Globe, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface HomePageProps {
   setCurrentPage: (page: string) => void;
 }
 
 const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  // Array of 5 images from the GitHub repository
+  const images = [
+    "https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images/top/1.JPG",
+    "https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images/top/2.JPG",
+    "https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images/top/3.JPG",
+    "https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images/top/4.JPG",
+    "https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images/top/5.JPG"
+  ];
+
+
+
+  const nextImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  };
+
   return (
     <div>
       {/* Hero Section */}
@@ -29,11 +50,43 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
               </button>
             </div>
             <div className="relative">
-              <img 
-                src="https://raw.githubusercontent.com/coder-backend/Medical-Internship/refs/heads/main/assets/images/home_screen_1.png" 
-                alt="Medical students in Nepal hospital"
-                className="rounded-lg shadow-2xl"
-              />
+              {/* Image Carousel */}
+              <div className="relative overflow-hidden rounded-lg shadow-2xl">
+                <img 
+                  src={images[currentImageIndex]} 
+                  alt={`Medical students in Nepal hospital - Image ${currentImageIndex + 1}`}
+                  className="w-full h-96 object-cover transition-opacity duration-500"
+                />
+                
+                {/* Navigation Arrows */}
+                <button
+                  onClick={prevImage}
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-2 rounded-full transition-all duration-200"
+                >
+                  <ChevronLeft className="h-6 w-6" />
+                </button>
+                <button
+                  onClick={nextImage}
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-2 rounded-full transition-all duration-200"
+                >
+                  <ChevronRight className="h-6 w-6" />
+                </button>
+                
+                {/* Dots Indicator */}
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                  {images.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentImageIndex(index)}
+                      className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                        index === currentImageIndex 
+                          ? 'bg-white' 
+                          : 'bg-white bg-opacity-50 hover:bg-opacity-75'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -120,7 +173,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
 
             <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
               <img 
-                src="https://raw.githubusercontent.com/coder-backend/Medical-Internship/refs/heads/main/assets/images/community_health.png" 
+                src="https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images/community-health/1.jpeg" 
                 alt="Community Health"
                 className="w-full h-48 object-cover"
               />
