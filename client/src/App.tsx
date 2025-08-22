@@ -11,7 +11,18 @@ import MidwiferyElectivePage from "./components/MidwiferyElectivePage";
 import AccommodationPage from "./components/AccommodationPage";
 import FAQsPage from "./components/FAQsPage";
 import TestimonialsPage from "./components/TestimonialsPage";
-import ApplicationPage from "./components/ApplicationPage";
+// import ApplicationPage from "./components/ApplicationPage";
+// Using a placeholder component instead
+const ApplicationPagePlaceholder = () => (
+  <div className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <div className="bg-white shadow overflow-hidden rounded-lg p-8">
+      <h2 className="text-2xl font-bold text-secondary-900 mb-6">Medical Internship Application</h2>
+      <p className="text-secondary-600">
+        Our application form is currently being updated. Please check back soon or contact us for more information.
+      </p>
+    </div>
+  </div>
+);
 import ContactPage from "./components/ContactPage";
 import AdminLoginPage from "./components/AdminLoginPage";
 import AdminDashboardPage from "./components/AdminDashboardPage";
@@ -62,7 +73,7 @@ function App() {
       case "testimonials":
         return <TestimonialsPage />;
       case "application":
-        return <ApplicationPage />;
+        return <ApplicationPagePlaceholder />;
       case "contact":
         return <ContactPage />;
       case "admin-login":
@@ -87,21 +98,21 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-secondary-50 flex flex-col">
       {/* Navigation */}
-      <nav className="bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/80 shadow-sm sticky top-0 z-50 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav className="bg-white/95 backdrop-blur-sm sticky top-0 z-50 border-b border-secondary-100 shadow-soft">
+        <div className="container-custom">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex items-center space-x-2">
-              <Stethoscope className="h-8 w-8 text-teal-600" />
-              <span className="text-xl font-extrabold tracking-tight text-gray-900">
+              <Stethoscope className="h-8 w-8 text-primary-600" />
+              <span className="text-xl font-display font-bold tracking-tight text-secondary-900">
                 Medi Intern
               </span>
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-2">
+            <div className="hidden md:flex items-center space-x-1">
               {pages
                 .filter((p) => p.id !== "application")
                 .map((page) => (
@@ -109,7 +120,7 @@ function App() {
                     key={page.id}
                     onClick={() => setCurrentPage(page.id)}
                     className={`btn-ghost ${
-                      currentPage === page.id ? "text-teal-700" : ""
+                      currentPage === page.id ? "text-primary-600 bg-primary-50" : ""
                     }`}
                   >
                     {page.label}
@@ -119,7 +130,7 @@ function App() {
                 onClick={() => setCurrentPage("application")}
                 className="btn-primary ml-2"
               >
-                Apply
+                Apply Now
               </button>
             </div>
 
@@ -127,7 +138,8 @@ function App() {
             <div className="md:hidden">
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 text-gray-700 hover:text-teal-600"
+                className="p-2 text-secondary-700 hover:text-primary-600"
+                aria-label="Toggle menu"
               >
                 {mobileMenuOpen ? (
                   <X className="h-6 w-6" />
@@ -140,7 +152,7 @@ function App() {
 
           {/* Mobile Navigation */}
           {mobileMenuOpen && (
-            <div className="md:hidden bg-white border-t">
+            <div className="md:hidden bg-white border-t border-secondary-100">
               <div className="px-2 pt-2 pb-3 space-y-1">
                 {pages.map((page) => (
                   <button
@@ -149,10 +161,10 @@ function App() {
                       setCurrentPage(page.id);
                       setMobileMenuOpen(false);
                     }}
-                    className={`block w-full text-left px-3 py-2 text-base font-medium transition-colors duration-200 ${
+                    className={`block w-full text-left px-3 py-2 text-base font-medium rounded-lg transition-colors duration-200 ${
                       currentPage === page.id
-                        ? "text-teal-700 bg-teal-50"
-                        : "text-gray-700 hover:text-teal-700 hover:bg-gray-50"
+                        ? "text-primary-700 bg-primary-50"
+                        : "text-secondary-700 hover:text-primary-700 hover:bg-secondary-50"
                     }`}
                   >
                     {page.label}
@@ -165,22 +177,23 @@ function App() {
       </nav>
 
       {/* Page Content */}
-      <main>{renderPage()}</main>
+      <main className="flex-grow">
+        {renderPage()}
+      </main>
 
       {/* Footer */}
-      {/* Footer */}
-      <footer className="bg-gray-900 text-gray-300">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
+      <footer className="bg-secondary-900 text-secondary-300 border-t border-secondary-800">
+        <div className="container-custom py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
             {/* Brand + About */}
             <div className="md:col-span-2">
               <div className="flex items-center gap-2 mb-4">
-                <Stethoscope className="h-8 w-8 text-teal-400" />
-                <span className="text-xl font-bold text-white">
+                <Stethoscope className="h-8 w-8 text-primary-400" />
+                <span className="text-xl font-display font-bold text-white">
                   Medical Internship Nepal
                 </span>
               </div>
-              <p className="text-gray-400 leading-relaxed max-w-md">
+              <p className="text-secondary-400 leading-relaxed max-w-md">
                 Providing world-class medical internship opportunities in
                 Nepal's leading hospitals and healthcare facilities.
               </p>
@@ -188,7 +201,7 @@ function App() {
 
             {/* Quick Links */}
             <div>
-              <h3 className="text-lg font-semibold text-white mb-4">
+              <h3 className="text-lg font-display font-semibold text-white mb-4">
                 Quick Links
               </h3>
               <ul className="space-y-2">
@@ -202,7 +215,7 @@ function App() {
                   <li key={link.page}>
                     <button
                       onClick={() => setCurrentPage(link.page)}
-                      className="hover:text-teal-400 transition-colors duration-200"
+                      className="hover:text-primary-400 transition-colors duration-200"
                     >
                       {link.label}
                     </button>
@@ -213,10 +226,10 @@ function App() {
 
             {/* Contact Info */}
             <div>
-              <h3 className="text-lg font-semibold text-white mb-4">
+              <h3 className="text-lg font-display font-semibold text-white mb-4">
                 Contact Info
               </h3>
-              <ul className="space-y-2 text-gray-400">
+              <ul className="space-y-2 text-secondary-400">
                 <li>Kathmandu, Nepal</li>
                 <li>+977-9862728072</li>
                 <li>info@medicalinternshipnepal.com</li>
@@ -225,8 +238,8 @@ function App() {
           </div>
 
           {/* Bottom Bar */}
-          <div className="border-t border-gray-800 mt-10 pt-6 text-center">
-            <p className="text-sm text-gray-500">
+          <div className="border-t border-secondary-800 mt-10 pt-6 text-center">
+            <p className="text-sm text-secondary-500">
               &copy; 2025 Medical Internship Nepal. All rights reserved.
             </p>
           </div>
