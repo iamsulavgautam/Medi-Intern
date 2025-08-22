@@ -80,13 +80,20 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
   };
 
   return (
-    <div className="py-16">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+      {/* Animated Background Elements - matching theme */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-indigo-600/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-teal-400/20 to-emerald-600/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      </div>
+
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-24 pb-16 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/5 to-blue-900/10"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-5xl font-bold mb-6">Medical Internship Programs</h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            <h1 className="text-5xl md:text-6xl font-black bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 bg-clip-text text-transparent leading-tight mb-6">Medical Internship Programs</h1>
+            <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto font-light leading-relaxed">
               Choose from our comprehensive range of medical specialties and gain invaluable experience in Nepal's healthcare system.
             </p>
           </div>
@@ -94,42 +101,42 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
       </section>
 
       {/* Programs Grid */}
-      <section className="py-20 bg-gray-50">
+      <section className="relative py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {programs.map((program, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+              <div key={index} className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border border-white/20 transform hover:-translate-y-1">
                 <img 
                   src={program.image} 
                   alt={program.title}
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">{program.title}</h3>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3">{program.title}</h3>
                   
-                  <div className="flex flex-wrap gap-4 mb-4 text-sm text-gray-600">
+                  <div className="flex flex-wrap gap-4 mb-4 text-sm text-slate-600">
                     <div className="flex items-center space-x-1">
-                      <Clock className="h-4 w-4" />
+                      <Clock className="h-4 w-4 text-blue-600" />
                       <span>{program.duration}</span>
                     </div>
                     <div className="flex items-center space-x-1">
-                      <Users className="h-4 w-4" />
+                      <Users className="h-4 w-4 text-blue-600" />
                       <span>{program.capacity}</span>
                     </div>
                     <div className="flex items-center space-x-1">
-                      <MapPin className="h-4 w-4" />
+                      <MapPin className="h-4 w-4 text-blue-600" />
                       <span>{program.location}</span>
                     </div>
                   </div>
 
-                  <p className="text-gray-600 mb-6">{program.description}</p>
+                  <p className="text-slate-600 mb-6">{program.description}</p>
 
                   <div className="mb-6">
-                    <h4 className="font-semibold text-gray-900 mb-3">Program Highlights</h4>
+                    <h4 className="font-semibold text-slate-900 mb-3">Program Highlights</h4>
                     <ul className="space-y-2">
                       {program.highlights.map((highlight, idx) => (
-                        <li key={idx} className="flex items-start space-x-2 text-sm text-gray-600">
-                          <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                        <li key={idx} className="flex items-start space-x-2 text-sm text-slate-600">
+                          <CheckCircle className="h-4 w-4 text-blue-500 mt-0.5 flex-shrink-0" />
                           <span>{highlight}</span>
                         </li>
                       ))}
@@ -139,14 +146,14 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
                   <div className="flex gap-3">
                     <button 
                       onClick={() => handleProgramClick(program.id)}
-                      className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg font-semibold transition-colors duration-200 flex items-center justify-center space-x-2"
+                      className="flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-3 px-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                     >
                       <span>Learn More</span>
                       <ArrowRight className="h-4 w-4" />
                     </button>
                     <button  
                       onClick={() => setCurrentPage && setCurrentPage('application')}
-                      className="flex-1 bg-teal-600 hover:bg-teal-700 text-white py-3 px-4 rounded-lg font-semibold transition-colors duration-200">
+                      className="flex-1 bg-gradient-to-r from-slate-600 to-slate-700 hover:from-slate-700 hover:to-slate-800 text-white py-3 px-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                       Apply Now
                     </button>
                   </div>
@@ -158,63 +165,65 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
       </section>
 
       {/* Program Features */}
-      <section className="py-20 bg-white">
+      <section className="relative py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">What's Included in Every Program</h2>
-            <p className="text-xl text-gray-600">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">What's Included in Every Program</h2>
+            <p className="text-lg text-slate-600">
               Comprehensive support and resources for your medical internship experience.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
+            <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
               <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="h-8 w-8 text-blue-600" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Mentorship</h3>
-              <p className="text-gray-600">Dedicated medical supervisor and peer support throughout your program.</p>
+              <h3 className="text-lg font-semibold text-slate-900 mb-3">Mentorship</h3>
+              <p className="text-slate-600">Dedicated medical supervisor and peer support throughout your program.</p>
             </div>
 
-            <div className="text-center">
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <CheckCircle className="h-8 w-8 text-green-600" />
+            <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
+              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <CheckCircle className="h-8 w-8 text-blue-600" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Certification</h3>
-              <p className="text-gray-600">Official completion certificate recognized by international medical boards.</p>
+              <h3 className="text-lg font-semibold text-slate-900 mb-3">Certification</h3>
+              <p className="text-slate-600">Official completion certificate recognized by international medical boards.</p>
             </div>
 
-            <div className="text-center">
-              <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <MapPin className="h-8 w-8 text-orange-600" />
+            <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
+              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <MapPin className="h-8 w-8 text-blue-600" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Cultural Activities</h3>
-              <p className="text-gray-600">Organized cultural excursions and language learning opportunities.</p>
+              <h3 className="text-lg font-semibold text-slate-900 mb-3">Cultural Activities</h3>
+              <p className="text-slate-600">Organized cultural excursions and language learning opportunities.</p>
             </div>
 
-            <div className="text-center">
-              <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Clock className="h-8 w-8 text-purple-600" />
+            <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
+              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Clock className="h-8 w-8 text-blue-600" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">24/7 Support</h3>
-              <p className="text-gray-600">Round-the-clock assistance for medical and personal emergencies.</p>
+              <h3 className="text-lg font-semibold text-slate-900 mb-3">24/7 Support</h3>
+              <p className="text-slate-600">Round-the-clock assistance for medical and personal emergencies.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-green-500 to-green-600 text-white">
+      <section className="relative py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Begin Your Medical Journey?</h2>
-          <p className="text-xl mb-8 text-green-100">
-            Join our programs and gain the experience that will shape your medical career.
-          </p>
-          <button 
-            onClick={() => setCurrentPage && setCurrentPage('application')}
-            className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-200">
-            Start Your Application
-          </button>
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Ready to Begin Your Medical Journey?</h2>
+            <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
+              Join our programs and gain the experience that will shape your medical career.
+            </p>
+            <button 
+              onClick={() => setCurrentPage && setCurrentPage('application')}
+              className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              Start Your Application
+            </button>
+          </div>
         </div>
       </section>
     </div>

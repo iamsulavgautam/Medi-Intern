@@ -156,12 +156,6 @@ const AdminLoginPage: React.FC<AdminLoginPageProps> = ({
             </button>
           </div>
         </form>
-        
-        <div className="mt-6 p-4 bg-blue-50 rounded-lg">
-          <h3 className="text-sm font-medium text-blue-900 mb-2">Demo Credentials:</h3>
-          <p className="text-sm text-blue-700">Email: admin@medicalinternshipnepal.com</p>
-          <p className="text-sm text-blue-700">Password: admin123</p>
-        </div>
       </div>
     </div>
   );

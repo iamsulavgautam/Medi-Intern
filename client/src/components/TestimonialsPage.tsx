@@ -67,13 +67,20 @@ const TestimonialsPage = () => {
   ];
 
   return (
-    <div className="py-16">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+      {/* Animated Background Elements - matching theme */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-indigo-600/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-teal-400/20 to-emerald-600/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      </div>
+
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-teal-600 to-blue-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-24 pb-16 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/5 to-blue-900/10"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-5xl font-bold mb-6">What Our Interns Say</h1>
-            <p className="text-xl text-teal-100 max-w-3xl mx-auto">
+            <h1 className="text-5xl md:text-6xl font-black bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 bg-clip-text text-transparent leading-tight mb-6">What Our Interns Say</h1>
+            <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto font-light leading-relaxed">
               Read testimonials from medical students who have completed their internships with us and transformed their careers.
             </p>
           </div>
@@ -81,13 +88,13 @@ const TestimonialsPage = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-white">
+      <section className="relative py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {stats.map((stat, index) => (
-              <div key={index}>
-                <h3 className="text-4xl font-bold text-teal-600 mb-2">{stat.number}</h3>
-                <p className="text-gray-600 font-medium">{stat.label}</p>
+              <div key={index} className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
+                <h3 className="text-4xl font-bold text-blue-600 mb-2">{stat.number}</h3>
+                <p className="text-slate-600 font-medium">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -95,31 +102,31 @@ const TestimonialsPage = () => {
       </section>
 
       {/* Testimonials Grid */}
-      <section className="py-20 bg-gray-50">
+      <section className="relative py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Success Stories</h2>
-            <p className="text-xl text-gray-600">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Success Stories</h2>
+            <p className="text-lg text-slate-600">
               Hear directly from our alumni about their transformative experiences.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+              <div key={index} className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-white/20 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
                 <div className="flex items-start space-x-4 mb-4">
                   <img 
                     src={testimonial.image} 
                     alt={testimonial.name}
-                    className="w-16 h-16 rounded-full object-cover"
+                    className="w-16 h-16 rounded-full object-cover ring-4 ring-blue-100"
                   />
                   <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-gray-900">{testimonial.name}</h3>
+                    <h3 className="text-lg font-semibold text-slate-900">{testimonial.name}</h3>
                     <p className="text-blue-600 text-sm">{testimonial.school}</p>
                     <div className="flex items-center space-x-2 mt-1">
-                      <span className="text-sm text-gray-500">{testimonial.program}</span>
-                      <span className="text-gray-300">•</span>
-                      <span className="text-sm text-gray-500">{testimonial.duration}</span>
+                      <span className="text-sm text-slate-500">{testimonial.program}</span>
+                      <span className="text-slate-300">•</span>
+                      <span className="text-sm text-slate-500">{testimonial.duration}</span>
                     </div>
                   </div>
                   <div className="flex space-x-1">
@@ -130,8 +137,8 @@ const TestimonialsPage = () => {
                 </div>
 
                 <div className="relative">
-                  <Quote className="h-8 w-8 text-teal-200 absolute -top-2 -left-2" />
-                  <p className="text-gray-600 italic pl-6">
+                  <Quote className="h-8 w-8 text-blue-200 absolute -top-2 -left-2" />
+                  <p className="text-slate-600 italic pl-6">
                     "{testimonial.testimonial}"
                   </p>
                 </div>
@@ -184,15 +191,17 @@ const TestimonialsPage = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-r from-green-500 to-teal-600 text-white">
+      <section className="relative py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Write Your Own Success Story?</h2>
-          <p className="text-xl mb-8 text-green-100">
-            Join hundreds of medical students who have transformed their careers through our programs.
-          </p>
-          <button className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-200">
-            Start Your Application
-          </button>
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Ready to Write Your Own Success Story?</h2>
+            <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
+              Join hundreds of medical students who have transformed their careers through our programs.
+            </p>
+            <button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              Start Your Application
+            </button>
+          </div>
         </div>
       </section>
     </div>

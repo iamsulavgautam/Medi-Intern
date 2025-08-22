@@ -39,11 +39,11 @@ const FAQsPage = () => {
         },
         {
           question: "How long does the application review take?",
-          answer: "Application review typically takes 2-3 weeks. You will receive confirmation of acceptance or requests for additional information within this timeframe."
+          answer: "Application review typically takes 2-3 weeks. You'll receive confirmation within 48 hours of submission, followed by a detailed review of your qualifications."
         },
         {
           question: "Can I apply for multiple programs?",
-          answer: "Yes, you can apply for multiple programs, but each requires a separate application. We recommend discussing your goals with our advisors to choose the most suitable programs."
+          answer: "Yes, you can apply for multiple programs, but each requires a separate application. We recommend prioritizing based on your interests and career goals."
         }
       ]
     },
@@ -51,51 +51,26 @@ const FAQsPage = () => {
       category: "Program Details",
       questions: [
         {
-          question: "What is included in the program fees?",
-          answer: "Program fees include hospital placement, medical supervision, orientation sessions, completion certificate, and 24/7 support. Accommodation, meals, and personal expenses are separate."
+          question: "What is included in the program fee?",
+          answer: "Program fees include hospital placement, medical supervision, orientation, completion certificate, and 24/7 support. Accommodation, meals, and travel are additional costs."
         },
         {
-          question: "Will I have direct patient contact?",
-          answer: "Yes, under proper supervision, interns have direct patient contact during ward rounds, outpatient clinics, and emergency rotations, following hospital protocols and medical ethics."
+          question: "Are there accommodation options?",
+          answer: "Yes, we offer various accommodation options including shared apartments, homestays, and guest houses. Prices range from $200-600 per month depending on your preference."
         },
         {
-          question: "Do I need to speak Nepali?",
-          answer: "While not mandatory, basic Nepali language skills are helpful for patient interaction. We provide language orientation, and most medical staff speak English."
+          question: "What clinical experiences can I expect?",
+          answer: "You'll have hands-on clinical experience including patient consultations, ward rounds, procedure observations, and case discussions with experienced physicians."
         },
         {
-          question: "What medical procedures can I observe or assist with?",
-          answer: "Depending on your program, you may observe surgeries, assist in minor procedures, participate in emergency care, and perform basic clinical examinations under supervision."
+          question: "Is there language support available?",
+          answer: "Yes, we provide basic Nepali language orientation and can arrange interpreters when needed. However, most medical activities are conducted in English."
         }
       ]
     },
     {
-      category: "Accommodation & Living",
+      category: "Living in Nepal",
       questions: [
-        {
-          question: "What accommodation options are available?",
-          answer: "We offer shared intern housing ($15-25/night), host family stays ($20-30/night), private apartments ($35-50/night), and hotel partnerships ($40-80/night)."
-        },
-        {
-          question: "Is accommodation safe for international students?",
-          answer: "Yes, all our accommodations have 24/7 security, are located in safe neighborhoods, and are regularly inspected. We also provide emergency contact numbers and safety briefings."
-        },
-        {
-          question: "Are meals included in accommodation?",
-          answer: "Meals are included with host family stays. Other accommodations have kitchen facilities or nearby dining options. We can arrange meal plans upon request."
-        },
-        {
-          question: "How do I get to the hospital from accommodation?",
-          answer: "All accommodations are within 15 minutes of partner hospitals. We provide daily shuttle service, and public transportation and taxis are readily available."
-        }
-      ]
-    },
-    {
-      category: "Visa & Travel",
-      questions: [
-        {
-          question: "Do I need a visa to come to Nepal?",
-          answer: "Most international students need a tourist visa for Nepal. We provide visa support letters and guidance for the application process. Some nationalities can get visa on arrival."
-        },
         {
           question: "What vaccinations are required?",
           answer: "Recommended vaccinations include Hepatitis A & B, Typhoid, Japanese Encephalitis, and routine vaccines. Consult your healthcare provider for personalized recommendations."
@@ -118,16 +93,16 @@ const FAQsPage = () => {
           answer: "Program fees range from $800-2500 depending on duration and specialty. This includes hospital placement, supervision, and support services. Accommodation and living expenses are additional."
         },
         {
+          question: "What payment methods do you accept?",
+          answer: "We accept bank transfers, credit cards, and PayPal. A 50% deposit is required upon acceptance, with the balance due 30 days before program start."
+        },
+        {
+          question: "Is there a refund policy?",
+          answer: "Yes, we have a tiered refund policy. Cancellations 60+ days before start receive 80% refund, 30-59 days receive 50%, and less than 30 days receive 25% refund."
+        },
+        {
           question: "Are there any hidden costs?",
-          answer: "No hidden costs. All fees are clearly outlined in your acceptance letter. Additional expenses include accommodation, meals, personal expenses, and optional cultural activities."
-        },
-        {
-          question: "Do you offer payment plans?",
-          answer: "Yes, we offer flexible payment plans. A deposit is required to secure your spot, with the balance due before program start. Contact us to discuss payment options."
-        },
-        {
-          question: "Is financial aid available?",
-          answer: "We offer limited scholarships based on academic merit and financial need. Additionally, some medical schools provide funding for international rotations that may apply to our programs."
+          answer: "No hidden costs. All program fees are clearly outlined. Additional expenses include visa fees ($25-40), accommodation, meals, local transport, and personal expenses."
         }
       ]
     }
@@ -138,13 +113,20 @@ const FAQsPage = () => {
   };
 
   return (
-    <div className="py-16">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+      {/* Animated Background Elements - matching theme */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-indigo-600/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-teal-400/20 to-emerald-600/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      </div>
+
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-teal-600 to-blue-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-24 pb-16 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/5 to-blue-900/10"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-5xl font-bold mb-6">Frequently Asked Questions</h1>
-            <p className="text-xl text-teal-100 max-w-3xl mx-auto">
+            <h1 className="text-5xl md:text-6xl font-black bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 bg-clip-text text-transparent leading-tight mb-6">Frequently Asked Questions</h1>
+            <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto font-light leading-relaxed">
               Find answers to common questions about our medical internship programs, application process, and life in Nepal.
             </p>
           </div>
@@ -152,34 +134,34 @@ const FAQsPage = () => {
       </section>
 
       {/* FAQ Content */}
-      <section className="py-20 bg-gray-50">
+      <section className="relative py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {faqs.map((category, categoryIndex) => (
             <div key={categoryIndex} className="mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
                 {category.category}
               </h2>
               <div className="space-y-4">
                 {category.questions.map((faq, faqIndex) => {
                   const uniqueIndex = categoryIndex * 100 + faqIndex;
                   return (
-                    <div key={faqIndex} className="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div key={uniqueIndex} className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 overflow-hidden hover:shadow-2xl transition-all duration-300">
                       <button
                         onClick={() => toggleFaq(uniqueIndex)}
-                        className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"
+                        className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-white/20 transition-colors duration-200"
                       >
-                        <span className="text-lg font-semibold text-gray-900 pr-4">
+                        <span className="text-lg font-semibold text-slate-900 pr-4">
                           {faq.question}
                         </span>
                         {openFaq === uniqueIndex ? (
-                          <Minus className="h-5 w-5 text-teal-600 flex-shrink-0" />
+                          <Minus className="h-5 w-5 text-blue-600 flex-shrink-0" />
                         ) : (
-                          <Plus className="h-5 w-5 text-teal-600 flex-shrink-0" />
+                          <Plus className="h-5 w-5 text-blue-600 flex-shrink-0" />
                         )}
                       </button>
                       {openFaq === uniqueIndex && (
                         <div className="px-6 pb-4">
-                          <p className="text-gray-600 leading-relaxed">
+                          <p className="text-slate-600 leading-relaxed">
                             {faq.answer}
                           </p>
                         </div>
@@ -194,19 +176,21 @@ const FAQsPage = () => {
       </section>
 
       {/* Contact CTA */}
-      <section className="py-20 bg-white">
+      <section className="relative py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">Still Have Questions?</h2>
-          <p className="text-xl text-gray-600 mb-8">
-            Our team is here to help you with any additional questions about our medical internship programs.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-200">
-              Contact Us
-            </button>
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-200">
-              Schedule a Call
-            </button>
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20">
+            <h2 className="text-3xl font-bold text-slate-900 mb-6">Still Have Questions?</h2>
+            <p className="text-lg text-slate-600 mb-8">
+              Our team is here to help you with any additional questions about our medical internship programs.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                Contact Us
+              </button>
+              <button className="bg-gradient-to-r from-slate-600 to-slate-700 hover:from-slate-700 hover:to-slate-800 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                Schedule a Call
+              </button>
+            </div>
           </div>
         </div>
       </section>

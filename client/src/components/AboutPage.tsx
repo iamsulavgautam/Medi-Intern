@@ -3,30 +3,40 @@ import { MapPin, Users, Award, Heart } from 'lucide-react';
 
 const AboutPage = () => {
   return (
-    <div className="py-16">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+      {/* Animated Background Elements - matching theme */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-indigo-600/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-teal-400/20 to-emerald-600/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      </div>
+
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-24 pb-16 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/5 to-blue-900/10"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-5xl font-bold mb-6">About Medical Internship Nepal</h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              Bridging international medical education with Nepal's healthcare system for over 3 years.
+            <h1 className="text-5xl md:text-6xl font-black bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 bg-clip-text text-transparent leading-tight mb-6">
+              About Medical Internship Nepal
+            </h1>
+            <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto font-light leading-relaxed">
+              Bridging international medical education with Nepal's healthcare system for over 
+              <span className="font-semibold text-blue-600"> 3 years of excellence</span>.
             </p>
           </div>
         </div>
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20 bg-white">
+      <section className="relative py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Mission</h2>
-              <p className="text-lg text-gray-600 mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Our Mission</h2>
+              <p className="text-lg text-slate-600 mb-6 leading-relaxed">
                 To provide exceptional medical internship opportunities that combine hands-on clinical experience 
                 with cultural immersion, preparing the next generation of healthcare professionals for global practice.
               </p>
-              <p className="text-lg text-gray-600">
+              <p className="text-lg text-slate-600 leading-relaxed">
                 We believe that exposure to diverse healthcare systems and patient populations enhances medical 
                 education and creates more compassionate, skilled physicians.
               </p>
@@ -35,7 +45,7 @@ const AboutPage = () => {
               <img 
                 src="https://images.pexels.com/photos/8376297/pexels-photo-8376297.jpeg?auto=compress&cs=tinysrgb&w=800" 
                 alt="Medical team mission"
-                className="rounded-lg shadow-lg"
+                className="rounded-2xl shadow-2xl ring-1 ring-white/20 transform hover:scale-105 transition-transform duration-500"
               />
             </div>
           </div>
@@ -43,11 +53,11 @@ const AboutPage = () => {
       </section>
 
       {/* Our Story */}
-      <section className="py-20 bg-gray-50">
+      <section className="relative py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Story</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Our Story</h2>
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
               Founded in 2023 by a group of Nepali physicians and international medical educators who recognized 
               the need for quality medical internship programs in Nepal.
             </p>
@@ -86,49 +96,49 @@ const AboutPage = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-20 bg-white">
+      <section className="relative py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Leadership Team</h2>
-            <p className="text-xl text-gray-600">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Our Leadership Team</h2>
+            <p className="text-lg text-slate-600">
               Meet the dedicated professionals who make our programs possible.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
+            <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
               <img 
                 src="https://raw.githubusercontent.com/coder-backend/Medical-Internship/refs/heads/main/assets/images/rohit.jpeg" 
                 alt="Dr. Rajesh Sharma"
-                className="w-48 h-48 rounded-full mx-auto mb-4 object-cover"
+                className="w-32 h-32 rounded-full mx-auto mb-4 object-cover ring-4 ring-blue-100"
               />
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Dr. Rohit Rawat</h3>
-              <p className="text-blue-600 mb-3">Chairman - Founder</p>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold text-slate-900 mb-2">Dr. Rohit Rawat</h3>
+              <p className="text-blue-600 mb-3 font-medium">Chairman - Founder</p>
+              <p className="text-slate-600 text-sm">
                 Founder of NGO Aarogya Nepal, MBBS, 2+ years experience in medical education and hospital administration.
               </p>
             </div>
-            <div className="text-center">
+            <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
               <img 
                 src="https://images.pexels.com/photos/5452201/pexels-photo-5452201.jpeg?auto=compress&cs=tinysrgb&w=400" 
                 alt="Dr. Sarah Johnson"
-                className="w-48 h-48 rounded-full mx-auto mb-4 object-cover"
+                className="w-32 h-32 rounded-full mx-auto mb-4 object-cover ring-4 ring-blue-100"
               />
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Dr. Sarah Johnson</h3>
-              <p className="text-blue-600 mb-3">Program Coordinator</p>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold text-slate-900 mb-2">Dr. Sarah Johnson</h3>
+              <p className="text-blue-600 mb-3 font-medium">Program Coordinator</p>
+              <p className="text-slate-600 text-sm">
                 MD, MPH. Specialist in international medical education with experience in 15+ countries.
               </p>
             </div>
-            <div className="text-center">
+            <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
               <img 
                 src="https://images.pexels.com/photos/6749777/pexels-photo-6749777.jpeg?auto=compress&cs=tinysrgb&w=400" 
                 alt="Dr. Priya Thapa"
-                className="w-48 h-48 rounded-full mx-auto mb-4 object-cover"
+                className="w-32 h-32 rounded-full mx-auto mb-4 object-cover ring-4 ring-blue-100"
               />
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Dr. Priya Thapa</h3>
-              <p className="text-blue-600 mb-3">Clinical Supervisor</p>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold text-slate-900 mb-2">Dr. Priya Thapa</h3>
+              <p className="text-blue-600 mb-3 font-medium">Clinical Supervisor</p>
+              <p className="text-slate-600 text-sm">
                 MBBS, MS Surgery. Expert in surgical training and mentorship for international medical students.
               </p>
             </div>
@@ -137,41 +147,48 @@ const AboutPage = () => {
       </section>
 
       {/* Values */}
-      <section className="py-20 bg-gradient-to-r from-green-500 to-green-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-16 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-700"></div>
+        <div className="absolute inset-0 bg-black/10"></div>
+        
+        {/* Animated background elements */}
+        <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute bottom-10 right-10 w-40 h-40 bg-white/10 rounded-full blur-xl animate-pulse delay-1000"></div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Our Core Values</h2>
-            <p className="text-xl text-green-100">
+            <p className="text-xl text-blue-100">
               The principles that guide everything we do.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
-              <Heart className="h-12 w-12 mx-auto mb-4 text-green-200" />
+              <Heart className="h-12 w-12 mx-auto mb-4 text-blue-200" />
               <h3 className="text-xl font-semibold mb-3">Compassion</h3>
-              <p className="text-green-100">
+              <p className="text-blue-100">
                 We believe healthcare is fundamentally about caring for people with empathy and understanding.
               </p>
             </div>
             <div className="text-center">
-              <Award className="h-12 w-12 mx-auto mb-4 text-green-200" />
+              <Award className="h-12 w-12 mx-auto mb-4 text-blue-200" />
               <h3 className="text-xl font-semibold mb-3">Excellence</h3>
-              <p className="text-green-100">
+              <p className="text-blue-100">
                 We maintain the highest standards in medical education and patient care.
               </p>
             </div>
             <div className="text-center">
-              <Users className="h-12 w-12 mx-auto mb-4 text-green-200" />
+              <Users className="h-12 w-12 mx-auto mb-4 text-blue-200" />
               <h3 className="text-xl font-semibold mb-3">Collaboration</h3>
-              <p className="text-green-100">
+              <p className="text-blue-100">
                 We foster teamwork between international interns and local healthcare professionals.
               </p>
             </div>
             <div className="text-center">
-              <MapPin className="h-12 w-12 mx-auto mb-4 text-green-200" />
+              <MapPin className="h-12 w-12 mx-auto mb-4 text-blue-200" />
               <h3 className="text-xl font-semibold mb-3">Cultural Bridge</h3>
-              <p className="text-green-100">
+              <p className="text-blue-100">
                 We connect global medical knowledge with local healthcare needs and traditions.
               </p>
             </div>

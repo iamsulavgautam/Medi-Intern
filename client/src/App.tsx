@@ -11,18 +11,7 @@ import MidwiferyElectivePage from "./components/MidwiferyElectivePage";
 import AccommodationPage from "./components/AccommodationPage";
 import FAQsPage from "./components/FAQsPage";
 import TestimonialsPage from "./components/TestimonialsPage";
-// import ApplicationPage from "./components/ApplicationPage";
-// Using a placeholder component instead
-const ApplicationPagePlaceholder = () => (
-  <div className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-    <div className="bg-white shadow overflow-hidden rounded-lg p-8">
-      <h2 className="text-2xl font-bold text-secondary-900 mb-6">Medical Internship Application</h2>
-      <p className="text-secondary-600">
-        Our application form is currently being updated. Please check back soon or contact us for more information.
-      </p>
-    </div>
-  </div>
-);
+import ApplicationPage from "./components/ApplicationPage";
 import ContactPage from "./components/ContactPage";
 import AdminLoginPage from "./components/AdminLoginPage";
 import AdminDashboardPage from "./components/AdminDashboardPage";
@@ -73,7 +62,7 @@ function App() {
       case "testimonials":
         return <TestimonialsPage />;
       case "application":
-        return <ApplicationPagePlaceholder />;
+        return <ApplicationPage />;
       case "contact":
         return <ContactPage />;
       case "admin-login":
@@ -98,16 +87,16 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-secondary-50 flex flex-col">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 flex flex-col">
       {/* Navigation */}
       <nav className="bg-white/95 backdrop-blur-sm sticky top-0 z-50 border-b border-secondary-100 shadow-soft">
         <div className="container-custom">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
-            <div className="flex items-center space-x-2">
-              <Stethoscope className="h-8 w-8 text-primary-600" />
+            <div className="flex items-center space-x-2 cursor-pointer group" onClick={() => setCurrentPage("home")}>
+              <Stethoscope className="h-8 w-8 text-primary-600 group-hover:scale-110 transition-transform duration-200" />
               <span className="text-xl font-display font-bold tracking-tight text-secondary-900">
-                Medi Intern
+                Medical Internship Nepal
               </span>
             </div>
 
@@ -177,14 +166,14 @@ function App() {
       </nav>
 
       {/* Page Content */}
-      <main className="flex-grow">
+      <main className="flex-1">
         {renderPage()}
       </main>
 
       {/* Footer */}
-      <footer className="bg-secondary-900 text-secondary-300 border-t border-secondary-800">
-        <div className="container-custom py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+      <footer className="bg-secondary-900 text-secondary-300 border-t border-secondary-800 mt-auto">
+        <div className="container-custom py-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Brand + About */}
             <div className="md:col-span-2">
               <div className="flex items-center gap-2 mb-4">
@@ -238,7 +227,7 @@ function App() {
           </div>
 
           {/* Bottom Bar */}
-          <div className="border-t border-secondary-800 mt-10 pt-6 text-center">
+          <div className="border-t border-secondary-800 mt-8 pt-6 text-center">
             <p className="text-sm text-secondary-500">
               &copy; 2025 Medical Internship Nepal. All rights reserved.
             </p>

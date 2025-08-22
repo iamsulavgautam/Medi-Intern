@@ -89,21 +89,25 @@ const AccommodationPage = () => {
   ];
 
   return (
-    <div className="py-16">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-24 pb-16 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/5 to-blue-900/10"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-5xl font-bold mb-6">Accommodation Options</h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              Comfortable, safe, and convenient housing options designed specifically for international medical interns.
+            <h1 className="text-5xl md:text-6xl font-black bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 bg-clip-text text-transparent leading-tight mb-6">
+              Accommodation Options
+            </h1>
+            <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto font-light leading-relaxed">
+              Comfortable, safe, and convenient housing options designed specifically for 
+              <span className="font-semibold text-blue-600"> international medical interns</span>.
             </p>
           </div>
         </div>
       </section>
 
       {/* Accommodation Types */}
-      <section className="py-20 bg-gray-50">
+      <section className="relative py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Choose Your Accommodation</h2>
@@ -268,15 +272,17 @@ const AccommodationPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-green-500 to-green-600 text-white">
+      <section className="relative py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Secure Your Accommodation?</h2>
-          <p className="text-xl mb-8 text-green-100">
-            Book early to ensure availability and get the best rates for your preferred housing option.
-          </p>
-          <button className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-200">
-            Book Accommodation Now
-          </button>
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Ready to Secure Your Accommodation?</h2>
+            <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
+              Book early to ensure availability and get the best rates for your preferred housing option.
+            </p>
+            <button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              Book Accommodation Now
+            </button>
+          </div>
         </div>
       </section>
     </div>
