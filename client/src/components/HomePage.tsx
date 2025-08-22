@@ -1,15 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import type { LucideIcon } from "lucide-react";
-import {
-  ArrowRight,
-  Heart,
-  Users,
-  Award,
-  Globe,
-  ChevronLeft,
-  ChevronRight,
-  Images,
-} from "lucide-react";
+import { ArrowRight, Heart, Users, Award, Globe, Images } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface HomePageProps {
@@ -89,8 +80,6 @@ const WhyUsItem = ({
 );
 
 const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
   const images = [
     "https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images/top/1.JPG",
     "https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images/top/2.JPG",
@@ -99,9 +88,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
     "https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images/top/5.JPG",
   ];
 
-  const nextImage = () => setCurrentImageIndex((i) => (i + 1) % images.length);
-  const prevImage = () =>
-    setCurrentImageIndex((i) => (i - 1 + images.length) % images.length);
+  // Collage layout does not require carousel controls
 
   return (
     <div className="font-sans">
@@ -140,42 +127,58 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
             </div>
           </motion.div>
 
-          {/* Carousel */}
+          {/* Media Collage */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             className="relative"
           >
-            <div className="overflow-hidden rounded-lg shadow-2xl relative">
+            <div className="grid grid-cols-2 gap-4">
               <img
-                src={images[currentImageIndex]}
-                alt={`Slide ${currentImageIndex + 1}`}
-                className="w-full h-96 object-cover transition-all duration-700"
+                src={images[0]}
+                alt="Collage 1"
+                className="rounded-xl h-44 md:h-52 w-full object-cover shadow-lg"
+                loading="eager"
               />
-              <button
-                onClick={prevImage}
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full text-white hover:bg-black/70"
-              >
-                <ChevronLeft className="h-6 w-6" />
-              </button>
-              <button
-                onClick={nextImage}
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full text-white hover:bg-black/70"
-              >
-                <ChevronRight className="h-6 w-6" />
-              </button>
-            </div>
-            {/* dots */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-              {images.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrentImageIndex(i)}
-                  className={`w-3 h-3 rounded-full transition ${
-                    i === currentImageIndex ? "bg-white" : "bg-white/50"
-                  }`}
+              <img
+                src={images[1]}
+                alt="Collage 2"
+                className="rounded-xl h-44 md:h-52 w-full object-cover shadow-lg"
+                loading="lazy"
+              />
+              <img
+                src={images[2]}
+                alt="Collage 3"
+                className="rounded-xl h-56 md:h-64 w-full object-cover shadow-lg"
+                loading="lazy"
+              />
+              <div className="grid gap-4">
+                <img
+                  src={images[3]}
+                  alt="Collage 4"
+                  className="rounded-xl h-28 w-full object-cover shadow-lg"
+                  loading="lazy"
                 />
-              ))}
+                <img
+                  src={images[4]}
+                  alt="Collage 5"
+                  className="rounded-xl h-28 w-full object-cover shadow-lg"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            {/* Floating intake card */}
+            <div className="absolute -bottom-4 left-4 right-auto bg-white text-gray-900 rounded-xl shadow-xl ring-1 ring-gray-200 px-4 py-3">
+              <div className="text-sm font-semibold">Next intakes open</div>
+              <div className="text-xs text-gray-600">
+                Secure your rotation placement today
+              </div>
+              <button
+                onClick={() => setCurrentPage("application")}
+                className="mt-2 inline-flex items-center rounded-md bg-teal-600 text-white text-xs font-semibold px-3 py-1.5 hover:bg-teal-700"
+              >
+                Apply Now
+              </button>
             </div>
           </motion.div>
         </div>
