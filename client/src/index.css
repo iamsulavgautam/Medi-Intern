@@ -1,3 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Premium base typography */
+:root {
+  --brand-gradient: linear-gradient(90deg, #0f766e 0%, #2563eb 100%);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system,
+    Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: rgb(17 24 39);
+  background-color: rgb(249 250 251);
+}
+
+/* Shared UI tokens */
+.btn-primary {
+  @apply inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-semibold text-white shadow-sm transition-all duration-200;
+  background-image: var(--brand-gradient);
+}
+.btn-primary:hover {
+  filter: brightness(1.05);
+}
+.btn-ghost {
+  @apply inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-teal-700 transition-colors;
+}
+
+/* Card polish */
+.card {
+  @apply bg-white rounded-xl shadow-sm ring-1 ring-gray-100;
+}
+.card-hover:hover {
+  @apply shadow-md ring-gray-200;
+}
