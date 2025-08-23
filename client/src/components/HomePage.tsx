@@ -1,6 +1,16 @@
 import React from "react";
 import type { LucideIcon } from "lucide-react";
-import { ArrowRight, Heart, Users, Award, Globe, Calendar, CheckCircle, ArrowUpRight, Images } from "lucide-react";
+import {
+  ArrowRight,
+  Heart,
+  Users,
+  Award,
+  Globe,
+  Calendar,
+  CheckCircle,
+  ArrowUpRight,
+  Images,
+} from "lucide-react";
 import { motion } from "framer-motion";
 
 interface HomePageProps {
@@ -19,14 +29,13 @@ const StatCard = ({
   label: string;
   color?: string;
 }) => (
-  <motion.div
-    whileHover={{ scale: 1.02 }}
-    className="card p-8 text-center"
-  >
+  <motion.div whileHover={{ scale: 1.02 }} className="card p-8 text-center">
     <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary-50 mb-4">
       <Icon className="h-8 w-8 text-primary-600" />
     </div>
-    <h3 className="text-3xl font-display font-bold text-secondary-900 mb-2">{number}</h3>
+    <h3 className="text-3xl font-display font-bold text-secondary-900 mb-2">
+      {number}
+    </h3>
     <p className="text-secondary-600">{label}</p>
   </motion.div>
 );
@@ -50,13 +59,19 @@ const ProgramCard = ({
     onClick={onClick}
   >
     <div className="relative h-52 overflow-hidden">
-      <img src={img} alt={title} className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+      <img
+        src={img}
+        alt={title}
+        className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+      />
       <div className="absolute top-4 left-4">
         <span className="badge badge-primary">{title}</span>
       </div>
     </div>
     <div className="p-6">
-      <h3 className="text-xl font-display font-semibold text-secondary-900 mb-3">{title}</h3>
+      <h3 className="text-xl font-display font-semibold text-secondary-900 mb-3">
+        {title}
+      </h3>
       <p className="text-secondary-600 mb-4 line-clamp-2">{desc}</p>
       <ul className="text-sm text-secondary-500 space-y-1 mb-4">
         {bullets.slice(0, 3).map((b, i) => (
@@ -67,9 +82,7 @@ const ProgramCard = ({
         ))}
       </ul>
       <div className="mt-4 pt-4 border-t border-secondary-100">
-        <button 
-          className="text-primary-600 font-medium flex items-center hover:text-primary-700 transition-colors"
-        >
+        <button className="text-primary-600 font-medium flex items-center hover:text-primary-700 transition-colors">
           Learn more <ArrowUpRight className="ml-1 h-4 w-4" />
         </button>
       </div>
@@ -93,7 +106,9 @@ const WhyUsItem = ({
       <Icon className="h-6 w-6" />
     </div>
     <div>
-      <h3 className="text-lg font-display font-semibold text-secondary-900 mb-2">{title}</h3>
+      <h3 className="text-lg font-display font-semibold text-secondary-900 mb-2">
+        {title}
+      </h3>
       <p className="text-secondary-600">{text}</p>
     </div>
   </div>
@@ -126,7 +141,9 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
           <div className="space-y-8">
             <div className="inline-flex items-center gap-3 rounded-full bg-white/70 backdrop-blur-sm px-4 py-2 mb-6 text-sm font-semibold tracking-wide ring-1 ring-white/20 shadow-lg">
               <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-              <span className="text-slate-700">NEPAL'S LEADING CLINICAL INTERNSHIP PROVIDER</span>
+              <span className="text-slate-700">
+                NEPAL'S LEADING CLINICAL INTERNSHIP PROVIDER
+              </span>
             </div>
             <h1 className="text-6xl md:text-7xl font-black leading-tight">
               <span className="bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 bg-clip-text text-transparent">
@@ -141,9 +158,12 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
             </h1>
             <p className="text-xl text-slate-600 max-w-2xl font-light leading-relaxed">
               Supervised rotations across Internal Medicine, Surgery & Community
-              Health with 
-              <span className="font-semibold text-blue-600"> guaranteed placements</span>, 
-              accommodation, and local support.
+              Health with
+              <span className="font-semibold text-blue-600">
+                {" "}
+                guaranteed placements
+              </span>
+              , accommodation, and local support.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <button
@@ -194,29 +214,30 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
                 />
               </div>
             </div>
-            
+
             {/* Floating achievement card */}
             <div className="absolute -bottom-6 left-6 bg-white/90 backdrop-blur-sm text-slate-800 rounded-2xl shadow-2xl ring-1 ring-white/20 px-6 py-4 max-w-xs">
               <div className="flex items-center space-x-3 mb-2">
                 <div className="flex -space-x-2">
-                  <img 
-                    src="https://images.pexels.com/photos/5452201/pexels-photo-5452201.jpeg?auto=compress&cs=tinysrgb&w=60" 
+                  <img
+                    src="https://images.pexels.com/photos/5452201/pexels-photo-5452201.jpeg?auto=compress&cs=tinysrgb&w=60"
                     alt="Student 1"
                     className="w-8 h-8 rounded-full object-cover border-2 border-white"
                   />
-                  <img 
-                    src="https://images.pexels.com/photos/5452268/pexels-photo-5452268.jpeg?auto=compress&cs=tinysrgb&w=60" 
+                  <img
+                    src="https://images.pexels.com/photos/5452268/pexels-photo-5452268.jpeg?auto=compress&cs=tinysrgb&w=60"
                     alt="Student 2"
                     className="w-8 h-8 rounded-full object-cover border-2 border-white"
                   />
-                  <img 
-                    src="https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg?auto=compress&cs=tinysrgb&w=60" 
+                  <img
+                    src="https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg?auto=compress&cs=tinysrgb&w=60"
                     alt="Student 3"
                     className="w-8 h-8 rounded-full object-cover border-2 border-white"
                   />
-                  
                 </div>
-                <div className="text-sm font-bold text-slate-900">100+ Students</div>
+                <div className="text-sm font-bold text-slate-900">
+                  100+ Students
+                </div>
               </div>
               <div className="text-xs text-slate-600 mb-3">
                 Successfully completed their internships this year
@@ -228,7 +249,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
                 Join Them Today
               </button>
             </div>
-            
+
             {/* Floating stats */}
             <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-xl ring-1 ring-white/20">
               <div className="text-center">
@@ -503,7 +524,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-center">
+      <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-700 text-white text-center">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-4xl font-bold mb-6">
             Ready to Start Your Journey?
