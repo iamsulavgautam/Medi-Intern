@@ -137,7 +137,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
       {/* HERO */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900/5 to-blue-900/10"></div>
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="inline-flex items-center gap-3 rounded-full bg-white/70 backdrop-blur-sm px-4 py-2 mb-6 text-sm font-semibold tracking-wide ring-1 ring-white/20 shadow-lg">
               <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>

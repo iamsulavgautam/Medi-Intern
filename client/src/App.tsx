@@ -148,22 +148,34 @@ function App() {
           {mobileMenuOpen && (
             <div className="md:hidden bg-white border-t border-secondary-100">
               <div className="px-2 pt-2 pb-3 space-y-1">
-                {pages.map((page) => (
-                  <button
-                    key={page.id}
-                    onClick={() => {
-                      setCurrentPage(page.id);
-                      setMobileMenuOpen(false);
-                    }}
-                    className={`block w-full text-left px-3 py-2 text-base font-medium rounded-lg transition-colors duration-200 ${
-                      currentPage === page.id
-                        ? "text-primary-700 bg-primary-50"
-                        : "text-secondary-700 hover:text-primary-700 hover:bg-secondary-50"
-                    }`}
-                  >
-                    {page.label}
-                  </button>
-                ))}
+                {pages
+                  .filter((p) => p.id !== "application")
+                  .map((page) => (
+                    <button
+                      key={page.id}
+                      onClick={() => {
+                        setCurrentPage(page.id);
+                        setMobileMenuOpen(false);
+                      }}
+                      className={`block w-full text-left px-3 py-2 text-base font-medium rounded-lg transition-colors duration-200 ${
+                        currentPage === page.id
+                          ? "text-primary-700 bg-primary-50"
+                          : "text-secondary-700 hover:text-primary-700 hover:bg-secondary-50"
+                      }`}
+                    >
+                      {page.label}
+                    </button>
+                  ))}
+                {/* Apply Now button for mobile */}
+                <button
+                  onClick={() => {
+                    setCurrentPage("application");
+                    setMobileMenuOpen(false);
+                  }}
+                  className="block w-full text-left px-3 py-2 text-base font-medium rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors duration-200 mt-2"
+                >
+                  Apply Now
+                </button>
               </div>
             </div>
           )}
