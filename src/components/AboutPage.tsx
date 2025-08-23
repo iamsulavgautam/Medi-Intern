@@ -43,7 +43,7 @@ const AboutPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-                Message from chairperson
+                Message from Rohit
               </h2>
               <p className="text-lg text-slate-600 mb-6 leading-relaxed">
                 To provide exceptional medical internship opportunities that
@@ -51,18 +51,74 @@ const AboutPage = () => {
                 preparing the next generation of healthcare professionals for
                 global practice.
               </p>
-              <p className="text-lg text-slate-600 leading-relaxed">
+              <p className="text-lg text-slate-600 mb-8 leading-relaxed">
                 We believe that exposure to diverse healthcare systems and
                 patient populations enhances medical education and creates more
                 compassionate, skilled physicians.
               </p>
+              
+              {/* Quote Section */}
+              <div className="bg-gray-50 rounded-xl p-6 border-l-4 border-blue-500 shadow-lg">
+                <blockquote className="text-gray-600 italic text-lg leading-relaxed">
+                  "Every medical student deserves the opportunity to learn beyond borders. 
+                  Nepal's healthcare system offers unique insights that will shape the 
+                  compassionate physicians of tomorrow."
+                </blockquote>
+                <div className="mt-4 text-right">
+                  <cite className="text-blue-600 font-semibold not-italic">— Dr. Rohit Rawat</cite>
+                  <p className="text-gray-500 text-sm">Founder & Chairman</p>
+                </div>
+              </div>
             </div>
             <div>
               <img
-                src="https://images.pexels.com/photos/8376297/pexels-photo-8376297.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Medical team mission"
+                src="https://raw.githubusercontent.com/coder-backend/Medical-Internship/refs/heads/main/assets/images/rohit.jpeg"
+                alt="Dr. Rohit Rawat"
                 className="rounded-2xl shadow-2xl ring-1 ring-white/20 transform hover:scale-105 transition-transform duration-500"
               />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Message from Co-Founder */}
+      <section className="relative py-16 bg-white/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <img
+                src="https://images.pexels.com/photos/6129507/pexels-photo-6129507.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Dr. Priya Sharma"
+                className="rounded-2xl shadow-2xl ring-1 ring-white/20 transform hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+                Message from ?? Shrestha
+              </h2>
+              <p className="text-lg text-slate-600 mb-6 leading-relaxed">
+                Our commitment extends beyond medical education to fostering 
+                meaningful cultural exchanges that enrich both our interns and 
+                the communities they serve in Nepal.
+              </p>
+              <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+                Through our programs, we've witnessed remarkable transformations 
+                where students not only gain clinical expertise but also develop 
+                a deeper understanding of global healthcare challenges.
+              </p>
+              
+              {/* Quote Section */}
+              <div className="bg-gray-50 rounded-xl p-6 border-l-4 border-emerald-500 shadow-lg">
+                <blockquote className="text-gray-600 italic text-lg leading-relaxed">
+                  "Medicine knows no boundaries. Our programs create bridges between 
+                  cultures, fostering understanding and excellence in healthcare 
+                  that benefits patients worldwide."
+                </blockquote>
+                <div className="mt-4 text-right">
+                  <cite className="text-emerald-600 font-semibold not-italic">— ?? Shrestha</cite>
+                  <p className="text-gray-500 text-sm">Co-Founder & Medical Director</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -207,7 +263,7 @@ const AboutPage = () => {
                 className="w-32 h-32 rounded-full mx-auto mb-4 object-cover ring-4 ring-blue-100"
               />
               <h3 className="text-xl font-semibold text-slate-900 mb-2">
-                Dr. Sarah Johnson
+                Dr. ?? Shrestha
               </h3>
               <p className="text-blue-600 mb-3 font-medium">
                 Program Coordinator
@@ -224,14 +280,13 @@ const AboutPage = () => {
                 className="w-32 h-32 rounded-full mx-auto mb-4 object-cover ring-4 ring-blue-100"
               />
               <h3 className="text-xl font-semibold text-slate-900 mb-2">
-                Dr. Priya Thapa
+                Pratik Gautam
               </h3>
               <p className="text-blue-600 mb-3 font-medium">
-                Clinical Supervisor
+                Software Developer
               </p>
               <p className="text-slate-600 text-sm">
-                MBBS, MS Surgery. Expert in surgical training and mentorship for
-                international medical students.
+                Software Developer with 10+ years of experience. Expert in app development, web development and much more!
               </p>
             </div>
           </div>
