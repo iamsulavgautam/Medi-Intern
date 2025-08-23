@@ -7,7 +7,7 @@
     "dev": "vite",
     "server": "cd server && node server.js",
     "dev:server": "cd server && nodemon server.js",
-    "build": "npx vite build && sudo rm -rf /var/www/html/* && sudo cp -r dist/* /var/www/html/",
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
