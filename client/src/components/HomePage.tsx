@@ -199,9 +199,22 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
             <div className="absolute -bottom-6 left-6 bg-white/90 backdrop-blur-sm text-slate-800 rounded-2xl shadow-2xl ring-1 ring-white/20 px-6 py-4 max-w-xs">
               <div className="flex items-center space-x-3 mb-2">
                 <div className="flex -space-x-2">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 border-2 border-white"></div>
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-emerald-500 to-teal-600 border-2 border-white"></div>
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-500 to-pink-600 border-2 border-white"></div>
+                  <img 
+                    src="https://images.pexels.com/photos/5452201/pexels-photo-5452201.jpeg?auto=compress&cs=tinysrgb&w=60" 
+                    alt="Student 1"
+                    className="w-8 h-8 rounded-full object-cover border-2 border-white"
+                  />
+                  <img 
+                    src="https://images.pexels.com/photos/5452268/pexels-photo-5452268.jpeg?auto=compress&cs=tinysrgb&w=60" 
+                    alt="Student 2"
+                    className="w-8 h-8 rounded-full object-cover border-2 border-white"
+                  />
+                  <img 
+                    src="https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg?auto=compress&cs=tinysrgb&w=60" 
+                    alt="Student 3"
+                    className="w-8 h-8 rounded-full object-cover border-2 border-white"
+                  />
+                  
                 </div>
                 <div className="text-sm font-bold text-slate-900">100+ Students</div>
               </div>

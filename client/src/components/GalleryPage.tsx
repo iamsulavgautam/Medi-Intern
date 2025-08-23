@@ -31,32 +31,46 @@ const GalleryPage: React.FC<GalleryPageProps> = () => {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   return (
-    <div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+      {/* Animated Background Elements - matching theme */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-indigo-600/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-teal-400/20 to-emerald-600/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      </div>
+
       {/* Header */}
-      <section className="relative bg-gradient-to-r from-teal-700 to-blue-700 text-white">
-        <div className="absolute inset-0 bg-black opacity-20" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="flex items-center space-x-3">
-            <Images className="h-8 w-8 text-white" />
-            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
-              Gallery
-            </h1>
+      <section className="relative pt-24 pb-16 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-700"></div>
+        <div className="absolute inset-0 bg-black/10"></div>
+        
+        {/* Animated background elements */}
+        <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute bottom-10 right-10 w-40 h-40 bg-white/10 rounded-full blur-xl animate-pulse delay-1000"></div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <div className="flex items-center justify-center space-x-3 mb-6">
+              <Images className="h-12 w-12 text-white" />
+              <h1 className="text-5xl md:text-6xl font-black bg-gradient-to-r from-white via-blue-100 to-indigo-100 bg-clip-text text-transparent leading-tight">
+                Gallery
+              </h1>
+            </div>
+            <p className="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto font-light leading-relaxed">
+              Moments from hospital rotations, community health camps, cultural
+              immersion, and life in Nepal.
+            </p>
           </div>
-          <p className="mt-4 text-teal-100 max-w-3xl">
-            Moments from hospital rotations, community health camps, cultural
-            immersion, and life in Nepal.
-          </p>
         </div>
       </section>
 
       {/* Masonry-like Grid */}
-      <section className="py-12 bg-white">
+      <section className="relative py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 [column-fill:_balance]"></div>
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-4">
             {allImages.map((src, index) => (
               <div key={index} className="mb-4 break-inside-avoid">
-                <div className="group relative overflow-hidden rounded-xl shadow-md">
+                <div className="group relative overflow-hidden rounded-xl shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
                   <img
                     src={src}
                     alt={`Gallery image ${index + 1}`}

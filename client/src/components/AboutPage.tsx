@@ -12,15 +12,21 @@ const AboutPage = () => {
 
       {/* Hero Section */}
       <section className="relative pt-24 pb-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/5 to-blue-900/10"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-700"></div>
+        <div className="absolute inset-0 bg-black/10"></div>
+        
+        {/* Animated background elements */}
+        <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute bottom-10 right-10 w-40 h-40 bg-white/10 rounded-full blur-xl animate-pulse delay-1000"></div>
+        
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-black bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 bg-clip-text text-transparent leading-tight mb-6">
+            <h1 className="text-5xl md:text-6xl font-black bg-gradient-to-r from-white via-blue-100 to-indigo-100 bg-clip-text text-transparent leading-tight mb-6">
               About Medical Internship Nepal
             </h1>
-            <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto font-light leading-relaxed">
+            <p className="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto font-light leading-relaxed">
               Bridging international medical education with Nepal's healthcare system for over 
-              <span className="font-semibold text-blue-600"> 3 years of excellence</span>.
+              <span className="font-semibold text-white"> 3 years of excellence</span>.
             </p>
           </div>
         </div>
@@ -65,29 +71,76 @@ const AboutPage = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="relative bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <MapPin className="h-8 w-8 text-blue-600" />
+                <img 
+                  src="https://images.pexels.com/photos/5452201/pexels-photo-5452201.jpeg?auto=compress&cs=tinysrgb&w=100" 
+                  alt="Foundation team member"
+                  className="absolute -top-3 -right-3 w-8 h-8 rounded-full object-cover ring-2 ring-white shadow-md"
+                />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">2023 - Foundation</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">2023 - Foundation</h3>
+              <p className="text-slate-600">
                 Started with partnerships with 3 hospitals in Kathmandu, hosting 25 international interns.
               </p>
             </div>
             <div className="text-center">
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="h-8 w-8 text-green-600" />
+              <div className="relative bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="h-8 w-8 text-blue-600" />
+                <img 
+                  src="https://images.pexels.com/photos/5452268/pexels-photo-5452268.jpeg?auto=compress&cs=tinysrgb&w=100" 
+                  alt="Expansion team member"
+                  className="absolute -top-3 -right-3 w-8 h-8 rounded-full object-cover ring-2 ring-white shadow-md"
+                />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">2024 - Expansion</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">2024 - Expansion</h3>
+              <p className="text-slate-600">
                 Expanded to rural areas and specialized programs, partnering with 15 healthcare facilities.
               </p>
             </div>
             <div className="text-center">
-              <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Award className="h-8 w-8 text-orange-600" />
+              <div className="relative bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Award className="h-8 w-8 text-blue-600" />
+                <img 
+                  src="https://images.pexels.com/photos/6749777/pexels-photo-6749777.jpeg?auto=compress&cs=tinysrgb&w=100" 
+                  alt="Excellence team member"
+                  className="absolute -top-3 -right-3 w-8 h-8 rounded-full object-cover ring-2 ring-white shadow-md"
+                />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">2025 - Excellence</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">2025 - Excellence</h3>
+              <div className="flex items-center justify-center mb-3">
+                <div className="flex -space-x-3">
+                  <img 
+                    src="https://images.pexels.com/photos/5452201/pexels-photo-5452201.jpeg?auto=compress&cs=tinysrgb&w=60" 
+                    alt="Student 1"
+                    className="w-8 h-8 rounded-full object-cover ring-2 ring-white shadow-md"
+                  />
+                  <img 
+                    src="https://images.pexels.com/photos/5452268/pexels-photo-5452268.jpeg?auto=compress&cs=tinysrgb&w=60" 
+                    alt="Student 2"
+                    className="w-8 h-8 rounded-full object-cover ring-2 ring-white shadow-md"
+                  />
+                  <img 
+                    src="https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg?auto=compress&cs=tinysrgb&w=60" 
+                    alt="Student 3"
+                    className="w-8 h-8 rounded-full object-cover ring-2 ring-white shadow-md"
+                  />
+                  <img 
+                    src="https://images.pexels.com/photos/6749777/pexels-photo-6749777.jpeg?auto=compress&cs=tinysrgb&w=60" 
+                    alt="Student 4"
+                    className="w-8 h-8 rounded-full object-cover ring-2 ring-white shadow-md"
+                  />
+                  <img 
+                    src="https://images.pexels.com/photos/5452275/pexels-photo-5452275.jpeg?auto=compress&cs=tinysrgb&w=60" 
+                    alt="Student 5"
+                    className="w-8 h-8 rounded-full object-cover ring-2 ring-white shadow-md"
+                  />
+                  <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center ring-2 ring-white shadow-md">
+                    <span className="text-white text-xs font-bold">+95</span>
+                  </div>
+                </div>
+              </div>
+              <p className="text-slate-600">
                 Today we partner with 10+ hospitals and have trained over 100 medical professionals.
               </p>
             </div>
