@@ -211,7 +211,7 @@ const AboutPage = () => {
             </div>
             <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
               <img
-                src="https://images.pexels.com/photos/5452201/pexels-photo-5452201.jpeg?auto=compress&cs=tinysrgb&w=400"
+                src="Aron.jpg"
                 alt="Dr. Sarah Johnson"
                 className="w-32 h-32 rounded-full mx-auto mb-4 object-cover ring-4 ring-blue-100"
               />
