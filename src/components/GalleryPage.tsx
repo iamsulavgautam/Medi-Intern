@@ -15,20 +15,13 @@ const GalleryPage: React.FC<GalleryPageProps> = () => {
         `${baseUrl}/top/${i + 1}.JPG`
       );
       
-      // Program images
-      const programImages = [
-        `${baseUrl}/community-health/1.jpeg`,
-        "https://images.pexels.com/photos/8439093/pexels-photo-8439093.jpeg?auto=compress&cs=tinysrgb&w=1200",
-        "https://images.pexels.com/photos/7659564/pexels-photo-7659564.jpeg?auto=compress&cs=tinysrgb&w=1200",
-        "https://images.pexels.com/photos/8376297/pexels-photo-8376297.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      ];
       
       // Gallery images (1-60)
       const galleryImages = Array.from({ length: 60 }, (_, i) => 
         `${baseUrl}/gallary/${i + 1}.JPG`
       );
       
-      return [...topImages, ...programImages, ...galleryImages];
+      return [...topImages, ...galleryImages];
     },
     []
   );
