@@ -7,24 +7,29 @@ interface GalleryPageProps {
 
 const GalleryPage: React.FC<GalleryPageProps> = () => {
   const allImages = useMemo(
-    () => [
-      // Top hero images
-      "https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images/top/1.JPG",
-      "https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images/top/2.JPG",
-      "https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images/top/3.JPG",
-      "https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images/top/4.JPG",
-      "https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images/top/5.JPG",
-      // Programs
-      "https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images/community-health/1.jpeg",
-      "https://images.pexels.com/photos/8439093/pexels-photo-8439093.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "https://images.pexels.com/photos/7659564/pexels-photo-7659564.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "https://images.pexels.com/photos/8376297/pexels-photo-8376297.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      // Lifestyle & Nepal context (royalty-free)
-      "https://images.pexels.com/photos/279716/pexels-photo-279716.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "https://images.pexels.com/photos/164287/pexels-photo-164287.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "https://images.pexels.com/photos/220885/pexels-photo-220885.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    ],
+    () => {
+      const baseUrl = "https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images";
+      
+      // Top hero images (1-5)
+      const topImages = Array.from({ length: 5 }, (_, i) => 
+        `${baseUrl}/top/${i + 1}.JPG`
+      );
+      
+      // Program images
+      const programImages = [
+        `${baseUrl}/community-health/1.jpeg`,
+        "https://images.pexels.com/photos/8439093/pexels-photo-8439093.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "https://images.pexels.com/photos/7659564/pexels-photo-7659564.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "https://images.pexels.com/photos/8376297/pexels-photo-8376297.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      ];
+      
+      // Gallery images (1-60)
+      const galleryImages = Array.from({ length: 60 }, (_, i) => 
+        `${baseUrl}/gallary/${i + 1}.JPG`
+      );
+      
+      return [...topImages, ...programImages, ...galleryImages];
+    },
     []
   );
 
