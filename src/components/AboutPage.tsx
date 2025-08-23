@@ -228,7 +228,7 @@ const AboutPage = () => {
             </div>
             <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
               <img
-                src="Pratik.jpg"
+                src="pratik.jpg"
                 alt="Pratik Gautam"
                 className="w-32 h-32 rounded-full mx-auto mb-4 object-cover ring-4 ring-blue-100"
               />
