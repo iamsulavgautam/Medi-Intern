@@ -62,13 +62,13 @@ work of organizations from all backgrounds."
                 </blockquote>
                 <div className="mt-4 text-right">
                   <cite className="text-blue-600 font-semibold not-italic">— Dr. Rohit Rawat</cite>
-                  <p className="text-gray-500 text-sm">Co-Founder</p>
+                  <p className="text-gray-500 text-sm">Chairman - Founder</p>
                 </div>
               </div>
             </div>
             <div>
               <img
-                src="https://raw.githubusercontent.com/coder-backend/Medical-Internship/refs/heads/main/assets/images/rohit.jpeg"
+                src="/assets/images/rohit.jpeg"
                 alt="Dr. Rohit Rawat"
                 className="rounded-2xl shadow-2xl ring-1 ring-white/20 transform hover:scale-105 transition-transform duration-500"
               />
@@ -195,7 +195,7 @@ work of organizations from all backgrounds."
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
               <img
-                src="https://raw.githubusercontent.com/coder-backend/Medical-Internship/refs/heads/main/assets/images/rohit.jpeg"
+                src="./assets/images/rohit.jpeg"
                 alt="Dr. Rajesh Sharma"
                 className="w-32 h-32 rounded-full mx-auto mb-4 object-cover ring-4 ring-blue-100"
               />
@@ -217,7 +217,7 @@ work of organizations from all backgrounds."
                 className="w-32 h-32 rounded-full mx-auto mb-4 object-cover ring-4 ring-blue-100"
               />
               <h3 className="text-xl font-semibold text-slate-900 mb-2">
-                Dr. ?? Shrestha
+                Dr. Aron Shrestha
               </h3>
               <p className="text-blue-600 mb-3 font-medium">
                 Program Coordinator
@@ -229,8 +229,8 @@ work of organizations from all backgrounds."
             </div>
             <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
               <img
-                src="https://images.pexels.com/photos/6749777/pexels-photo-6749777.jpeg?auto=compress&cs=tinysrgb&w=400"
-                alt="Dr. Priya Thapa"
+                src="/assets/images/Pratik.jpg"
+                alt="Pratik Gautam"
                 className="w-32 h-32 rounded-full mx-auto mb-4 object-cover ring-4 ring-blue-100"
               />
               <h3 className="text-xl font-semibold text-slate-900 mb-2">
