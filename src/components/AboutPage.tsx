@@ -45,30 +45,32 @@ const AboutPage = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
                 Message from Rohit
               </h2>
-              
+
               {/* Quote Section */}
               <div className="bg-gray-50 rounded-xl p-6 border-l-4 border-blue-500 shadow-lg">
                 <blockquote className="text-gray-600 italic text-lg leading-relaxed">
                   "As a doctor and the founder of Medical Exchange Nepal, our
-vision has always been to make medical exchange programs
-more affordable, easing the financial burden for students
-compared to many other options. We also make it a priority to
-pair each incoming elective student with a local medical
-student, so they gain first-hand insight into Nepal’s healthcare
-environment, culture, and day-to-day realities. Being from the
-same field, we understand their needs and create experiences
-that are relevant and enriching, complementing the great
-work of organizations from all backgrounds."
+                  vision has always been to make medical exchange programs more
+                  affordable, easing the financial burden for students compared
+                  to many other options. We also make it a priority to pair each
+                  incoming elective student with a local medical student, so
+                  they gain first-hand insight into Nepal’s healthcare
+                  environment, culture, and day-to-day realities. Being from the
+                  same field, we understand their needs and create experiences
+                  that are relevant and enriching, complementing the great work
+                  of organizations from all backgrounds."
                 </blockquote>
                 <div className="mt-4 text-right">
-                  <cite className="text-blue-600 font-semibold not-italic">— Dr. Rohit Rawat</cite>
-                  <p className="text-gray-500 text-sm">Chairman - Founder</p>
+                  <cite className="text-blue-600 font-semibold not-italic">
+                    — Dr. Rohit Rawat
+                  </cite>
+                  <p className="text-gray-500 text-sm">Founder</p>
                 </div>
               </div>
             </div>
             <div>
               <img
-                src="./public/rohit.jpeg"
+                src="rohit.jpeg"
                 alt="Dr. Rohit Rawat"
                 className="rounded-2xl shadow-2xl ring-1 ring-white/20 transform hover:scale-105 transition-transform duration-500"
               />
@@ -76,7 +78,6 @@ work of organizations from all backgrounds."
           </div>
         </div>
       </section>
-
 
       {/* Our Story */}
       <section className="relative py-16">
@@ -195,16 +196,14 @@ work of organizations from all backgrounds."
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
               <img
-                src="./public/rohit.jpeg"
+                src="rohit.jpeg"
                 alt="Dr. Rajesh Sharma"
                 className="w-32 h-32 rounded-full mx-auto mb-4 object-cover ring-4 ring-blue-100"
               />
               <h3 className="text-xl font-semibold text-slate-900 mb-2">
                 Dr. Rohit Rawat
               </h3>
-              <p className="text-blue-600 mb-3 font-medium">
-                Chairman - Founder
-              </p>
+              <p className="text-blue-600 mb-3 font-medium">Founder</p>
               <p className="text-slate-600 text-sm">
                 Founder of NGO Aarogya Nepal, MBBS, 2+ years experience in
                 medical education and hospital administration.
@@ -229,7 +228,7 @@ work of organizations from all backgrounds."
             </div>
             <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
               <img
-                src="./public/Pratik.jpg"
+                src="Pratik.jpg"
                 alt="Pratik Gautam"
                 className="w-32 h-32 rounded-full mx-auto mb-4 object-cover ring-4 ring-blue-100"
               />
@@ -240,7 +239,8 @@ work of organizations from all backgrounds."
                 Software Developer
               </p>
               <p className="text-slate-600 text-sm">
-                Software Developer with 10+ years of experience. Expert in app development, web development and much more!
+                Software Developer with 10+ years of experience. Expert in app
+                development, web development and much more!
               </p>
             </div>
           </div>
