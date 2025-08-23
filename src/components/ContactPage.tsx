@@ -394,8 +394,7 @@ const ContactPage = () => {
                       <h4 className="font-bold text-slate-900 mb-2">Address</h4>
                       <div className="text-slate-600 space-y-1">
                         <p className="font-medium">Medical Internship Nepal</p>
-                        <p>Kathmandu Medical College Road</p>
-                        <p>Sinamangal, Kathmandu 44600, Nepal</p>
+                        <p>Baneshwor, Kathmandu, Nepal</p>
                       </div>
                     </div>
                   </div>
