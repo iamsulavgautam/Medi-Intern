@@ -19,11 +19,11 @@ import AdminDashboardPage from "./components/AdminDashboardPage";
 function App() {
   const [currentPage, setCurrentPage] = useState("home");
   const [adminToken, setAdminToken] = useState("");
-  // const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
+  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // const adminId = isAdminLoggedIn ? "admin-dashboard" : "admin-login";
-  // const adminLoginLabel = isAdminLoggedIn ? "Admin Dashboard" : "Admin Login";
+  const adminId = isAdminLoggedIn ? "admin-dashboard" : "admin-login";
+  const adminLoginLabel = isAdminLoggedIn ? "Admin Dashboard" : "Admin Login";
   const pages = [
     { id: "home", label: "Home" },
     { id: "about", label: "About" },
@@ -34,7 +34,6 @@ function App() {
     { id: "testimonials", label: "Testimonials" },
     { id: "application", label: "Application" },
     { id: "contact", label: "Contact" },
-    // { id: adminId, label: adminLoginLabel },
   ];
 
   const renderPage = () => {
@@ -122,9 +121,19 @@ function App() {
                 ))}
               <button
                 onClick={() => setCurrentPage("application")}
-                className="btn-primary ml-2"
+                className="btn-primary ml-2 whitespace-nowrap"
               >
                 Apply Now
+              </button>
+              <button
+                onClick={() => setCurrentPage(adminId)}
+                className={`btn-ghost ml-2 whitespace-nowrap ${
+                  currentPage === adminId
+                    ? "text-primary-600 bg-primary-50"
+                    : ""
+                }`}
+              >
+                {adminLoginLabel}
               </button>
             </div>
 
@@ -172,9 +181,23 @@ function App() {
                     setCurrentPage("application");
                     setMobileMenuOpen(false);
                   }}
-                  className="block w-full text-left px-3 py-2 text-base font-medium rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors duration-200 mt-2"
+                  className="block w-full text-left px-3 py-2 text-base font-medium rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors duration-200 mt-2 whitespace-nowrap"
                 >
                   Apply Now
+                </button>
+                {/* Admin Login button for mobile */}
+                <button
+                  onClick={() => {
+                    setCurrentPage(adminId);
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`block w-full text-left px-3 py-2 text-base font-medium rounded-lg transition-colors duration-200 mt-1 whitespace-nowrap ${
+                    currentPage === adminId
+                      ? "text-primary-700 bg-primary-50"
+                      : "text-secondary-700 hover:text-primary-700 hover:bg-secondary-50"
+                  }`}
+                >
+                  {adminLoginLabel}
                 </button>
               </div>
             </div>

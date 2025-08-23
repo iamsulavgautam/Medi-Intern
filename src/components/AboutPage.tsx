@@ -43,13 +43,13 @@ const AboutPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-                Message from Rohit
+                 Message from Co-Founder
               </h2>
 
               {/* Quote Section */}
               <div className="bg-gray-50 rounded-xl p-6 border-l-4 border-blue-500 shadow-lg">
                 <blockquote className="text-gray-600 italic text-lg leading-relaxed">
-                  "As a doctor and the founder of Medical Exchange Nepal, our
+                  "As a doctor and the co-founder of Medical Exchange Nepal, our
                   vision has always been to make medical exchange programs more
                   affordable, easing the financial burden for students compared
                   to many other options. We also make it a priority to pair each
@@ -64,7 +64,7 @@ const AboutPage = () => {
                   <cite className="text-blue-600 font-semibold not-italic">
                     — Dr. Rohit Rawat
                   </cite>
-                  <p className="text-gray-500 text-sm">Founder</p>
+                  <p className="text-gray-500 text-sm">Co-Founder</p>
                 </div>
               </div>
             </div>
@@ -203,7 +203,7 @@ const AboutPage = () => {
               <h3 className="text-xl font-semibold text-slate-900 mb-2">
                 Dr. Rohit Rawat
               </h3>
-              <p className="text-blue-600 mb-3 font-medium">Founder</p>
+              <p className="text-blue-600 mb-3 font-medium">Co-Founder</p>
               <p className="text-slate-600 text-sm">
                 Founder of NGO Aarogya Nepal, MBBS, 2+ years experience in
                 medical education and hospital administration.
