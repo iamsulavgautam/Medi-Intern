@@ -68,7 +68,7 @@ work of organizations from all backgrounds."
             </div>
             <div>
               <img
-                src="/assets/images/rohit.jpeg"
+                src="./public/rohit.jpeg"
                 alt="Dr. Rohit Rawat"
                 className="rounded-2xl shadow-2xl ring-1 ring-white/20 transform hover:scale-105 transition-transform duration-500"
               />
@@ -195,7 +195,7 @@ work of organizations from all backgrounds."
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
               <img
-                src="./assets/images/rohit.jpeg"
+                src="./public/rohit.jpeg"
                 alt="Dr. Rajesh Sharma"
                 className="w-32 h-32 rounded-full mx-auto mb-4 object-cover ring-4 ring-blue-100"
               />
@@ -229,7 +229,7 @@ work of organizations from all backgrounds."
             </div>
             <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
               <img
-                src="/assets/images/Pratik.jpg"
+                src="./public/Pratik.jpg"
                 alt="Pratik Gautam"
                 className="w-32 h-32 rounded-full mx-auto mb-4 object-cover ring-4 ring-blue-100"
               />
