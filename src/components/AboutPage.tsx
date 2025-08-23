@@ -45,28 +45,24 @@ const AboutPage = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
                 Message from Rohit
               </h2>
-              <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-                To provide exceptional medical internship opportunities that
-                combine hands-on clinical experience with cultural immersion,
-                preparing the next generation of healthcare professionals for
-                global practice.
-              </p>
-              <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                We believe that exposure to diverse healthcare systems and
-                patient populations enhances medical education and creates more
-                compassionate, skilled physicians.
-              </p>
               
               {/* Quote Section */}
               <div className="bg-gray-50 rounded-xl p-6 border-l-4 border-blue-500 shadow-lg">
                 <blockquote className="text-gray-600 italic text-lg leading-relaxed">
-                  "Every medical student deserves the opportunity to learn beyond borders. 
-                  Nepal's healthcare system offers unique insights that will shape the 
-                  compassionate physicians of tomorrow."
+                  "As a doctor and the founder of Medical Exchange Nepal, our
+vision has always been to make medical exchange programs
+more affordable, easing the financial burden for students
+compared to many other options. We also make it a priority to
+pair each incoming elective student with a local medical
+student, so they gain first-hand insight into Nepal’s healthcare
+environment, culture, and day-to-day realities. Being from the
+same field, we understand their needs and create experiences
+that are relevant and enriching, complementing the great
+work of organizations from all backgrounds."
                 </blockquote>
                 <div className="mt-4 text-right">
                   <cite className="text-blue-600 font-semibold not-italic">— Dr. Rohit Rawat</cite>
-                  <p className="text-gray-500 text-sm">Founder & Chairman</p>
+                  <p className="text-gray-500 text-sm">Co-Founder</p>
                 </div>
               </div>
             </div>
@@ -81,48 +77,6 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Message from Co-Founder */}
-      <section className="relative py-16 bg-white/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <img
-                src="https://images.pexels.com/photos/6129507/pexels-photo-6129507.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Dr. Priya Sharma"
-                className="rounded-2xl shadow-2xl ring-1 ring-white/20 transform hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-                Message from ?? Shrestha
-              </h2>
-              <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-                Our commitment extends beyond medical education to fostering 
-                meaningful cultural exchanges that enrich both our interns and 
-                the communities they serve in Nepal.
-              </p>
-              <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                Through our programs, we've witnessed remarkable transformations 
-                where students not only gain clinical expertise but also develop 
-                a deeper understanding of global healthcare challenges.
-              </p>
-              
-              {/* Quote Section */}
-              <div className="bg-gray-50 rounded-xl p-6 border-l-4 border-emerald-500 shadow-lg">
-                <blockquote className="text-gray-600 italic text-lg leading-relaxed">
-                  "Medicine knows no boundaries. Our programs create bridges between 
-                  cultures, fostering understanding and excellence in healthcare 
-                  that benefits patients worldwide."
-                </blockquote>
-                <div className="mt-4 text-right">
-                  <cite className="text-emerald-600 font-semibold not-italic">— ?? Shrestha</cite>
-                  <p className="text-gray-500 text-sm">Co-Founder & Medical Director</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Our Story */}
       <section className="relative py-16">
