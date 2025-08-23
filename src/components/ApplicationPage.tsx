@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FileText, CheckCircle, Clock, Download, Shield, AlertCircle } from 'lucide-react';
+import { FileText, CheckCircle, Clock, Shield, AlertCircle } from 'lucide-react';
 
 interface FormData {
   familyName: string;
@@ -756,7 +756,14 @@ const ApplicationPage = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+      {/* Animated Background Elements - matching theme */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-indigo-600/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-teal-400/20 to-emerald-600/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      </div>
+
+      <div className="relative max-w-4xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
       <div className="text-center mb-10">
         <h1 className="text-3xl font-display font-bold text-secondary-900 mb-4">Apply for Medical Internship</h1>
         <p className="text-secondary-600 max-w-2xl mx-auto">
@@ -772,6 +779,7 @@ const ApplicationPage = () => {
           {renderStepContent()}
         </form>
       </div>
+    </div>
     </div>
   );
 };
