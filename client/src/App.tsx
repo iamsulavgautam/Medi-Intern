@@ -19,11 +19,11 @@ import AdminDashboardPage from "./components/AdminDashboardPage";
 function App() {
   const [currentPage, setCurrentPage] = useState("home");
   const [adminToken, setAdminToken] = useState("");
-  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
+  // const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const adminId = isAdminLoggedIn ? "admin-dashboard" : "admin-login";
-  const adminLoginLabel = isAdminLoggedIn ? "Admin Dashboard" : "Admin Login";
+  // const adminId = isAdminLoggedIn ? "admin-dashboard" : "admin-login";
+  // const adminLoginLabel = isAdminLoggedIn ? "Admin Dashboard" : "Admin Login";
   const pages = [
     { id: "home", label: "Home" },
     { id: "about", label: "About" },
@@ -34,7 +34,7 @@ function App() {
     { id: "testimonials", label: "Testimonials" },
     { id: "application", label: "Application" },
     { id: "contact", label: "Contact" },
-    { id: adminId, label: adminLoginLabel },
+    // { id: adminId, label: adminLoginLabel },
   ];
 
   const renderPage = () => {
@@ -93,7 +93,10 @@ function App() {
         <div className="container-custom">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
-            <div className="flex items-center space-x-2 cursor-pointer group" onClick={() => setCurrentPage("home")}>
+            <div
+              className="flex items-center space-x-2 cursor-pointer group"
+              onClick={() => setCurrentPage("home")}
+            >
               <Stethoscope className="h-8 w-8 text-primary-600 group-hover:scale-110 transition-transform duration-200" />
               <span className="text-xl font-display font-bold tracking-tight text-secondary-900">
                 Medical Internship Nepal
@@ -109,7 +112,9 @@ function App() {
                     key={page.id}
                     onClick={() => setCurrentPage(page.id)}
                     className={`btn-ghost ${
-                      currentPage === page.id ? "text-primary-600 bg-primary-50" : ""
+                      currentPage === page.id
+                        ? "text-primary-600 bg-primary-50"
+                        : ""
                     }`}
                   >
                     {page.label}
@@ -166,9 +171,7 @@ function App() {
       </nav>
 
       {/* Page Content */}
-      <main className="flex-1">
-        {renderPage()}
-      </main>
+      <main className="flex-1">{renderPage()}</main>
 
       {/* Footer */}
       <footer className="bg-secondary-900 text-secondary-300 border-t border-secondary-800 mt-auto">
