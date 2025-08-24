@@ -209,7 +209,7 @@ const AboutPage = () => {
                 medical education and hospital administration.
               </p>
             </div>
-            <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
+            {/* <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
               <img
                 src="Aron.jpg"
                 alt="Dr. Sarah Johnson"
@@ -225,7 +225,7 @@ const AboutPage = () => {
                 MD, MPH. Specialist in international medical education with
                 experience in 15+ countries.
               </p>
-            </div>
+            </div> */}
             <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
               <img
                 src="pratik.jpg"
@@ -236,10 +236,10 @@ const AboutPage = () => {
                 Pratik Gautam
               </h3>
               <p className="text-blue-600 mb-3 font-medium">
-                Software Developer
+                Software Engineer
               </p>
               <p className="text-slate-600 text-sm">
-                Software Developer with 10+ years of experience. Expert in app
+                Software Engineer with 10+ years of experience. Expert in app
                 development, web development and much more!
               </p>
             </div>
