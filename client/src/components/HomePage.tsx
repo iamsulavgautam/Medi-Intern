@@ -271,22 +271,22 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-6 items-center opacity-80">
             <div className="h-10 bg-gray-100 rounded flex items-center justify-center text-gray-500 text-xs">
-              Nepal Med Center
+              Kathmandu Medical College
             </div>
             <div className="h-10 bg-gray-100 rounded flex items-center justify-center text-gray-500 text-xs">
-              Kathmandu General
+              Nobel Medical College{" "}
             </div>
             <div className="h-10 bg-gray-100 rounded flex items-center justify-center text-gray-500 text-xs">
-              Everest Hospital
+              Patan Academic of Health Science{" "}
             </div>
             <div className="h-10 bg-gray-100 rounded flex items-center justify-center text-gray-500 text-xs">
-              Patan Teaching
+              Institute of Medicine Teaching Hospital{" "}
             </div>
             <div className="h-10 bg-gray-100 rounded flex items-center justify-center text-gray-500 text-xs">
-              Bir Hospital
+              Manipal Medical College
             </div>
             <div className="h-10 bg-gray-100 rounded flex items-center justify-center text-gray-500 text-xs">
-              Bhaktapur Care
+              Nepaljung Medical College
             </div>
           </div>
         </div>
