@@ -6,7 +6,6 @@ import {
   Users,
   Award,
   Globe,
-  Calendar,
   CheckCircle,
   ArrowUpRight,
   Images,
@@ -22,7 +21,6 @@ const StatCard = ({
   icon: Icon,
   number,
   label,
-  color,
 }: {
   icon: LucideIcon;
   number: string;
@@ -94,7 +92,6 @@ const WhyUsItem = ({
   icon: Icon,
   title,
   text,
-  color,
 }: {
   icon: LucideIcon;
   title: string;
