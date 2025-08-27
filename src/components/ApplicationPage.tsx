@@ -22,7 +22,16 @@ interface FormData {
   departmentB: string;
   clerkshipType: string;
   accommodation: string;
-  documentFile: File | null;
+  // Document upload options
+  uploadMode: 'individual' | 'single';
+  // Individual files
+  cvFile: File | null;
+  letterOfRecommendationFile: File | null;
+  letterOfInterestFile: File | null;
+  insuranceCertificationFile: File | null;
+  medicalSchoolEnrollmentFile: File | null;
+  // Single PDF option
+  singlePdfFile: File | null;
   photoFile: File | null;
 }
 
@@ -48,7 +57,16 @@ const ApplicationPage = () => {
     departmentB: '',
     clerkshipType: '',
     accommodation: '',
-    documentFile: null,
+    // Document upload options
+    uploadMode: 'individual',
+    // Individual files
+    cvFile: null,
+    letterOfRecommendationFile: null,
+    letterOfInterestFile: null,
+    insuranceCertificationFile: null,
+    medicalSchoolEnrollmentFile: null,
+    // Single PDF option
+    singlePdfFile: null,
     photoFile: null
   });
 
@@ -92,7 +110,10 @@ const ApplicationPage = () => {
 
     const file = files[0];
 
-    if (name === 'documentFile' && file.size > 4 * 1024 * 1024) {
+    // Check file size for all document types
+    if ((name === 'cvFile' || name === 'letterOfRecommendationFile' || name === 'letterOfInterestFile' || 
+         name === 'insuranceCertificationFile' || name === 'medicalSchoolEnrollmentFile' || name === 'singlePdfFile') && 
+        file.size > 4 * 1024 * 1024) {
       alert("Document must be less than 4MB");
       return;
     }
@@ -109,6 +130,20 @@ const ApplicationPage = () => {
     }
 
     setFormData((prev) => ({ ...prev, [name]: file }));
+  };
+
+  const handleUploadModeChange = (mode: 'individual' | 'single') => {
+    setFormData(prev => ({ 
+      ...prev, 
+      uploadMode: mode,
+      // Clear files when switching modes
+      cvFile: null,
+      letterOfRecommendationFile: null,
+      letterOfInterestFile: null,
+      insuranceCertificationFile: null,
+      medicalSchoolEnrollmentFile: null,
+      singlePdfFile: null
+    }));
   };
 
   const validateForm = () => {
@@ -134,6 +169,19 @@ const ApplicationPage = () => {
     ) {
       return false;
     }
+
+    // Document validation based on upload mode
+    if (formData.uploadMode === 'individual') {
+      if (!formData.cvFile || !formData.letterOfRecommendationFile || !formData.letterOfInterestFile || 
+          !formData.insuranceCertificationFile || !formData.medicalSchoolEnrollmentFile) {
+        return false;
+      }
+    } else {
+      if (!formData.singlePdfFile) {
+        return false;
+      }
+    }
+
     return true;
   };
 
@@ -160,10 +208,29 @@ const ApplicationPage = () => {
     // Append program array as comma-separated
     formDataToSend.append('program', formData.program.join(','));
 
-    // Append files
-    if (formData.documentFile) {
-      formDataToSend.append('documentFile', formData.documentFile);
+    // Append files based on upload mode
+    if (formData.uploadMode === 'individual') {
+      if (formData.cvFile) {
+        formDataToSend.append('cvFile', formData.cvFile);
+      }
+      if (formData.letterOfRecommendationFile) {
+        formDataToSend.append('letterOfRecommendationFile', formData.letterOfRecommendationFile);
+      }
+      if (formData.letterOfInterestFile) {
+        formDataToSend.append('letterOfInterestFile', formData.letterOfInterestFile);
+      }
+      if (formData.insuranceCertificationFile) {
+        formDataToSend.append('insuranceCertificationFile', formData.insuranceCertificationFile);
+      }
+      if (formData.medicalSchoolEnrollmentFile) {
+        formDataToSend.append('medicalSchoolEnrollmentFile', formData.medicalSchoolEnrollmentFile);
+      }
+    } else {
+      if (formData.singlePdfFile) {
+        formDataToSend.append('singlePdfFile', formData.singlePdfFile);
+      }
     }
+    
     if (formData.photoFile) {
       formDataToSend.append('photoFile', formData.photoFile);
     }
@@ -198,7 +265,16 @@ const ApplicationPage = () => {
         departmentB: '',
         clerkshipType: '',
         accommodation: '',
-        documentFile: null,
+        // Document upload options
+        uploadMode: 'individual',
+        // Individual files
+        cvFile: null,
+        letterOfRecommendationFile: null,
+        letterOfInterestFile: null,
+        insuranceCertificationFile: null,
+        medicalSchoolEnrollmentFile: null,
+        // Single PDF option
+        singlePdfFile: null,
         photoFile: null
       });
       
@@ -625,40 +701,250 @@ const ApplicationPage = () => {
               </div>
             </div>
             
-            <div>
-              <label htmlFor="documentFile" className="form-label">
-                CV/Resume <span className="text-red-500">*</span>
-              </label>
-              <div className="mt-1">
-                <div className="border border-secondary-200 rounded-lg p-4 bg-white">
-                  <div className="flex items-center justify-center w-full">
-                    <label
-                      htmlFor="documentFile"
-                      className="w-full flex flex-col items-center px-4 py-6 bg-white text-secondary-500 rounded-lg tracking-wide border border-dashed border-secondary-200 cursor-pointer hover:bg-secondary-50 transition-colors"
-                    >
-                      <FileText className="h-10 w-10 text-secondary-400" />
-                      <span className="mt-2 text-base font-medium text-secondary-700">
-                        {formData.documentFile
-                          ? formData.documentFile.name
-                          : "Click to upload CV/Resume"}
-                      </span>
-                      <span className="mt-1 text-xs text-secondary-500">
-                        PDF, DOC or DOCX up to 4MB
-                      </span>
-                      <input
-                        id="documentFile"
-                        name="documentFile"
-                        type="file"
-                        className="hidden"
-                        accept=".pdf,.doc,.docx"
-                        onChange={handleFileChange}
-                        required
-                      />
-                    </label>
+            {/* Document Upload Mode Toggle */}
+            <div className="mb-6">
+              <label className="form-label">Document Upload Mode</label>
+              <div className="flex space-x-4 mt-2">
+                <label className="flex items-center">
+                  <input
+                    type="radio"
+                    name="uploadMode"
+                    value="individual"
+                    checked={formData.uploadMode === 'individual'}
+                    onChange={() => handleUploadModeChange('individual')}
+                    className="mr-2"
+                  />
+                  <span className="text-sm text-secondary-700">Individual Files</span>
+                </label>
+                <label className="flex items-center">
+                  <input
+                    type="radio"
+                    name="uploadMode"
+                    value="single"
+                    checked={formData.uploadMode === 'single'}
+                    onChange={() => handleUploadModeChange('single')}
+                    className="mr-2"
+                  />
+                  <span className="text-sm text-secondary-700">Single PDF (All Documents Combined)</span>
+                </label>
+              </div>
+            </div>
+
+            {formData.uploadMode === 'individual' ? (
+              // Individual file uploads
+              <div className="space-y-6">
+                <div>
+                  <label htmlFor="cvFile" className="form-label">
+                    CV/Resume <span className="text-red-500">*</span>
+                  </label>
+                  <div className="mt-1">
+                    <div className="border border-secondary-200 rounded-lg p-4 bg-white">
+                      <div className="flex items-center justify-center w-full">
+                        <label
+                          htmlFor="cvFile"
+                          className="w-full flex flex-col items-center px-4 py-6 bg-white text-secondary-500 rounded-lg tracking-wide border border-dashed border-secondary-200 cursor-pointer hover:bg-secondary-50 transition-colors"
+                        >
+                          <FileText className="h-10 w-10 text-secondary-400" />
+                          <span className="mt-2 text-base font-medium text-secondary-700">
+                            {formData.cvFile
+                              ? formData.cvFile.name
+                              : "Click to upload CV/Resume"}
+                          </span>
+                          <span className="mt-1 text-xs text-secondary-500">
+                            PDF, DOC or DOCX up to 4MB
+                          </span>
+                          <input
+                            id="cvFile"
+                            name="cvFile"
+                            type="file"
+                            className="hidden"
+                            accept=".pdf,.doc,.docx"
+                            onChange={handleFileChange}
+                            required
+                          />
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="letterOfRecommendationFile" className="form-label">
+                    Letter of Recommendation <span className="text-red-500">*</span>
+                  </label>
+                  <div className="mt-1">
+                    <div className="border border-secondary-200 rounded-lg p-4 bg-white">
+                      <div className="flex items-center justify-center w-full">
+                        <label
+                          htmlFor="letterOfRecommendationFile"
+                          className="w-full flex flex-col items-center px-4 py-6 bg-white text-secondary-500 rounded-lg tracking-wide border border-dashed border-secondary-200 cursor-pointer hover:bg-secondary-50 transition-colors"
+                        >
+                          <FileText className="h-10 w-10 text-secondary-400" />
+                          <span className="mt-2 text-base font-medium text-secondary-700">
+                            {formData.letterOfRecommendationFile
+                              ? formData.letterOfRecommendationFile.name
+                              : "Click to upload Letter of Recommendation"}
+                          </span>
+                          <span className="mt-1 text-xs text-secondary-500">
+                            PDF, DOC or DOCX up to 4MB
+                          </span>
+                          <input
+                            id="letterOfRecommendationFile"
+                            name="letterOfRecommendationFile"
+                            type="file"
+                            className="hidden"
+                            accept=".pdf,.doc,.docx"
+                            onChange={handleFileChange}
+                            required
+                          />
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="letterOfInterestFile" className="form-label">
+                    Letter of Interest <span className="text-red-500">*</span>
+                  </label>
+                  <div className="mt-1">
+                    <div className="border border-secondary-200 rounded-lg p-4 bg-white">
+                      <div className="flex items-center justify-center w-full">
+                        <label
+                          htmlFor="letterOfInterestFile"
+                          className="w-full flex flex-col items-center px-4 py-6 bg-white text-secondary-500 rounded-lg tracking-wide border border-dashed border-secondary-200 cursor-pointer hover:bg-secondary-50 transition-colors"
+                        >
+                          <FileText className="h-10 w-10 text-secondary-400" />
+                          <span className="mt-2 text-base font-medium text-secondary-700">
+                            {formData.letterOfInterestFile
+                              ? formData.letterOfInterestFile.name
+                              : "Click to upload Letter of Interest"}
+                          </span>
+                          <span className="mt-1 text-xs text-secondary-500">
+                            PDF, DOC or DOCX up to 4MB
+                          </span>
+                          <input
+                            id="letterOfInterestFile"
+                            name="letterOfInterestFile"
+                            type="file"
+                            className="hidden"
+                            accept=".pdf,.doc,.docx"
+                            onChange={handleFileChange}
+                            required
+                          />
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="insuranceCertificationFile" className="form-label">
+                    Insurance Certification <span className="text-red-500">*</span>
+                  </label>
+                  <div className="mt-1">
+                    <div className="border border-secondary-200 rounded-lg p-4 bg-white">
+                      <div className="flex items-center justify-center w-full">
+                        <label
+                          htmlFor="insuranceCertificationFile"
+                          className="w-full flex flex-col items-center px-4 py-6 bg-white text-secondary-500 rounded-lg tracking-wide border border-dashed border-secondary-200 cursor-pointer hover:bg-secondary-50 transition-colors"
+                        >
+                          <FileText className="h-10 w-10 text-secondary-400" />
+                          <span className="mt-2 text-base font-medium text-secondary-700">
+                            {formData.insuranceCertificationFile
+                              ? formData.insuranceCertificationFile.name
+                              : "Click to upload Insurance Certification"}
+                          </span>
+                          <span className="mt-1 text-xs text-secondary-500">
+                            PDF, DOC or DOCX up to 4MB
+                          </span>
+                          <input
+                            id="insuranceCertificationFile"
+                            name="insuranceCertificationFile"
+                            type="file"
+                            className="hidden"
+                            accept=".pdf,.doc,.docx"
+                            onChange={handleFileChange}
+                            required
+                          />
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="medicalSchoolEnrollmentFile" className="form-label">
+                    Medical School Enrollment Letter <span className="text-red-500">*</span>
+                  </label>
+                  <div className="mt-1">
+                    <div className="border border-secondary-200 rounded-lg p-4 bg-white">
+                      <div className="flex items-center justify-center w-full">
+                        <label
+                          htmlFor="medicalSchoolEnrollmentFile"
+                          className="w-full flex flex-col items-center px-4 py-6 bg-white text-secondary-500 rounded-lg tracking-wide border border-dashed border-secondary-200 cursor-pointer hover:bg-secondary-50 transition-colors"
+                        >
+                          <FileText className="h-10 w-10 text-secondary-400" />
+                          <span className="mt-2 text-base font-medium text-secondary-700">
+                            {formData.medicalSchoolEnrollmentFile
+                              ? formData.medicalSchoolEnrollmentFile.name
+                              : "Click to upload Medical School Enrollment Letter"}
+                          </span>
+                          <span className="mt-1 text-xs text-secondary-500">
+                            PDF, DOC or DOCX up to 4MB
+                          </span>
+                          <input
+                            id="medicalSchoolEnrollmentFile"
+                            name="medicalSchoolEnrollmentFile"
+                            type="file"
+                            className="hidden"
+                            accept=".pdf,.doc,.docx"
+                            onChange={handleFileChange}
+                            required
+                          />
+                        </label>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            ) : (
+              // Single PDF upload
+              <div>
+                <label htmlFor="singlePdfFile" className="form-label">
+                  Combined Documents PDF <span className="text-red-500">*</span>
+                </label>
+                <div className="mt-1">
+                  <div className="border border-secondary-200 rounded-lg p-4 bg-white">
+                    <div className="flex items-center justify-center w-full">
+                      <label
+                        htmlFor="singlePdfFile"
+                        className="w-full flex flex-col items-center px-4 py-6 bg-white text-secondary-500 rounded-lg tracking-wide border border-dashed border-secondary-200 cursor-pointer hover:bg-secondary-50 transition-colors"
+                      >
+                        <FileText className="h-10 w-10 text-secondary-400" />
+                        <span className="mt-2 text-base font-medium text-secondary-700">
+                          {formData.singlePdfFile
+                            ? formData.singlePdfFile.name
+                            : "Click to upload Combined Documents PDF"}
+                        </span>
+                        <span className="mt-1 text-xs text-secondary-500">
+                          PDF only, up to 4MB. Must include: CV, Letter of Recommendation, Letter of Interest, Insurance Certification, and Medical School Enrollment Letter
+                        </span>
+                        <input
+                          id="singlePdfFile"
+                          name="singlePdfFile"
+                          type="file"
+                          className="hidden"
+                          accept=".pdf"
+                          onChange={handleFileChange}
+                          required
+                        />
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
             
             <div>
               <label htmlFor="photoFile" className="form-label">
