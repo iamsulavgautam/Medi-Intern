@@ -24,8 +24,35 @@ const GalleryPage: React.FC<GalleryPageProps> = () => {
 
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
+  // SEO Structured Data for Gallery
+  const galleryStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "name": "Medical Internship Gallery - Medical Exchange Nepal",
+    "description": "Explore our gallery showcasing medical internship experiences, hospital rotations, community health camps, and cultural immersion in Nepal. See real moments from our medical exchange programs.",
+    "url": "https://medicalexchangenepal.com/gallery",
+    "provider": {
+      "@type": "Organization",
+      "name": "Medical Exchange Nepal"
+    },
+    "image": allImages.map((src, index) => ({
+      "@type": "ImageObject",
+      "url": `https://medicalexchangenepal.com${src}`,
+      "name": `Medical Internship Gallery Image ${index + 1}`,
+      "description": "Medical internship experience in Nepal"
+    }))
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+      {/* SEO Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(galleryStructuredData)
+        }}
+      />
+
       {/* Animated Background Elements - matching theme */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-indigo-600/20 rounded-full blur-3xl animate-pulse"></div>
@@ -33,7 +60,7 @@ const GalleryPage: React.FC<GalleryPageProps> = () => {
       </div>
 
       {/* Header */}
-      <section className="relative pt-24 pb-16 overflow-hidden">
+      <section className="relative pt-24 pb-16 overflow-hidden" aria-label="Medical Internship Gallery">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-700"></div>
         <div className="absolute inset-0 bg-black/10"></div>
 
@@ -58,7 +85,7 @@ const GalleryPage: React.FC<GalleryPageProps> = () => {
       </section>
 
       {/* Masonry-like Grid */}
-      <section className="relative py-16">
+      <section className="relative py-16" aria-label="Medical Internship Photo Gallery">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 [column-fill:_balance]"></div>
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-4">
@@ -67,7 +94,7 @@ const GalleryPage: React.FC<GalleryPageProps> = () => {
                 <div className="group relative overflow-hidden rounded-xl shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
                   <img
                     src={src}
-                    alt={`Gallery image ${index + 1}`}
+                    alt={`Medical Internship in Nepal - Gallery Image ${index + 1} - Hospital rotations, community health, and cultural experiences`}
                     className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                     onClick={() => setLightboxIndex(index)}
@@ -75,7 +102,7 @@ const GalleryPage: React.FC<GalleryPageProps> = () => {
                   <button
                     className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/40 transition-colors"
                     onClick={() => setLightboxIndex(index)}
-                    aria-label="Open image"
+                    aria-label={`Open Medical Internship Gallery Image ${index + 1}`}
                   >
                     <ZoomIn className="h-8 w-8 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
                   </button>
@@ -98,13 +125,13 @@ const GalleryPage: React.FC<GalleryPageProps> = () => {
               e.stopPropagation();
               setLightboxIndex(null);
             }}
-            aria-label="Close"
+            aria-label="Close Medical Internship Gallery Image"
           >
             <X className="h-8 w-8" />
           </button>
           <img
             src={allImages[lightboxIndex]}
-            alt={`Expanded gallery image ${lightboxIndex + 1}`}
+            alt={`Medical Internship in Nepal - Expanded Gallery Image ${lightboxIndex + 1} - Medical training and cultural experiences`}
             className="max-h-[85vh] max-w-[95vw] object-contain"
             onClick={(e) => e.stopPropagation()}
           />

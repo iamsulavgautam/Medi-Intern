@@ -127,6 +127,39 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+      {/* SEO Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: "Medical Internship Programs in Nepal - Medical Exchange Nepal",
+            description:
+              "Explore comprehensive medical internship programs in Nepal including Medical Elective, Surgery, Nursing, Paramedical, Dental, and Physiotherapy training. Gain hands-on experience in Nepal's healthcare system.",
+            url: "https://medicalexchangenepal.com/programs",
+            mainEntity: {
+              "@type": "ItemList",
+              name: "Medical Internship Programs",
+              description: "Comprehensive medical training programs in Nepal",
+              itemListElement: programs.map((program, index) => ({
+                "@type": "ListItem",
+                position: index + 1,
+                item: {
+                  "@type": "Service",
+                  name: program.title,
+                  description: program.description,
+                  provider: {
+                    "@type": "Organization",
+                    name: "Medical Exchange Nepal",
+                  },
+                },
+              })),
+            },
+          }),
+        }}
+      />
+
       {/* Animated Background Elements - matching theme */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-indigo-600/20 rounded-full blur-3xl animate-pulse"></div>
@@ -134,7 +167,10 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
       </div>
 
       {/* Hero Section */}
-      <section className="relative pt-24 pb-16 overflow-hidden">
+      <section
+        className="relative pt-24 pb-16 overflow-hidden"
+        aria-label="Medical Internship Programs in Nepal"
+      >
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-700"></div>
         <div className="absolute inset-0 bg-black/10"></div>
 

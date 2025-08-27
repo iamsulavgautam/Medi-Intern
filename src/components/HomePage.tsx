@@ -67,8 +67,9 @@ const ProgramCard = ({
     <div className="relative h-52 overflow-hidden">
       <img
         src={img}
-        alt={title}
+        alt={`${title} - Medical Internship Program in Nepal`}
         className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+        loading="lazy"
       />
       <div className="absolute top-4 left-4">
         <span className="badge badge-primary">{title}</span>
@@ -127,11 +128,16 @@ const WhyUsItem = ({
 
 const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
   const images = [
-    "https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images/top/1.JPG",
-    "https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images/top/2.JPG",
-    "https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images/top/3.JPG",
-    "https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images/top/4.JPG",
-    "https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images/top/5.JPG",
+    "/gallery/(6).jpeg",
+    "/gallery/(2).jpeg",
+    "/gallery/(4).jpeg",
+    "/gallery/(8).jpeg",
+    "/gallery/(1).jpeg",
+    "/gallery/(3).jpeg",
+    "/gallery/(5).jpeg",
+    "/gallery/(7).jpeg",
+    "/gallery/(9).jpeg",
+    "/gallery/(10).jpeg",
   ];
 
   const programs = [
@@ -195,6 +201,33 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+      {/* SEO Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Medical Exchange Nepal - Premium Medical Internships",
+            "description": "Join world-class medical internship programs in Nepal. Medical Exchange Nepal offers premium clinical rotations, medical electives, surgery internships, and paramedical training.",
+            "url": "https://medicalexchangenepal.com/",
+            "mainEntity": {
+              "@type": "Organization",
+              "name": "Medical Exchange Nepal",
+              "description": "Premium medical internship programs and clinical rotations in Nepal",
+              "url": "https://medicalexchangenepal.com",
+              "logo": "https://medicalexchangenepal.com/logo.jpg",
+              "sameAs": [
+                "https://www.facebook.com/iamsulavgautam",
+                "https://www.instagram.com/iamsulavgautam",
+                "https://www.linkedin.com/in/iamsulavgautam",
+                "https://twitter.com/iamsulavgautam"
+              ]
+            }
+          })
+        }}
+      />
+
       {/* Animated Background Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-indigo-600/20 rounded-full blur-3xl animate-pulse"></div>
@@ -203,7 +236,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
       </div>
 
       {/* HERO */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden" aria-label="Hero Section - Medical Internships in Nepal">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900/5 to-blue-900/10"></div>
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
@@ -234,6 +267,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
               <button
                 onClick={() => setCurrentPage("programs")}
                 className="group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center transform hover:-translate-y-1"
+                aria-label="Explore Medical Internship Programs in Nepal"
               >
                 <span>Explore Programs</span>
                 <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-200" />
@@ -241,6 +275,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
               <button
                 onClick={() => setCurrentPage("application")}
                 className="bg-white/80 backdrop-blur-sm text-slate-700 px-8 py-4 rounded-2xl font-semibold text-lg ring-1 ring-slate-200 hover:bg-white hover:ring-slate-300 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                aria-label="Apply for Medical Internship in Nepal"
               >
                 Apply Now
               </button>
@@ -270,7 +305,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
                     transition: { duration: 0.3 },
                   }}
                   src={images[0]}
-                  alt="Medical Internship 1"
+                  alt="Medical Internship Program in Nepal - Clinical Training"
                   className="rounded-3xl h-52 md:h-60 w-full object-cover shadow-2xl ring-1 ring-white/20"
                   loading="eager"
                 />
@@ -293,7 +328,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
                     transition: { duration: 0.3 },
                   }}
                   src={images[2]}
-                  alt="Medical Internship 3"
+                  alt="Medical Student Exchange Program in Nepal"
                   className="rounded-3xl h-40 md:h-48 w-full object-cover shadow-2xl ring-1 ring-white/20"
                   loading="lazy"
                 />
@@ -318,7 +353,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
                     transition: { duration: 0.3 },
                   }}
                   src={images[1]}
-                  alt="Medical Internship 2"
+                  alt="Healthcare Internship in Nepal - Medical Training"
                   className="rounded-3xl h-40 md:h-48 w-full object-cover shadow-2xl ring-1 ring-white/20"
                   loading="lazy"
                 />
@@ -341,7 +376,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
                     transition: { duration: 0.3 },
                   }}
                   src={images[3]}
-                  alt="Medical Internship 4"
+                  alt="Medical Elective Program in Nepal - Clinical Experience"
                   className="rounded-3xl h-52 md:h-60 w-full object-cover shadow-2xl ring-1 ring-white/20"
                   loading="lazy"
                 />
@@ -354,17 +389,17 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
                 <div className="flex -space-x-2">
                   <img
                     src="https://images.pexels.com/photos/5452201/pexels-photo-5452201.jpeg?auto=compress&cs=tinysrgb&w=60"
-                    alt="Student 1"
+                    alt="Medical Student from Medical Exchange Nepal Program"
                     className="w-8 h-8 rounded-full object-cover border-2 border-white"
                   />
                   <img
                     src="https://images.pexels.com/photos/5452268/pexels-photo-5452268.jpeg?auto=compress&cs=tinysrgb&w=60"
-                    alt="Student 2"
+                    alt="Healthcare Intern from Nepal Medical Program"
                     className="w-8 h-8 rounded-full object-cover border-2 border-white"
                   />
                   <img
                     src="https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg?auto=compress&cs=tinysrgb&w=60"
-                    alt="Student 3"
+                    alt="Medical Elective Student in Nepal"
                     className="w-8 h-8 rounded-full object-cover border-2 border-white"
                   />
                 </div>
@@ -378,6 +413,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
               <button
                 onClick={() => setCurrentPage("application")}
                 className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-semibold px-4 py-2 rounded-xl hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg"
+                aria-label="Join Medical Internship Program in Nepal"
               >
                 Join Them Today
               </button>
@@ -395,7 +431,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
       </section>
 
       {/* TRUST / PARTNERS */}
-      <section className="bg-white py-8">
+      <section className="bg-white py-8" aria-label="Partner Hospitals and Medical Institutions">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-6">
             <p className="text-sm text-gray-500 mb-4">
@@ -452,7 +488,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
       </section>
 
       {/* STATS */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white" aria-label="Medical Internship Statistics">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
           <StatCard
             icon={Heart}
@@ -482,7 +518,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
       </section>
 
       {/* PROGRAMS */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50" aria-label="Medical Internship Programs in Nepal">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -516,6 +552,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
             <button
               onClick={() => setCurrentPage("programs")}
               className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              aria-label="View All Medical Internship Programs in Nepal"
             >
               <span>See All Programs</span>
               <ArrowRight className="ml-2 h-5 w-5" />
@@ -525,7 +562,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white" aria-label="How Medical Internship Application Process Works">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -583,6 +620,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
             <button
               onClick={() => setCurrentPage("application")}
               className="btn-primary px-8 py-3 text-sm"
+              aria-label="Start Medical Internship Application in Nepal"
             >
               Start Application
             </button>
@@ -591,7 +629,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
       </section>
 
       {/* WHY US */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white" aria-label="Why Choose Medical Exchange Nepal">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
@@ -630,7 +668,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
       </section>
 
       {/* TESTIMONIALS TEASER */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50" aria-label="Medical Internship Testimonials from Students">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between mb-10">
             <h2 className="text-3xl font-bold text-gray-900">
@@ -639,6 +677,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
             <button
               onClick={() => setCurrentPage("testimonials")}
               className="btn-ghost text-teal-700"
+              aria-label="Read All Medical Internship Testimonials from Nepal"
             >
               Read All →
             </button>
@@ -685,7 +724,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-700 text-white text-center">
+      <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-700 text-white text-center" aria-label="Apply for Medical Internship in Nepal">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-4xl font-bold mb-6">
             Ready to Start Your Journey?
@@ -697,6 +736,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
           <button
             onClick={() => setCurrentPage("application")}
             className="bg-white text-emerald-600 px-8 py-4 rounded-lg font-semibold text-lg shadow hover:bg-gray-100 flex items-center justify-center mx-auto"
+            aria-label="Apply Now for Medical Internship Program in Nepal"
           >
             Apply Now <ArrowRight className="ml-2 h-5 w-5" />
           </button>
@@ -754,10 +794,8 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
                 className="overflow-hidden rounded-lg"
               >
                 <img
-                  src={`https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images/top/${
-                    (i % 5) + 1
-                  }.JPG`}
-                  alt={`Teaser ${i + 1}`}
+                  src={`/gallery/(${i + 1}).jpeg`}
+                  alt={`Gallery Image ${i + 1}`}
                   className="h-32 md:h-40 w-full object-cover"
                   loading="lazy"
                 />

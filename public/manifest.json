@@ -1,0 +1,44 @@
+{
+  "name": "Medical Exchange Nepal - Premium Medical Internships",
+  "short_name": "Medical Exchange Nepal",
+  "description": "Join world-class medical internship programs in Nepal. Medical Exchange Nepal offers premium clinical rotations, medical electives, surgery internships, and paramedical training.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["education", "medical", "healthcare"],
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "developer": {
+    "name": "Sulav Gautam",
+    "url": "https://www.sulavgautam.info.np/"
+  }
+}

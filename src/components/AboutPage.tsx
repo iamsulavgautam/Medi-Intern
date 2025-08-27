@@ -43,6 +43,56 @@ const AboutPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+      {/* SEO Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            "name": "About Medical Exchange Nepal - Medical Internship Programs",
+            "description": "Learn about Medical Exchange Nepal, our mission, vision, and the team behind our premium medical internship programs in Nepal. Founded by Dr. Rohit Rawat, Pratik Gautam, Uddhav Kathayat, and Sulav Gautam.",
+            "url": "https://medicalexchangenepal.com/about",
+            "mainEntity": {
+              "@type": "Organization",
+              "name": "Medical Exchange Nepal",
+              "description": "Premium medical internship programs and clinical rotations in Nepal",
+              "foundingDate": "2024",
+              "founder": [
+                {
+                  "@type": "Person",
+                  "name": "Dr. Rohit Rawat",
+                  "jobTitle": "Chairman",
+                  "worksFor": "Medical Exchange Nepal",
+                  "image": "https://medicalexchangenepal.com/rohit.jpeg"
+                },
+                {
+                  "@type": "Person",
+                  "name": "Pratik Gautam",
+                  "jobTitle": "Software Engineer",
+                  "worksFor": "Medical Exchange Nepal",
+                  "image": "https://medicalexchangenepal.com/pratik.jpg"
+                },
+                {
+                  "@type": "Person",
+                  "name": "Uddhav Kathayat",
+                  "jobTitle": "Public Health Advocate",
+                  "worksFor": "Medical Exchange Nepal",
+                  "image": "https://medicalexchangenepal.com/Uddav.jpg"
+                },
+                {
+                  "@type": "Person",
+                  "name": "Sulav Gautam",
+                  "jobTitle": "Digital Product Architect",
+                  "worksFor": "Medical Exchange Nepal",
+                  "image": "https://medicalexchangenepal.com/sullo.jpg"
+                }
+              ]
+            }
+          })
+        }}
+      />
+
       {/* Animated Background Elements - matching theme */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-indigo-600/20 rounded-full blur-3xl animate-pulse"></div>
@@ -50,7 +100,7 @@ const AboutPage = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="relative pt-24 pb-16 overflow-hidden">
+      <section className="relative pt-24 pb-16 overflow-hidden" aria-label="About Medical Exchange Nepal">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-700"></div>
         <div className="absolute inset-0 bg-black/10"></div>
 
@@ -77,7 +127,7 @@ const AboutPage = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="relative py-16">
+      <section className="relative py-16" aria-label="Mission and Vision of Medical Exchange Nepal">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
