@@ -21,7 +21,7 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
         "Orthodontic treatments",
         "Preventive dentistry",
         "Patient consultation skills",
-        "English-Speaking Environment"
+        "English-Speaking Host"
       ]
     },
     {
@@ -38,7 +38,7 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
         "Sports injury treatment",
         "Therapeutic exercise programs",
         "Manual therapy techniques",
-        "English-Speaking Environment"
+        "English-Speaking Host"
       ]
     },
     {
@@ -55,7 +55,7 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
         "Clinical decision making",
         "Medical research opportunities",
         "Case presentations",
-        "English-Speaking Environment"
+        "English-Speaking Host"
       ]
     },
     {
@@ -72,7 +72,7 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
         "Newborn care procedures",
         "Family planning counseling",
         "Emergency obstetric care",
-        "English-Speaking Environment"
+        "English-Speaking Host"
       ]
     },
     {
@@ -89,7 +89,7 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
         "Surgical techniques observation",
         "Emergency procedures",
         "Surgical instrument handling",
-        "English-Speaking Environment"
+        "English-Speaking Host"
       ]
     },
     {
@@ -106,7 +106,7 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
         "Patient care assistance",
         "Medical technology training",
         "Healthcare support services",
-        "English-Speaking Environment"
+        "English-Speaking Host"
       ]
     }
   ];
