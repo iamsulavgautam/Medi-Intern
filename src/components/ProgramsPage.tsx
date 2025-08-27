@@ -20,7 +20,8 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
         "Oral surgery observations",
         "Orthodontic treatments",
         "Preventive dentistry",
-        "Patient consultation skills"
+        "Patient consultation skills",
+        "English-Speaking Environment"
       ]
     },
     {
@@ -36,7 +37,8 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
         "Neurological physiotherapy",
         "Sports injury treatment",
         "Therapeutic exercise programs",
-        "Manual therapy techniques"
+        "Manual therapy techniques",
+        "English-Speaking Environment"
       ]
     },
     {
@@ -52,7 +54,8 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
         "Direct patient care",
         "Clinical decision making",
         "Medical research opportunities",
-        "Case presentations"
+        "Case presentations",
+        "English-Speaking Environment"
       ]
     },
     {
@@ -68,7 +71,8 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
         "Prenatal and postnatal care",
         "Newborn care procedures",
         "Family planning counseling",
-        "Emergency obstetric care"
+        "Emergency obstetric care",
+        "English-Speaking Environment"
       ]
     },
     {
@@ -84,7 +88,8 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
         "Pre and post-operative care",
         "Surgical techniques observation",
         "Emergency procedures",
-        "Surgical instrument handling"
+        "Surgical instrument handling",
+        "English-Speaking Environment"
       ]
     },
     {
@@ -100,7 +105,8 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
         "Diagnostic procedures",
         "Patient care assistance",
         "Medical technology training",
-        "Healthcare support services"
+        "Healthcare support services",
+        "English-Speaking Environment"
       ]
     }
   ];

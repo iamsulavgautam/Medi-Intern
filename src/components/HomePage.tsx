@@ -417,7 +417,8 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
                 "Oral surgery observations",
                 "Orthodontic treatments",
                 "Preventive dentistry",
-                "Patient consultation skills"
+                "Patient consultation skills",
+                "English-Speaking Environment"
               ]}
               onClick={() => setCurrentPage("program-dental-electives")}
             />
@@ -430,7 +431,8 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
                 "Neurological physiotherapy",
                 "Sports injury treatment",
                 "Therapeutic exercise programs",
-                "Manual therapy techniques"
+                "Manual therapy techniques",
+                "English-Speaking Environment"
               ]}
               onClick={() => setCurrentPage("program-physiotherapy-internship")}
             />
@@ -443,7 +445,8 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
                 "Direct patient care",
                 "Clinical decision making",
                 "Medical research opportunities",
-                "Case presentations"
+                "Case presentations",
+                "English-Speaking Environment"
               ]}
               onClick={() => setCurrentPage("program-medical-elective")}
             />
