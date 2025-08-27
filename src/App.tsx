@@ -101,19 +101,19 @@ function App() {
       {/* Navigation */}
       <nav className="bg-white/95 backdrop-blur-sm sticky top-0 z-50 border-b border-secondary-100 shadow-soft">
         <div className="container-custom">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <div
-              className="flex items-center space-x-2 cursor-pointer group"
+              className="flex items-center space-x-3 cursor-pointer group"
               onClick={() => setCurrentPage("home")}
             >
               <img 
                 src="/logo.jpg" 
-                alt="Medical Internship Nepal" 
-                className="h-8 w-8 rounded-full object-cover group-hover:scale-110 transition-transform duration-200" 
+                alt="Medical Exchange Nepal" 
+                className="h-12 w-12 rounded-full object-cover group-hover:scale-110 transition-transform duration-200" 
               />
-              <span className="text-xl font-display font-bold tracking-tight text-secondary-900">
-                Medical Internship Nepal
+              <span className="text-xl font-display hover:text-blue-500 font-bold tracking-tight text-secondary-900">
+                Medical Exchange Nepal
               </span>
             </div>
 
