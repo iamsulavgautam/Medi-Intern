@@ -113,11 +113,11 @@ const WhyUsItem = ({
 
 const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
   const images = [
-    "https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images/top/1.JPG",
-    "https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images/top/2.JPG",
-    "https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images/top/3.JPG",
-    "https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images/top/4.JPG",
-    "https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images/top/5.JPG",
+    "/gallery/(1).JPG",
+    "/gallery/(2).JPG",
+    "/gallery/(3).JPG",
+    "/gallery/(4).JPG",
+    "/gallery/(5).JPG",
   ];
 
   // Collage layout does not require carousel controls
@@ -356,7 +356,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
             />
             <ProgramCard
               title="Community Health"
-              img="https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images/community-health/1.jpeg"
+              img="/gallery/(6).JPG"
               desc="Experience healthcare delivery in rural Nepal communities."
               bullets={[
                 "Rural health camps",
@@ -583,17 +583,24 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
             </button>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[...Array(8)].map((_, i) => (
+            {[
+              "/gallery/(1).JPG",
+              "/gallery/(2).JPG", 
+              "/gallery/(3).JPG",
+              "/gallery/(4).JPG",
+              "/gallery/(5).JPG",
+              "/gallery/(6).JPG",
+              "/gallery/(7).JPG",
+              "/gallery/(8).JPG"
+            ].map((src, i) => (
               <motion.div
                 key={i}
                 whileHover={{ scale: 1.05 }}
                 className="overflow-hidden rounded-lg"
               >
                 <img
-                  src={`https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images/top/${
-                    (i % 5) + 1
-                  }.JPG`}
-                  alt={`Teaser ${i + 1}`}
+                  src={src}
+                  alt={`Gallery ${i + 1}`}
                   className="h-32 md:h-40 w-full object-cover"
                   loading="lazy"
                 />

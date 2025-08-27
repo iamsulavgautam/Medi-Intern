@@ -8,20 +8,19 @@ interface GalleryPageProps {
 const GalleryPage: React.FC<GalleryPageProps> = () => {
   const allImages = useMemo(
     () => {
-      const baseUrl = "https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images";
-      
-      // Top hero images (1-5)
-      const topImages = Array.from({ length: 5 }, (_, i) => 
-        `${baseUrl}/top/${i + 1}.JPG`
-      );
-      
-      
-      // Gallery images (1-60)
-      const galleryImages = Array.from({ length: 60 }, (_, i) => 
-        `${baseUrl}/gallary/${i + 1}.JPG`
-      );
-      
-      return [...topImages, ...galleryImages];
+      // Local gallery images (1-10)
+      return [
+        "/gallery/(1).JPG",
+        "/gallery/(2).jpeg",
+        "/gallery/(2).JPG", 
+        "/gallery/(3).JPG",
+        "/gallery/(4).JPG",
+        "/gallery/(5).JPG",
+        "/gallery/(6).JPG",
+        "/gallery/(7).JPG",
+        "/gallery/(8).JPG",
+        "/gallery/(9).jpeg"
+      ];
     },
     []
   );
