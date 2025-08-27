@@ -136,7 +136,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
 
   const programs = [
     {
-      id: "Medical Elective",
+      id: "medical-elective",
       title: "Medical Elective",
       duration: "4-20 weeks",
       capacity: "8-12 interns",
@@ -155,7 +155,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
       ],
     },
     {
-      id: "Midwifery Elective",
+      id: "midwifery-elective",
       title: "Nursing Internships",
       duration: "4-12 weeks",
       capacity: "4-8 interns",
@@ -173,7 +173,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
       ],
     },
     {
-      id: "Surgery",
+      id: "surgery",
       title: "Surgery",
       duration: "4-16 weeks",
       capacity: "6-10 interns",
