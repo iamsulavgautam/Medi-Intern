@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Menu, X, Stethoscope } from "lucide-react";
 import HomePage from "./components/HomePage";
 import GalleryPage from "./components/GalleryPage";
@@ -23,6 +23,11 @@ function App() {
   const [adminToken, setAdminToken] = useState("");
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Scroll to top when page changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage]);
 
   const adminId = isAdminLoggedIn ? "admin-dashboard" : "admin-login";
   const adminLoginLabel = isAdminLoggedIn ? "Admin Dashboard" : "Admin Login";
