@@ -96,7 +96,11 @@ function App() {
               className="flex items-center space-x-2 cursor-pointer group"
               onClick={() => setCurrentPage("home")}
             >
-              <Stethoscope className="h-8 w-8 text-primary-600 group-hover:scale-110 transition-transform duration-200" />
+              <img 
+                src="/logo.jpg" 
+                alt="Medical Internship Nepal" 
+                className="h-8 w-8 rounded-full object-cover group-hover:scale-110 transition-transform duration-200" 
+              />
               <span className="text-xl font-display font-bold tracking-tight text-secondary-900">
                 Medical Internship Nepal
               </span>
@@ -215,7 +219,11 @@ function App() {
             {/* Brand + About */}
             <div className="md:col-span-2">
               <div className="flex items-center gap-2 mb-4">
-                <Stethoscope className="h-8 w-8 text-primary-400" />
+                <img 
+                  src="/logo.jpg" 
+                  alt="Medical Internship Nepal" 
+                  className="h-8 w-8 rounded-full object-cover" 
+                />
                 <span className="text-xl font-display font-bold text-white">
                   Medical Internship Nepal
                 </span>
