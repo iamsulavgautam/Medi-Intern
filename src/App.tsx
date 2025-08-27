@@ -140,16 +140,6 @@ function App() {
               >
                 Apply Now
               </button>
-              <button
-                onClick={() => setCurrentPage(adminId)}
-                className={`btn-ghost ml-2 whitespace-nowrap ${
-                  currentPage === adminId
-                    ? "text-primary-600 bg-primary-50"
-                    : ""
-                }`}
-              >
-                {adminLoginLabel}
-              </button>
             </div>
 
             {/* Mobile menu button */}
@@ -199,20 +189,6 @@ function App() {
                   className="block w-full text-left px-3 py-2 text-base font-medium rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors duration-200 mt-2 whitespace-nowrap"
                 >
                   Apply Now
-                </button>
-                {/* Admin Login button for mobile */}
-                <button
-                  onClick={() => {
-                    setCurrentPage(adminId);
-                    setMobileMenuOpen(false);
-                  }}
-                  className={`block w-full text-left px-3 py-2 text-base font-medium rounded-lg transition-colors duration-200 mt-1 whitespace-nowrap ${
-                    currentPage === adminId
-                      ? "text-primary-700 bg-primary-50"
-                      : "text-secondary-700 hover:text-primary-700 hover:bg-secondary-50"
-                  }`}
-                >
-                  {adminLoginLabel}
                 </button>
               </div>
             </div>
