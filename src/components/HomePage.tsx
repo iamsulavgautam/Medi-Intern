@@ -189,30 +189,98 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
           <div className="relative">
             <div className="grid grid-cols-2 gap-6">
               <div className="space-y-6">
-                <img
+                <motion.img
+                  initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                  animate={{ 
+                    opacity: 1, 
+                    y: 0, 
+                    scale: 1,
+                  }}
+                  transition={{ 
+                    duration: 0.8, 
+                    delay: 0.2,
+                    type: "spring",
+                    stiffness: 100 
+                  }}
+                  whileHover={{ 
+                    scale: 1.05, 
+                    y: -10,
+                    transition: { duration: 0.3 }
+                  }}
                   src={images[0]}
                   alt="Medical Internship 1"
-                  className="rounded-3xl h-52 md:h-60 w-full object-cover shadow-2xl ring-1 ring-white/20 transform hover:scale-105 transition-transform duration-500"
+                  className="rounded-3xl h-52 md:h-60 w-full object-cover shadow-2xl ring-1 ring-white/20"
                   loading="eager"
                 />
-                <img
+                <motion.img
+                  initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                  animate={{ 
+                    opacity: 1, 
+                    y: 0, 
+                    scale: 1,
+                  }}
+                  transition={{ 
+                    duration: 0.8, 
+                    delay: 0.6,
+                    type: "spring",
+                    stiffness: 100 
+                  }}
+                  whileHover={{ 
+                    scale: 1.05, 
+                    y: -10,
+                    transition: { duration: 0.3 }
+                  }}
                   src={images[2]}
                   alt="Medical Internship 3"
-                  className="rounded-3xl h-40 md:h-48 w-full object-cover shadow-2xl ring-1 ring-white/20 transform hover:scale-105 transition-transform duration-500"
+                  className="rounded-3xl h-40 md:h-48 w-full object-cover shadow-2xl ring-1 ring-white/20"
                   loading="lazy"
                 />
               </div>
               <div className="space-y-6 mt-8">
-                <img
+                <motion.img
+                  initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                  animate={{ 
+                    opacity: 1, 
+                    y: 0, 
+                    scale: 1,
+                  }}
+                  transition={{ 
+                    duration: 0.8, 
+                    delay: 0.4,
+                    type: "spring",
+                    stiffness: 100 
+                  }}
+                  whileHover={{ 
+                    scale: 1.05, 
+                    y: -10,
+                    transition: { duration: 0.3 }
+                  }}
                   src={images[1]}
                   alt="Medical Internship 2"
-                  className="rounded-3xl h-40 md:h-48 w-full object-cover shadow-2xl ring-1 ring-white/20 transform hover:scale-105 transition-transform duration-500"
+                  className="rounded-3xl h-40 md:h-48 w-full object-cover shadow-2xl ring-1 ring-white/20"
                   loading="lazy"
                 />
-                <img
+                <motion.img
+                  initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                  animate={{ 
+                    opacity: 1, 
+                    y: 0, 
+                    scale: 1,
+                  }}
+                  transition={{ 
+                    duration: 0.8, 
+                    delay: 0.8,
+                    type: "spring",
+                    stiffness: 100 
+                  }}
+                  whileHover={{ 
+                    scale: 1.05, 
+                    y: -10,
+                    transition: { duration: 0.3 }
+                  }}
                   src={images[3]}
                   alt="Medical Internship 4"
-                  className="rounded-3xl h-52 md:h-60 w-full object-cover shadow-2xl ring-1 ring-white/20 transform hover:scale-105 transition-transform duration-500"
+                  className="rounded-3xl h-52 md:h-60 w-full object-cover shadow-2xl ring-1 ring-white/20"
                   loading="lazy"
                 />
               </div>
