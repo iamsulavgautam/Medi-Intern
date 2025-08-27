@@ -45,12 +45,18 @@ const ProgramCard = ({
   img,
   desc,
   bullets,
+  duration,
+  capacity,
+  location,
   onClick,
 }: {
   title: string;
   img: string;
   desc: string;
   bullets: string[];
+  duration: string;
+  capacity: string;
+  location: string;
   onClick?: () => void;
 }) => (
   <motion.div
@@ -81,6 +87,11 @@ const ProgramCard = ({
           </li>
         ))}
       </ul>
+      <div className="flex items-center justify-between text-sm text-secondary-500 mb-4">
+        <span>{duration}</span>
+        <span>{capacity}</span>
+        <span>{location}</span>
+      </div>
       <div className="mt-4 pt-4 border-t border-secondary-100">
         <button className="text-primary-600 font-medium flex items-center hover:text-primary-700 transition-colors">
           Learn more <ArrowUpRight className="ml-1 h-4 w-4" />
@@ -123,6 +134,57 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
     "https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images/top/5.JPG",
   ];
 
+  const programs = [
+    {
+      id: "medical",
+      title: "Medical Elective",
+      image:
+        "https://images.pexels.com/photos/3376790/pexels-photo-3376790.jpeg?auto=compress&cs=tinysrgb&w=800",
+      description:
+        "Comprehensive medical rotations in internal medicine, pediatrics, and emergency care.",
+      highlights: [
+        "Hands-on patient care",
+        "Supervised by specialists",
+        "Emergency room experience",
+      ],
+      duration: "4-8 weeks",
+      capacity: "15 students",
+      location: "Kathmandu",
+    },
+    {
+      id: "surgery",
+      title: "Surgery Internship",
+      image:
+        "https://images.pexels.com/photos/3376790/pexels-photo-3376790.jpeg?auto=compress&cs=tinysrgb&w=800",
+      description:
+        "Observe and assist in various surgical procedures under expert supervision.",
+      highlights: [
+        "Operating room access",
+        "Surgical techniques",
+        "Post-op care",
+      ],
+      duration: "4-6 weeks",
+      capacity: "10 students",
+      location: "Kathmandu",
+    },
+    {
+      id: "community",
+      title: "Community Health",
+      image:
+        "https://images.pexels.com/photos/3376790/pexels-photo-3376790.jpeg?auto=compress&cs=tinysrgb&w=800",
+      description:
+        "Public health initiatives and rural healthcare outreach programs.",
+      highlights: [
+        "Public health projects",
+        "Rural clinics",
+        "Health education",
+      ],
+      duration: "3-6 weeks",
+      capacity: "12 students",
+      location: "Nepal",
+    },
+  ];
+
   // Collage layout does not require carousel controls
 
   return (
@@ -146,18 +208,12 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
               </span>
             </div>
             <h1 className="text-6xl md:text-7xl font-black leading-tight">
-              <span style={{ color: '#324055' }}>
-                Premium{' '}
-              </span>
-              <span className="text-blue-600">
-                Clinical
-              </span>
+              <span style={{ color: "#324055" }}>Premium </span>
+              <span className="text-blue-600">Clinical</span>
               <br />
-              <span className="text-blue-600">
-                Internships
-              </span>
+              <span className="text-blue-600">Internships</span>
               <br />
-              <span style={{ color: '#324055' }}>in Nepal</span>
+              <span style={{ color: "#324055" }}>in Nepal</span>
             </h1>
             <p className="text-xl text-slate-600 max-w-2xl font-light leading-relaxed">
               Supervised rotations across Internal Medicine, Surgery & Community
@@ -191,21 +247,21 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
               <div className="space-y-6">
                 <motion.img
                   initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                  animate={{ 
-                    opacity: 1, 
-                    y: 0, 
+                  animate={{
+                    opacity: 1,
+                    y: 0,
                     scale: 1,
                   }}
-                  transition={{ 
-                    duration: 0.8, 
+                  transition={{
+                    duration: 0.8,
                     delay: 0.2,
                     type: "spring",
-                    stiffness: 100 
+                    stiffness: 100,
                   }}
-                  whileHover={{ 
-                    scale: 1.05, 
+                  whileHover={{
+                    scale: 1.05,
                     y: -10,
-                    transition: { duration: 0.3 }
+                    transition: { duration: 0.3 },
                   }}
                   src={images[0]}
                   alt="Medical Internship 1"
@@ -214,21 +270,21 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
                 />
                 <motion.img
                   initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                  animate={{ 
-                    opacity: 1, 
-                    y: 0, 
+                  animate={{
+                    opacity: 1,
+                    y: 0,
                     scale: 1,
                   }}
-                  transition={{ 
-                    duration: 0.8, 
+                  transition={{
+                    duration: 0.8,
                     delay: 0.6,
                     type: "spring",
-                    stiffness: 100 
+                    stiffness: 100,
                   }}
-                  whileHover={{ 
-                    scale: 1.05, 
+                  whileHover={{
+                    scale: 1.05,
                     y: -10,
-                    transition: { duration: 0.3 }
+                    transition: { duration: 0.3 },
                   }}
                   src={images[2]}
                   alt="Medical Internship 3"
@@ -239,21 +295,21 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
               <div className="space-y-6 mt-8">
                 <motion.img
                   initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                  animate={{ 
-                    opacity: 1, 
-                    y: 0, 
+                  animate={{
+                    opacity: 1,
+                    y: 0,
                     scale: 1,
                   }}
-                  transition={{ 
-                    duration: 0.8, 
+                  transition={{
+                    duration: 0.8,
                     delay: 0.4,
                     type: "spring",
-                    stiffness: 100 
+                    stiffness: 100,
                   }}
-                  whileHover={{ 
-                    scale: 1.05, 
+                  whileHover={{
+                    scale: 1.05,
                     y: -10,
-                    transition: { duration: 0.3 }
+                    transition: { duration: 0.3 },
                   }}
                   src={images[1]}
                   alt="Medical Internship 2"
@@ -262,21 +318,21 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
                 />
                 <motion.img
                   initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                  animate={{ 
-                    opacity: 1, 
-                    y: 0, 
+                  animate={{
+                    opacity: 1,
+                    y: 0,
                     scale: 1,
                   }}
-                  transition={{ 
-                    duration: 0.8, 
+                  transition={{
+                    duration: 0.8,
                     delay: 0.8,
                     type: "spring",
-                    stiffness: 100 
+                    stiffness: 100,
                   }}
-                  whileHover={{ 
-                    scale: 1.05, 
+                  whileHover={{
+                    scale: 1.05,
                     y: -10,
-                    transition: { duration: 0.3 }
+                    transition: { duration: 0.3 },
                   }}
                   src={images[3]}
                   alt="Medical Internship 4"
@@ -341,25 +397,49 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
             </p>
           </div>
           <div className="overflow-hidden">
-            <div 
+            <div
               className="flex whitespace-nowrap"
               style={{
-                animation: 'marquee 25s linear infinite'
+                animation: "marquee 25s linear infinite",
               }}
             >
-              <span className="mx-8 text-sm text-gray-400">Kathmandu Medical College</span>
-              <span className="mx-8 text-sm text-gray-400">Nobel Medical College</span>
-              <span className="mx-8 text-sm text-gray-400">Institute of Medicine Teaching Hospital</span>
-              <span className="mx-8 text-sm text-gray-400">Patan Academy of Health Sciences</span>
-              <span className="mx-8 text-sm text-gray-400">Manipal Medical College</span>
-              <span className="mx-8 text-sm text-gray-400">Nepaljung Medical College</span>
+              <span className="mx-8 text-sm text-gray-400">
+                Kathmandu Medical College
+              </span>
+              <span className="mx-8 text-sm text-gray-400">
+                Nobel Medical College
+              </span>
+              <span className="mx-8 text-sm text-gray-400">
+                Institute of Medicine Teaching Hospital
+              </span>
+              <span className="mx-8 text-sm text-gray-400">
+                Patan Academy of Health Sciences
+              </span>
+              <span className="mx-8 text-sm text-gray-400">
+                Manipal Medical College
+              </span>
+              <span className="mx-8 text-sm text-gray-400">
+                Nepaljung Medical College
+              </span>
               {/* Duplicate for seamless loop */}
-              <span className="mx-8 text-sm text-gray-400">Kathmandu Medical College</span>
-              <span className="mx-8 text-sm text-gray-400">Nobel Medical College</span>
-              <span className="mx-8 text-sm text-gray-400">Institute of Medicine Teaching Hospital</span>
-              <span className="mx-8 text-sm text-gray-400">Patan Academy of Health Sciences</span>
-              <span className="mx-8 text-sm text-gray-400">Manipal Medical College</span>
-              <span className="mx-8 text-sm text-gray-400">Nepaljung Medical College</span>
+              <span className="mx-8 text-sm text-gray-400">
+                Kathmandu Medical College
+              </span>
+              <span className="mx-8 text-sm text-gray-400">
+                Nobel Medical College
+              </span>
+              <span className="mx-8 text-sm text-gray-400">
+                Institute of Medicine Teaching Hospital
+              </span>
+              <span className="mx-8 text-sm text-gray-400">
+                Patan Academy of Health Sciences
+              </span>
+              <span className="mx-8 text-sm text-gray-400">
+                Manipal Medical College
+              </span>
+              <span className="mx-8 text-sm text-gray-400">
+                Nepaljung Medical College
+              </span>
             </div>
           </div>
         </div>
@@ -407,50 +487,25 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
               hands-on experience in Nepal's healthcare system.
             </p>
           </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <ProgramCard
-              title="Dental Electives"
-              img="https://raw.githubusercontent.com/coder-backend/Medical-Internship/refs/heads/main/assets/images/dental.png"
-              desc="Comprehensive dental training program offering hands-on experience in various dental specialties including oral surgery, orthodontics, and general dentistry."
-              bullets={[
-                "Clinical dental procedures",
-                "Oral surgery observations",
-                "Orthodontic treatments",
-                "Preventive dentistry",
-                "Patient consultation skills",
-                "English-Speaking Host"
-              ]}
-              onClick={() => setCurrentPage("program-dental-electives")}
-            />
-            <ProgramCard
-              title="Physiotherapy Internship"
-              img="https://raw.githubusercontent.com/coder-backend/Medical-Internship/refs/heads/main/assets/images/physio.png"
-              desc="Specialized physiotherapy training focusing on rehabilitation techniques, therapeutic exercises, and patient care in various clinical settings."
-              bullets={[
-                "Musculoskeletal rehabilitation",
-                "Neurological physiotherapy",
-                "Sports injury treatment",
-                "Therapeutic exercise programs",
-                "Manual therapy techniques",
-                "English-Speaking Host"
-              ]}
-              onClick={() => setCurrentPage("program-physiotherapy-internship")}
-            />
-            <ProgramCard
-              title="Medical Elective"
-              img="https://raw.githubusercontent.com/coder-backend/Medical-Internship/refs/heads/main/assets/images/medical_electives.png"
-              desc="Comprehensive medical elective program covering multiple specialties including internal medicine, surgery, pediatrics, and emergency medicine."
-              bullets={[
-                "Multi-specialty rotations",
-                "Direct patient care",
-                "Clinical decision making",
-                "Medical research opportunities",
-                "Case presentations",
-                "English-Speaking Host"
-              ]}
-              onClick={() => setCurrentPage("program-medical-elective")}
-            />
+            {programs.map((program) => (
+              <ProgramCard
+                key={program.id}
+                title={program.title}
+                img={program.image}
+                desc={program.description}
+                bullets={program.highlights}
+                duration={program.duration}
+                capacity={program.capacity}
+                location={program.location}
+                onClick={() =>
+                  setCurrentPage(`program-${program.id.toLowerCase()}`)
+                }
+              />
+            ))}
           </div>
+
           <div className="text-center mt-12">
             <button
               onClick={() => setCurrentPage("programs")}
@@ -585,7 +640,11 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <motion.blockquote whileHover={{ y: -3 }} className="card p-6">
               <p className="text-gray-800">
-                "We had an incredible time during our medical exchange in Nepal. The hospital was among the best we've ever trained in-supportive staff, great learning opportunities, and diverse cases. Our hosts were kind, welcoming, and made us feel like part of the family."
+                "We had an incredible time during our medical exchange in Nepal.
+                The hospital was among the best we've ever trained in-supportive
+                staff, great learning opportunities, and diverse cases. Our
+                hosts were kind, welcoming, and made us feel like part of the
+                family."
               </p>
               <footer className="mt-4 text-sm text-gray-500">
                 — Lucie and Tereza, Czech Republic
@@ -593,15 +652,23 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
             </motion.blockquote>
             <motion.blockquote whileHover={{ y: -3 }} className="card p-6">
               <p className="text-gray-800">
-                "Our exchange in Nepal was an unforgettable blend of learning and adventure. Beyond the valuable hospital experience, we trekked through breathtaking hills and visited sacred sites like Pashupatinath Temple, which gave us a deeper appreciation for Nepal's spiritual richness."
+                "Our exchange in Nepal was an unforgettable blend of learning
+                and adventure. Beyond the valuable hospital experience, we
+                trekked through breathtaking hills and visited sacred sites like
+                Pashupatinath Temple, which gave us a deeper appreciation for
+                Nepal's spiritual richness."
               </p>
               <footer className="mt-4 text-sm text-gray-500">
-                — Eva, Helen, and Helen, Czech Republic, Switzerland, and Germany
+                — Eva, Helen, and Helen, Czech Republic, Switzerland, and
+                Germany
               </footer>
             </motion.blockquote>
             <motion.blockquote whileHover={{ y: -3 }} className="card p-6">
               <p className="text-gray-800">
-                "Our time in Nepal was truly special. From watching the sunrise in Nagarkot to experiencing the serenity of Pashupatinath, every moment was meaningful. We even joined in on paddy farming-a unique, joyful experience we'll never forget."
+                "Our time in Nepal was truly special. From watching the sunrise
+                in Nagarkot to experiencing the serenity of Pashupatinath, every
+                moment was meaningful. We even joined in on paddy farming-a
+                unique, joyful experience we'll never forget."
               </p>
               <footer className="mt-4 text-sm text-gray-500">
                 — Terezia and Timea, Slovakia
