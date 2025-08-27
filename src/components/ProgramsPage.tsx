@@ -32,8 +32,7 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
       duration: "4-12 weeks",
       capacity: "4-8 interns",
       location: "Maternity Hospitals",
-      image:
-        "https://plus.unsplash.com/premium_photo-1661698586549-00580fb09a6b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "nurse.png",
       description:
         "Specialized nursing program focusing on maternal and newborn care, labor and delivery, and women's reproductive health.",
       highlights: [
@@ -51,8 +50,7 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
       duration: "4-16 weeks",
       capacity: "6-10 interns",
       location: "Operating Theaters & Surgical Wards",
-      image:
-        "https://images.pexels.com/photos/7659564/pexels-photo-7659564.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "surgery.jpeg",
       description:
         "Comprehensive surgical training program offering exposure to various surgical specialties and operative procedures.",
       highlights: [
