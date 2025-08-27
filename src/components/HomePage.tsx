@@ -451,6 +451,15 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
               onClick={() => setCurrentPage("program-medical-elective")}
             />
           </div>
+          <div className="text-center mt-12">
+            <button
+              onClick={() => setCurrentPage("programs")}
+              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            >
+              <span>See All Programs</span>
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </button>
+          </div>
         </div>
       </section>
 
