@@ -6,24 +6,21 @@ interface GalleryPageProps {
 }
 
 const GalleryPage: React.FC<GalleryPageProps> = () => {
-  const allImages = useMemo(
-    () => {
-      // Local gallery images (1-10)
-      return [
-        "/gallery/(1).JPG",
-        "/gallery/(2).jpeg",
-        "/gallery/(2).JPG", 
-        "/gallery/(3).JPG",
-        "/gallery/(4).JPG",
-        "/gallery/(5).JPG",
-        "/gallery/(6).JPG",
-        "/gallery/(7).JPG",
-        "/gallery/(8).JPG",
-        "/gallery/(9).jpeg"
-      ];
-    },
-    []
-  );
+  const allImages = useMemo(() => {
+    // Local gallery images (1-10)
+    return [
+      "/gallery/(1).jpeg",
+      "/gallery/(2).jpeg",
+      "/gallery/(2).jpeg",
+      "/gallery/(3).jpeg",
+      "/gallery/(4).JPG",
+      "/gallery/(5).jpeg",
+      "/gallery/(6).jpeg",
+      "/gallery/(7).jpg",
+      "/gallery/(8).JPG",
+      "/gallery/(9).jpeg",
+    ];
+  }, []);
 
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
@@ -39,11 +36,11 @@ const GalleryPage: React.FC<GalleryPageProps> = () => {
       <section className="relative pt-24 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-700"></div>
         <div className="absolute inset-0 bg-black/10"></div>
-        
+
         {/* Animated background elements */}
         <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-xl animate-pulse"></div>
         <div className="absolute bottom-10 right-10 w-40 h-40 bg-white/10 rounded-full blur-xl animate-pulse delay-1000"></div>
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="flex items-center justify-center space-x-3 mb-6">
