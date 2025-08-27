@@ -146,15 +146,18 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
               </span>
             </div>
             <h1 className="text-6xl md:text-7xl font-black leading-tight">
-              <span className="bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 bg-clip-text text-transparent">
-                Premium Clinical
+              <span style={{ color: '#324055' }}>
+                Premium{' '}
+              </span>
+              <span className="text-blue-600">
+                Clinical
               </span>
               <br />
-              <span className="bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">
+              <span className="text-blue-600">
                 Internships
               </span>
               <br />
-              <span className="text-slate-700">in Nepal</span>
+              <span style={{ color: '#324055' }}>in Nepal</span>
             </h1>
             <p className="text-xl text-slate-600 max-w-2xl font-light leading-relaxed">
               Supervised rotations across Internal Medicine, Surgery & Community
