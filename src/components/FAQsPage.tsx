@@ -86,8 +86,19 @@ const FAQsPage = () => {
       ]
     },
     {
-      category: "Costs & Payments",
-      questions: [
+  category: "Costs & Payments",
+  questions: [
+    {
+      question: "Where does our fee go?",
+      answer: `Your fees help support the following initiatives:
+- Schools for mentally and physically disabled children and young adults
+- Women’s empowerment programs
+- Educational support for schools
+- Child sponsorships
+- Aid for earthquake victims
+- Aid for flood victims
+- Operating health clinics`
+    },
         {
           question: "What are the typical program costs?",
           answer: "Program fees range from $800-2500 depending on duration and specialty. This includes hospital placement, supervision, and support services. Accommodation and living expenses are additional."
