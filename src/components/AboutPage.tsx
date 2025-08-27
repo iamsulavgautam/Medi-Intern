@@ -1,7 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { MapPin, Users, Award, Heart } from "lucide-react";
 
 const AboutPage = () => {
+  const [selectedPerson, setSelectedPerson] = useState("chairman");
+
+  const people = {
+    chairman: {
+      name: "Dr. Rohit Rawat",
+      title: "Co-Founder",
+      image: "rohit.jpeg",
+      message: "As a doctor and the co-founder of Medical Exchange Nepal, our vision has always been to make medical exchange programs more affordable, easing the financial burden for students compared to many other options. We also make it a priority to pair each incoming elective student with a local medical student, so they gain first-hand insight into Nepal's healthcare environment, culture, and day-to-day realities. Being from the same field, we understand their needs and create experiences that are relevant and enriching, complementing the great work of organizations from all backgrounds."
+    },
+    coordinator: {
+      name: "Pratik Gautam", 
+      title: "Software Engineer & Co-Founder",
+      image: "pratik.jpg",
+      message: "Technology plays a crucial role in modernizing medical education and making our programs accessible to students worldwide. Our platform ensures seamless communication, efficient program management, and enhanced learning experiences. We believe in bridging the gap between traditional medical education and innovative digital solutions, creating opportunities for students to excel in their medical careers while experiencing the rich culture and healthcare system of Nepal."
+    }
+  };
+
+  const currentPerson = people[selectedPerson];
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
       {/* Animated Background Elements - matching theme */}
@@ -43,35 +62,58 @@ const AboutPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-                Message from Chairman
+                Message from {currentPerson.title === "Co-Founder" ? "Chairman" : "Team"}
               </h2>
 
               {/* Quote Section */}
               <div className="bg-gray-50 rounded-xl p-6 border-l-4 border-blue-500 shadow-lg">
                 <blockquote className="text-gray-600 italic text-lg leading-relaxed">
-                  "As a doctor and the co-founder of Medical Exchange Nepal, our
-                  vision has always been to make medical exchange programs more
-                  affordable, easing the financial burden for students compared
-                  to many other options. We also make it a priority to pair each
-                  incoming elective student with a local medical student, so
-                  they gain first-hand insight into Nepal’s healthcare
-                  environment, culture, and day-to-day realities. Being from the
-                  same field, we understand their needs and create experiences
-                  that are relevant and enriching, complementing the great work
-                  of organizations from all backgrounds."
+                  "{currentPerson.message}"
                 </blockquote>
                 <div className="mt-4 text-right">
                   <cite className="text-blue-600 font-semibold not-italic">
-                    — Dr. Rohit Rawat
+                    — {currentPerson.name}
                   </cite>
-                  <p className="text-gray-500 text-sm">Co-Founder</p>
+                  <p className="text-gray-500 text-sm">{currentPerson.title}</p>
                 </div>
+              </div>
+
+              {/* Profile Picture Selector */}
+              <div className="flex gap-4 mt-8 justify-center lg:justify-start">
+                <button
+                  onClick={() => setSelectedPerson("chairman")}
+                  className={`relative w-16 h-16 rounded-full overflow-hidden ring-4 transition-all duration-300 transform hover:scale-105 ${
+                    selectedPerson === "chairman" 
+                      ? "ring-blue-500 shadow-lg" 
+                      : "ring-gray-300 hover:ring-blue-300"
+                  }`}
+                >
+                  <img
+                    src="rohit.jpeg"
+                    alt="Dr. Rohit Rawat"
+                    className="w-full h-full object-cover"
+                  />
+                </button>
+                <button
+                  onClick={() => setSelectedPerson("coordinator")}
+                  className={`relative w-16 h-16 rounded-full overflow-hidden ring-4 transition-all duration-300 transform hover:scale-105 ${
+                    selectedPerson === "coordinator" 
+                      ? "ring-blue-500 shadow-lg" 
+                      : "ring-gray-300 hover:ring-blue-300"
+                  }`}
+                >
+                  <img
+                    src="pratik.jpg"
+                    alt="Pratik Gautam"
+                    className="w-full h-full object-cover"
+                  />
+                </button>
               </div>
             </div>
             <div>
               <img
-                src="rohit.jpeg"
-                alt="Dr. Rohit Rawat"
+                src={currentPerson.image}
+                alt={currentPerson.name}
                 className="rounded-2xl shadow-2xl ring-1 ring-white/20 transform hover:scale-105 transition-transform duration-500"
               />
             </div>
@@ -209,23 +251,6 @@ const AboutPage = () => {
                 medical education and hospital administration.
               </p>
             </div>
-            {/* <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
-              <img
-                src="Aron.jpg"
-                alt="Dr. Sarah Johnson"
-                className="w-32 h-32 rounded-full mx-auto mb-4 object-cover ring-4 ring-blue-100"
-              />
-              <h3 className="text-xl font-semibold text-slate-900 mb-2">
-                Dr. Aron Shrestha
-              </h3>
-              <p className="text-blue-600 mb-3 font-medium">
-                Program Coordinator
-              </p>
-              <p className="text-slate-600 text-sm">
-                MD, MPH. Specialist in international medical education with
-                experience in 15+ countries.
-              </p>
-            </div> */}
             <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
               <img
                 src="pratik.jpg"
@@ -236,7 +261,7 @@ const AboutPage = () => {
                 Pratik Gautam
               </h3>
               <p className="text-blue-600 mb-3 font-medium">
-                Software Engineer
+                Software Engineer & Co-Founder
               </p>
               <p className="text-slate-600 text-sm">
                 Software Engineer with 10+ years of experience. Expert in app
