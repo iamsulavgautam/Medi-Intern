@@ -409,37 +409,43 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <ProgramCard
-              title="Internal Medicine"
-              img="https://images.pexels.com/photos/8439093/pexels-photo-8439093.jpeg?auto=compress&cs=tinysrgb&w=800"
-              desc="Comprehensive training in internal medicine with Nepal's top physicians."
+              title="Dental Electives"
+              img="https://raw.githubusercontent.com/coder-backend/Medical-Internship/refs/heads/main/assets/images/dental.png"
+              desc="Comprehensive dental training program offering hands-on experience in various dental specialties including oral surgery, orthodontics, and general dentistry."
               bullets={[
-                "4-week program",
-                "Direct patient interaction",
-                "Ward rounds",
-                "Case presentations",
+                "Clinical dental procedures",
+                "Oral surgery observations",
+                "Orthodontic treatments",
+                "Preventive dentistry",
+                "Patient consultation skills"
               ]}
+              onClick={() => setCurrentPage("program-dental-electives")}
             />
             <ProgramCard
-              title="Surgery"
-              img="https://images.pexels.com/photos/7659564/pexels-photo-7659564.jpeg?auto=compress&cs=tinysrgb&w=800"
-              desc="Observe and assist in surgical procedures under skilled surgeons."
+              title="Physiotherapy Internship"
+              img="https://raw.githubusercontent.com/coder-backend/Medical-Internship/refs/heads/main/assets/images/physio.png"
+              desc="Specialized physiotherapy training focusing on rehabilitation techniques, therapeutic exercises, and patient care in various clinical settings."
               bullets={[
-                "Operating room experience",
-                "Pre/post-op care",
-                "Surgical techniques",
-                "Emergency procedures",
+                "Musculoskeletal rehabilitation",
+                "Neurological physiotherapy",
+                "Sports injury treatment",
+                "Therapeutic exercise programs",
+                "Manual therapy techniques"
               ]}
+              onClick={() => setCurrentPage("program-physiotherapy-internship")}
             />
             <ProgramCard
-              title="Community Health"
-              img="https://raw.githubusercontent.com/pratikgtam/medical_images/refs/heads/main/images/community-health/1.jpeg"
-              desc="Experience healthcare delivery in rural Nepal communities."
+              title="Medical Elective"
+              img="https://raw.githubusercontent.com/coder-backend/Medical-Internship/refs/heads/main/assets/images/medical_electives.png"
+              desc="Comprehensive medical elective program covering multiple specialties including internal medicine, surgery, pediatrics, and emergency medicine."
               bullets={[
-                "Rural health camps",
-                "Preventive medicine",
-                "Health education",
-                "Cultural immersion",
+                "Multi-specialty rotations",
+                "Direct patient care",
+                "Clinical decision making",
+                "Medical research opportunities",
+                "Case presentations"
               ]}
+              onClick={() => setCurrentPage("program-medical-elective")}
             />
           </div>
         </div>
