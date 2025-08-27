@@ -23,7 +23,7 @@ const AboutPage = () => {
     {
       name: "HA",
       title: "Public Health Advocate",
-      image: "person.jpg",
+      image: "Uddav.jpg",
       role: "publichealth",
       message:
         "With over three years of experience in Nepal's rural health systems, I've witnessed firsthand the challenges and opportunities in community healthcare. Our medical exchange programs not only provide students with clinical experience but also expose them to the realities of public health in resource-limited settings. Through community health initiatives and rural rotations, students gain valuable insights into preventive medicine and community empowerment, preparing them to be well-rounded healthcare professionals who understand healthcare beyond hospital walls.",
@@ -137,7 +137,7 @@ const AboutPage = () => {
                   }`}
                 >
                   <img
-                    src="person.jpg"
+                    src="Uddav.jpg"
                     alt="HA"
                     className="w-full h-full object-cover"
                   />
@@ -318,7 +318,7 @@ const AboutPage = () => {
             </div>
             <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
               <img
-                src="person.jpg"
+                src="Uddav.jpg"
                 alt="HA"
                 className="w-32 h-32 rounded-full mx-auto mb-4 object-cover ring-4 ring-blue-100"
               />
