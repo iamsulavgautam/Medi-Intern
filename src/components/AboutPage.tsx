@@ -21,7 +21,7 @@ const AboutPage = () => {
         "Technology plays a crucial role in modernizing medical education and making our programs accessible to students worldwide. Our platform ensures seamless communication, efficient program management, and enhanced learning experiences. We believe in bridging the gap between traditional medical education and innovative digital solutions, creating opportunities for students to excel in their medical careers while experiencing the rich culture and healthcare system of Nepal.",
     },
     {
-      name: "HA",
+      name: "Uddhav Kathayat",
       title: "Public Health Advocate",
       image: "Uddav.jpg",
       role: "publichealth",
@@ -138,7 +138,7 @@ const AboutPage = () => {
                 >
                   <img
                     src="Uddav.jpg"
-                    alt="HA"
+                    alt="Uddhav Kathayat"
                     className="w-full h-full object-cover"
                   />
                 </button>
@@ -319,10 +319,10 @@ const AboutPage = () => {
             <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
               <img
                 src="Uddav.jpg"
-                alt="HA"
+                alt="Uddhav Kathayat"
                 className="w-32 h-32 rounded-full mx-auto mb-4 object-cover ring-4 ring-blue-100"
               />
-              <h3 className="text-xl font-semibold text-slate-900 mb-2">HA</h3>
+              <h3 className="text-xl font-semibold text-slate-900 mb-2">Uddhav Kathayat</h3>
               <p className="text-blue-600 mb-3 font-medium">
                 Public Health Advocate
               </p>
