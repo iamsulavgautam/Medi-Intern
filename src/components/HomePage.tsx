@@ -177,7 +177,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
       duration: "4-16 weeks",
       capacity: "6-10 interns",
       location: "Operating Theaters & Surgical Wards",
-      image: "surgery.jpeg",
+      image: "surgery.png",
       description:
         "Comprehensive surgical training program offering exposure to various surgical specialties and operative procedures.",
       highlights: [

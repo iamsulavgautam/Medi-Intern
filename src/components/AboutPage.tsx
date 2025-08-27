@@ -10,11 +10,11 @@ const AboutPage = () => {
       image: "rohit.jpeg",
       role: "chairman",
       message:
-        "As a doctor and the co-founder of Medical Exchange Nepal, our vision has always been to make medical exchange programs more affordable, easing the financial burden for students compared to many other options. We also make it a priority to pair each incoming elective student with a local medical student, so they gain first-hand insight into Nepal's healthcare environment, culture, and day-to-day realities. Being from the same field, we understand their needs and create experiences that are relevant and enriching, complementing the great work of organizations from all backgrounds.",
+        "As a doctor and the chairman of Medical Exchange Nepal, our vision has always been to make medical exchange programs more affordable, easing the financial burden for students compared to many other options. We also make it a priority to pair each incoming elective student with a local medical student, so they gain first-hand insight into Nepal's healthcare environment, culture, and day-to-day realities. Being from the same field, we understand their needs and create experiences that are relevant and enriching, complementing the great work of organizations from all backgrounds.",
     },
     {
       name: "Pratik Gautam",
-      title: "Software Engineer & Co-Founder",
+      title: "Software Engineer",
       image: "pratik.jpg",
       role: "coordinator",
       message:
@@ -83,7 +83,7 @@ const AboutPage = () => {
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
                 Message from{" "}
-                {currentPerson.title === "Co-Founder" ? "Chairman" : "Team"}
+                {currentPerson.title === "Chairman" ? "Chairman" : "Team"}
               </h2>
 
               {/* Quote Section */}
@@ -310,7 +310,7 @@ const AboutPage = () => {
                 Pratik Gautam
               </h3>
               <p className="text-blue-600 mb-3 font-medium">
-                Software Engineer & Co-Founder
+                Software Engineer
               </p>
               <p className="text-slate-600 text-sm">
                 Software Engineer with 10+ years of experience. Expert in app
