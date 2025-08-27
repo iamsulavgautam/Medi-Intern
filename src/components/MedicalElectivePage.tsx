@@ -5,7 +5,6 @@ import {
   Users,
   MapPin,
   CheckCircle,
-  Star,
   Heart,
   ChevronDown,
   ChevronUp,
@@ -770,39 +769,6 @@ const MedicalElectivePage: React.FC<MedicalElectivePageProps> = ({
                   </span>
                 </li>
               </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonial */}
-      <section className="py-20 bg-blue-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="flex justify-center mb-4">
-              {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  className="h-6 w-6 text-yellow-400 fill-current"
-                />
-              ))}
-            </div>
-            <blockquote className="text-xl italic text-gray-700 mb-6">
-              "The medical elective program was the highlight of my medical
-              education. The diversity of cases, the mentorship from local
-              physicians, and the cultural immersion created an unparalleled
-              learning experience that has shaped my approach to medicine."
-            </blockquote>
-            <div className="flex items-center justify-center space-x-4">
-              <img
-                src="https://images.pexels.com/photos/6749777/pexels-photo-6749777.jpeg?auto=compress&cs=tinysrgb&w=100"
-                alt="Student testimonial"
-                className="w-12 h-12 rounded-full object-cover"
-              />
-              <div className="text-left">
-                <p className="font-semibold text-gray-900">Emma Rodriguez</p>
-                <p className="text-sm text-gray-600">Harvard Medical School</p>
-              </div>
             </div>
           </div>
         </div>
