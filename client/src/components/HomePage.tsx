@@ -332,6 +332,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* First Row */}
             <ProgramCard
               title="Internal Medicine"
               img="https://images.pexels.com/photos/8439093/pexels-photo-8439093.jpeg?auto=compress&cs=tinysrgb&w=800"
@@ -364,6 +365,43 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
                 "Health education",
                 "Cultural immersion",
               ]}
+            />
+            
+            {/* Second Row */}
+            <ProgramCard
+              title="Paramedical"
+              img="https://images.pexels.com/photos/6129507/pexels-photo-6129507.jpeg?auto=compress&cs=tinysrgb&w=800"
+              desc="Hands-on training in diagnostic and therapeutic medical support services."
+              bullets={[
+                "Laboratory techniques",
+                "Diagnostic procedures",
+                "Patient care assistance",
+                "Medical technology training",
+              ]}
+            />
+            <ProgramCard
+              title="Dental Electives"
+              img="/assets/images/dental.png"
+              desc="Comprehensive dental training program with clinical exposure."
+              bullets={[
+                "Clinical rotations",
+                "Oral health assessment",
+                "Preventive dentistry",
+                "Community outreach",
+              ]}
+              onClick={() => setCurrentPage("dental-elective")}
+            />
+            <ProgramCard
+              title="Physiotherapy"
+              img="/assets/images/physio.png"
+              desc="Develop rehabilitation skills through practical physiotherapy training."
+              bullets={[
+                "Rehabilitation techniques",
+                "Physical assessment",
+                "Exercise therapy",
+                "Patient recovery support",
+              ]}
+              onClick={() => setCurrentPage("physiotherapy-internship")}
             />
           </div>
         </div>

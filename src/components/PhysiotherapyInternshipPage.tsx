@@ -53,11 +53,11 @@ const PhysiotherapyInternshipPage: React.FC<
   return (
     <div className="py-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-emerald-600 to-teal-700 text-white py-20">
+      <section className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <button
             onClick={() => setCurrentPage("programs")}
-            className="flex items-center space-x-2 text-emerald-100 hover:text-white mb-6 transition-colors"
+            className="flex items-center space-x-2 text-blue-100 hover:text-white mb-6 transition-colors"
           >
             <ArrowLeft className="h-5 w-5" />
             <span>Back to Programs</span>
@@ -639,12 +639,12 @@ const PhysiotherapyInternshipPage: React.FC<
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-emerald-600 to-teal-700 text-white">
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">
             Ready to Start Your Physiotherapy Journey?
           </h2>
-          <p className="text-xl mb-8 text-emerald-100">
+          <p className="text-xl mb-8 text-blue-100">
             Join our comprehensive physiotherapy program and develop your
             clinical skills in Nepal.
           </p>

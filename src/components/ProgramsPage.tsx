@@ -57,18 +57,50 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
     },
     {
       id: 'midwifery-elective',
-      title: "Midwifery Elective",
+      title: "Nursing Internships",
       duration: "4-12 weeks",
       capacity: "4-8 interns",
       location: "Maternity Hospitals",
       image: "https://raw.githubusercontent.com/coder-backend/Medical-Internship/refs/heads/main/assets/images/mid_wifery.png",
-      description: "Specialized midwifery program focusing on maternal and newborn care, labor and delivery, and women's reproductive health.",
+      description: "Specialized nursing program focusing on maternal and newborn care, labor and delivery, and women's reproductive health.",
       highlights: [
         "Labor and delivery assistance",
         "Prenatal and postnatal care",
         "Newborn care procedures",
         "Family planning counseling",
         "Emergency obstetric care"
+      ]
+    },
+    {
+      id: 'surgery',
+      title: "Surgery",
+      duration: "4-16 weeks",
+      capacity: "6-10 interns",
+      location: "Operating Theaters & Surgical Wards",
+      image: "https://images.pexels.com/photos/7659564/pexels-photo-7659564.jpeg?auto=compress&cs=tinysrgb&w=800",
+      description: "Comprehensive surgical training program offering exposure to various surgical specialties and operative procedures.",
+      highlights: [
+        "Operating room experience",
+        "Pre and post-operative care",
+        "Surgical techniques observation",
+        "Emergency procedures",
+        "Surgical instrument handling"
+      ]
+    },
+    {
+      id: 'paramedical',
+      title: "Paramedical",
+      duration: "3-12 weeks",
+      capacity: "8-12 interns",
+      location: "Labs & Diagnostic Centers",
+      image: "https://images.pexels.com/photos/6129507/pexels-photo-6129507.jpeg?auto=compress&cs=tinysrgb&w=800",
+      description: "Hands-on training in diagnostic and therapeutic medical support services across various healthcare departments.",
+      highlights: [
+        "Laboratory techniques",
+        "Diagnostic procedures",
+        "Patient care assistance",
+        "Medical technology training",
+        "Healthcare support services"
       ]
     }
   ];
@@ -109,7 +141,7 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
       {/* Programs Grid */}
       <section className="relative py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {programs.map((program, index) => (
               <div key={index} className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border border-white/20 transform hover:-translate-y-1">
                 <img 

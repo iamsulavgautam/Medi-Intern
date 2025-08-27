@@ -8,6 +8,8 @@ import DentalElectivePage from "./components/DentalElectivePage";
 import PhysiotherapyInternshipPage from "./components/PhysiotherapyInternshipPage";
 import MedicalElectivePage from "./components/MedicalElectivePage";
 import MidwiferyElectivePage from "./components/MidwiferyElectivePage";
+import SurgeryPage from "./components/SurgeryPage";
+import ParamedicalPage from "./components/ParamedicalPage";
 import AccommodationPage from "./components/AccommodationPage";
 import FAQsPage from "./components/FAQsPage";
 import TestimonialsPage from "./components/TestimonialsPage";
@@ -54,6 +56,10 @@ function App() {
         return <MedicalElectivePage setCurrentPage={setCurrentPage} />;
       case "program-midwifery-elective":
         return <MidwiferyElectivePage setCurrentPage={setCurrentPage} />;
+      case "program-surgery":
+        return <SurgeryPage setCurrentPage={setCurrentPage} />;
+      case "program-paramedical":
+        return <ParamedicalPage setCurrentPage={setCurrentPage} />;
       case "accommodation":
         return <AccommodationPage />;
       case "faqs":

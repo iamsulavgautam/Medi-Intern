@@ -26,7 +26,7 @@ const MidwiferyElectivePage: React.FC<MidwiferyElectivePageProps> = ({
   return (
     <div className="py-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-pink-600 to-rose-700 text-white py-20">
+      <section className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <button
             onClick={() => setCurrentPage("programs")}
@@ -37,24 +37,24 @@ const MidwiferyElectivePage: React.FC<MidwiferyElectivePageProps> = ({
           </button>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-5xl font-bold mb-6">Midwifery Elective</h1>
+              <h1 className="text-5xl font-bold mb-6">Nursing Internships</h1>
               <p className="text-xl text-pink-100 mb-8">
-                Specialized midwifery program focusing on maternal and newborn
-                care, labor and delivery, and women's reproductive health in
-                Nepal's leading maternity hospitals and birthing centers.
+                Internship Nepal offers nursing internships for students to envision their 
+                professional and academic goals. Students will be working in some of the 
+                most prominent hospitals in Kathmandu with best possible internship placements.
               </p>
               <div className="flex flex-wrap gap-4 text-sm">
                 <div className="flex items-center space-x-2 bg-pink-500 bg-opacity-30 px-3 py-1 rounded-full">
                   <Clock className="h-4 w-4" />
-                  <span>4-12 weeks</span>
+                  <span>2-16 weeks</span>
                 </div>
                 <div className="flex items-center space-x-2 bg-pink-500 bg-opacity-30 px-3 py-1 rounded-full">
                   <Users className="h-4 w-4" />
-                  <span>4-8 interns</span>
+                  <span>Round the year</span>
                 </div>
                 <div className="flex items-center space-x-2 bg-pink-500 bg-opacity-30 px-3 py-1 rounded-full">
                   <MapPin className="h-4 w-4" />
-                  <span>Maternity Hospitals</span>
+                  <span>Teaching Hospitals</span>
                 </div>
               </div>
             </div>
@@ -78,26 +78,40 @@ const MidwiferyElectivePage: React.FC<MidwiferyElectivePageProps> = ({
                 Program Overview
               </h2>
               <div className="prose prose-lg text-gray-600 space-y-6">
+                <div className="bg-pink-50 p-4 rounded-lg">
+                  <h4 className="text-lg font-semibold text-pink-900 mb-2">Who can apply?</h4>
+                  <p className="text-pink-800">Students of Nursing, Midwifery and related health subjects are eligible to apply.</p>
+                </div>
+
+                <h4 className="text-xl font-semibold text-gray-900 mt-8 mb-4">Activities Involved</h4>
+                <ul className="space-y-2">
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-1" />Observation and analysis of the overall Nepalese healthcare system</li>
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-1" />Opportunity to learn from an environment where the birth rate is generally high primarily because of insufficient maternal care</li>
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-1" />Observation of postnatal, antenatal, and delivery processes alongside specialists</li>
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-1" />Work in labour wards theatre under the supervision of various faculties</li>
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-1" />Making a difference in deprived communities through hands-on clinical experience in an authentic setting</li>
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-1" />A massive prospect of learning about International Midwifery, especially in the Asian countries</li>
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-1" />Learning from trained doctors, nurses, and midwives about Nepal's practices and cultural health approach</li>
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-1" />Consult with supervisors on medical cases and observations</li>
+                </ul>
+
+                <h4 className="text-xl font-semibold text-gray-900 mt-8 mb-4">Reasons for Choosing Nepal</h4>
                 <p>
-                  Our Midwifery Elective program provides comprehensive training
-                  in maternal and newborn care, offering students hands-on
-                  experience in all aspects of midwifery practice. Students work
-                  alongside experienced midwives and obstetricians in Nepal's
-                  premier maternity hospitals and community birthing centers.
+                  Working in a significant country where the birth rate is high subsequently implies that the 
+                  mortality rate also has high limits. As a student, you will be placed in the toughest of 
+                  scenarios, mentally, to ensure that the grit in you stays without being shaken.
                 </p>
+                
                 <p>
-                  The program covers the full spectrum of midwifery care, from
-                  prenatal consultations and labor support to delivery
-                  assistance and postpartum care. Students gain experience in
-                  both normal and high-risk pregnancies, emergency obstetric
-                  care, and newborn resuscitation.
+                  Nepal still has a traditional healthcare system in most places, with Kathmandu not being 
+                  an exception. You'll be joining an internship program that offers made-to-measure elective 
+                  tailoring services in Nepal, one of the most beautiful countries in Asia.
                 </p>
+
                 <p>
-                  Nepal's diverse healthcare settings provide unique learning
-                  opportunities in both hospital-based and community midwifery
-                  models, including exposure to traditional birthing practices
-                  and modern obstetric interventions, preparing students for
-                  global midwifery practice.
+                  Nepal's culture, people, lifestyle, society and festivals are vivid, unique and interesting. 
+                  Not only can students be a part of it, but they can also experience the holistic approach 
+                  to treatments.
                 </p>
               </div>
             </div>
@@ -579,13 +593,13 @@ const MidwiferyElectivePage: React.FC<MidwiferyElectivePageProps> = ({
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-pink-600 to-rose-700 text-white">
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">
-            Ready to Start Your Midwifery Journey?
+            Ready to Start Your Nursing Journey?
           </h2>
-          <p className="text-xl mb-8 text-pink-100">
-            Join our specialized midwifery program and make a difference in
+          <p className="text-xl mb-8 text-blue-100">
+            Join our specialized nursing program and make a difference in
             maternal and newborn care.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

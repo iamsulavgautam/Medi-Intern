@@ -26,7 +26,7 @@ const MedicalElectivePage: React.FC<MedicalElectivePageProps> = ({
   return (
     <div className="py-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20">
+      <section className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <button
             onClick={() => setCurrentPage("programs")}
@@ -37,20 +37,20 @@ const MedicalElectivePage: React.FC<MedicalElectivePageProps> = ({
           </button>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-5xl font-bold mb-6">Medical Elective</h1>
+              <h1 className="text-5xl font-bold mb-6">Medical Electives</h1>
               <p className="text-xl text-blue-100 mb-8">
-                Comprehensive medical elective program covering multiple
-                specialties including internal medicine, surgery, pediatrics,
-                and emergency medicine in Nepal's premier teaching hospitals.
+                Internship Nepal offers substantial medical elective opportunities for medical students. 
+                The primary objective is to help students envision the approach to the working environment 
+                and workflow Nepal has, in contrast to Western countries.
               </p>
               <div className="flex flex-wrap gap-4 text-sm">
                 <div className="flex items-center space-x-2 bg-blue-500 bg-opacity-30 px-3 py-1 rounded-full">
                   <Clock className="h-4 w-4" />
-                  <span>4-20 weeks</span>
+                  <span>2-16 weeks</span>
                 </div>
                 <div className="flex items-center space-x-2 bg-blue-500 bg-opacity-30 px-3 py-1 rounded-full">
                   <Users className="h-4 w-4" />
-                  <span>8-12 interns</span>
+                  <span>Round the year</span>
                 </div>
                 <div className="flex items-center space-x-2 bg-blue-500 bg-opacity-30 px-3 py-1 rounded-full">
                   <MapPin className="h-4 w-4" />
@@ -78,27 +78,67 @@ const MedicalElectivePage: React.FC<MedicalElectivePageProps> = ({
                 Program Overview
               </h2>
               <div className="prose prose-lg text-gray-600 space-y-6">
+                <div className="bg-blue-50 p-4 rounded-lg">
+                  <h4 className="text-lg font-semibold text-blue-900 mb-2">Who can apply?</h4>
+                  <p className="text-blue-800">Students, including doctors of Medicine and all the related fields, are eligible to apply.</p>
+                </div>
+
+                <h4 className="text-xl font-semibold text-gray-900 mt-8 mb-4">Activities Involved</h4>
+                <ul className="space-y-2">
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-1" />Observation and analysis of the overall Nepalese healthcare system</li>
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-1" />Various lectures and events during the program</li>
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-1" />One visit to a rural leprosarium clinic with extraordinary exposure to learning of the rare cases</li>
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-1" />Daily supervision and guidance from the supervisor and colleagues</li>
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-1" />Learning from trained doctors, nurses, and midwives about Nepal's practices and cultural health approach</li>
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-1" />Consult with supervisors on medical cases and observations</li>
+                </ul>
+
                 <p>
-                  Our Medical Elective program offers the most comprehensive
-                  clinical experience available to international medical
-                  students in Nepal. This flagship program provides rotations
-                  across multiple medical specialties, allowing students to gain
-                  broad exposure to various aspects of healthcare delivery.
+                  This medical experience in Nepal prepares students for more challenging cases as they progress 
+                  in their career-shaping campaigns. The program places students in some of the most prominent 
+                  hospitals in Kathmandu.
                 </p>
+
                 <p>
-                  Students work directly with patients under the supervision of
-                  experienced physicians, participate in ward rounds, attend
-                  clinical conferences, and engage in medical research projects.
-                  The program is designed to enhance clinical reasoning,
-                  diagnostic skills, and patient management capabilities.
+                  Students participating will be engaged in working with, assisting and learning from local 
+                  doctors and other health professionals. Depending on the desired field of interest, students 
+                  will be assisting in surgeries as a part of the medical team and involved in diagnosing and 
+                  determining the optimal course of care for both in and out-patients.
                 </p>
-                <p>
-                  Nepal's diverse patient population and unique disease patterns
-                  provide exceptional learning opportunities, including exposure
-                  to tropical diseases, high-altitude medicine, and
-                  resource-limited healthcare settings that prepare students for
-                  global medical practice.
-                </p>
+
+                <h4 className="text-xl font-semibold text-gray-900 mt-8 mb-4">Available Specialties (26 Total)</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
+                  <div className="space-y-1">
+                    <div className="flex items-center"><CheckCircle className="h-3 w-3 text-blue-500 mr-2" />1. Internal Medicine</div>
+                    <div className="flex items-center"><CheckCircle className="h-3 w-3 text-blue-500 mr-2" />2. General Surgery</div>
+                    <div className="flex items-center"><CheckCircle className="h-3 w-3 text-blue-500 mr-2" />3. Orthopedics</div>
+                    <div className="flex items-center"><CheckCircle className="h-3 w-3 text-blue-500 mr-2" />4. Gynae/Obst.</div>
+                    <div className="flex items-center"><CheckCircle className="h-3 w-3 text-blue-500 mr-2" />5. Ophthalmology</div>
+                    <div className="flex items-center"><CheckCircle className="h-3 w-3 text-blue-500 mr-2" />6. ENT</div>
+                    <div className="flex items-center"><CheckCircle className="h-3 w-3 text-blue-500 mr-2" />7. Dermatology</div>
+                    <div className="flex items-center"><CheckCircle className="h-3 w-3 text-blue-500 mr-2" />8. Psychiatry & Mental Health</div>
+                    <div className="flex items-center"><CheckCircle className="h-3 w-3 text-blue-500 mr-2" />9. Clinical Pharmacology</div>
+                    <div className="flex items-center"><CheckCircle className="h-3 w-3 text-blue-500 mr-2" />10. Dental Surgery</div>
+                    <div className="flex items-center"><CheckCircle className="h-3 w-3 text-blue-500 mr-2" />11. Anesthesiology</div>
+                    <div className="flex items-center"><CheckCircle className="h-3 w-3 text-blue-500 mr-2" />12. Radiology</div>
+                    <div className="flex items-center"><CheckCircle className="h-3 w-3 text-blue-500 mr-2" />13. Forensic Medicine</div>
+                  </div>
+                  <div className="space-y-1">
+                    <div className="flex items-center"><CheckCircle className="h-3 w-3 text-blue-500 mr-2" />14. Pathology</div>
+                    <div className="flex items-center"><CheckCircle className="h-3 w-3 text-blue-500 mr-2" />15. Biochemistry</div>
+                    <div className="flex items-center"><CheckCircle className="h-3 w-3 text-blue-500 mr-2" />16. Microbiology</div>
+                    <div className="flex items-center"><CheckCircle className="h-3 w-3 text-blue-500 mr-2" />17. Emergency Medicine & General Practice</div>
+                    <div className="flex items-center"><CheckCircle className="h-3 w-3 text-blue-500 mr-2" />18. Pediatrics</div>
+                    <div className="flex items-center"><CheckCircle className="h-3 w-3 text-blue-500 mr-2" />19. Cardiology</div>
+                    <div className="flex items-center"><CheckCircle className="h-3 w-3 text-blue-500 mr-2" />20. Cardio-Thoracic Vascular Surgery</div>
+                    <div className="flex items-center"><CheckCircle className="h-3 w-3 text-blue-500 mr-2" />21. Pharmacy</div>
+                    <div className="flex items-center"><CheckCircle className="h-3 w-3 text-blue-500 mr-2" />22. Community Medicine & Public Health</div>
+                    <div className="flex items-center"><CheckCircle className="h-3 w-3 text-blue-500 mr-2" />23. Neurology</div>
+                    <div className="flex items-center"><CheckCircle className="h-3 w-3 text-blue-500 mr-2" />24. Gastroenterology</div>
+                    <div className="flex items-center"><CheckCircle className="h-3 w-3 text-blue-500 mr-2" />25. Physiology</div>
+                    <div className="flex items-center"><CheckCircle className="h-3 w-3 text-blue-500 mr-2" />26. Anatomy</div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -775,7 +815,7 @@ const MedicalElectivePage: React.FC<MedicalElectivePageProps> = ({
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">
             Ready to Begin Your Medical Elective?

@@ -25,7 +25,7 @@ const DentalElectivePage: React.FC<DentalElectivePageProps> = ({
   return (
     <div className="py-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-teal-600 to-blue-700 text-white py-20">
+      <section className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <button
             onClick={() => setCurrentPage("programs")}
@@ -38,15 +38,15 @@ const DentalElectivePage: React.FC<DentalElectivePageProps> = ({
             <div>
               <h1 className="text-5xl font-bold mb-6">Dental Electives</h1>
               <p className="text-xl text-teal-100 mb-8">
-                Comprehensive dental training program offering hands-on
-                experience in various dental specialties including oral surgery,
-                orthodontics, and general dentistry in Nepal's leading dental
-                hospitals.
+                The scope of Dental Science and Dentistry is flourishing in Nepal. 
+                Our program provides opportunities for dental students to gain hands-on 
+                experience in some of the most prominent hospitals in Kathmandu, tailored 
+                to individual requirements across various departments.
               </p>
               <div className="flex flex-wrap gap-4 text-sm">
                 <div className="flex items-center space-x-2 bg-teal-500 bg-opacity-30 px-3 py-1 rounded-full">
                   <Clock className="h-4 w-4" />
-                  <span>2-12 weeks</span>
+                  <span>2-20 weeks</span>
                 </div>
                 <div className="flex items-center space-x-2 bg-teal-500 bg-opacity-30 px-3 py-1 rounded-full">
                   <Users className="h-4 w-4" />
@@ -78,27 +78,63 @@ const DentalElectivePage: React.FC<DentalElectivePageProps> = ({
                 Program Overview
               </h2>
               <div className="prose prose-lg text-gray-600 space-y-6">
+                <div className="bg-blue-50 p-4 rounded-lg">
+                  <h4 className="text-lg font-semibold text-blue-900 mb-2">Who can apply?</h4>
+                  <p className="text-blue-800">Students, including doctors and nurses of Dental Science, Dentistry, Oral Health and all the related fields are eligible to apply.</p>
+                </div>
+                
                 <p>
-                  Our Dental Electives program provides international dental
-                  students with comprehensive hands-on experience in Nepal's
-                  premier dental hospitals and clinics. This program is designed
-                  to expose students to a wide range of dental conditions and
-                  treatment modalities while working alongside experienced
-                  dental professionals.
+                  The scope of Dental Science and Dentistry is flourishing in Nepal especially in the present context. 
+                  Quite noticeably, the approach to Dental Science is vastly different in developing country like Nepal 
+                  than it might be in the developed countries. That is exactly why there is a growing demand of 
+                  professionals with greater potential in these fields in the Nepalese hospitals.
                 </p>
+                
                 <p>
-                  Students will gain practical experience in general dentistry,
-                  oral surgery, orthodontics, periodontics, and pediatric
-                  dentistry. The program emphasizes both clinical skills
-                  development and cultural competency in providing dental care
-                  to diverse patient populations.
+                  This is crucial for students as they will learn to cope with tougher scenarios as they will have to 
+                  in the progression of their professional career. The program, aimed at providing opportunities for 
+                  students of Dental Science, Dentistry and Oral Hygiene students for dental electives in Nepal, 
+                  places students in some of the most prominent hospitals in Kathmandu.
                 </p>
-                <p>
-                  Nepal's unique epidemiological profile offers exposure to
-                  dental conditions that may be less common in developed
-                  countries, providing valuable learning opportunities for
-                  future dental practitioners.
-                </p>
+
+                <h4 className="text-xl font-semibold text-gray-900 mt-8 mb-4">Clinical Departments</h4>
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-2" />Oral Medicine And Radiology</li>
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-2" />Conservative And Endodontics</li>
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-2" />Oral And Maxillofacial Surgery</li>
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-2" />Prosthodontics</li>
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-2" />Periodontics</li>
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-2" />Orthodontics</li>
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-2" />Pedodontics/Pediatric Dentistry</li>
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-2" />Community Dentistry</li>
+                </ul>
+
+                <h4 className="text-xl font-semibold text-gray-900 mt-8 mb-4">Activities During Electives</h4>
+                <ul className="space-y-2">
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-1" />Cases observation in Different Departments</li>
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-1" />Interaction with doctors of host institute</li>
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-1" />Instrumentation Practical</li>
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-1" />Participation at Dental outreach Programs</li>
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-1" />Participation at community awareness program</li>
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-1" />Teaching patients about flossing, use of fluoride and other aspects of dental care</li>
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-1" />Studying removal of decay from teeth and filling cavities</li>
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-1" />Analyzing cracked/fractured teeth</li>
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-1" />Assisting to place sealants and whitening agents on teeth</li>
+                </ul>
+
+                <h4 className="text-xl font-semibold text-gray-900 mt-8 mb-4">Preventive Programs</h4>
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-blue-500 mr-2" />Oral Health Education</li>
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-blue-500 mr-2" />Dietary Consultation</li>
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-blue-500 mr-2" />Tooth Brushing Demonstration</li>
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-blue-500 mr-2" />School Tooth Brushing Program</li>
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-blue-500 mr-2" />School Fluoride Rinse Program</li>
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-blue-500 mr-2" />Survey/Research</li>
+                </ul>
+
+                <div className="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
+                  <p className="text-yellow-800"><strong>Note:</strong> In this elective in Nepal, the students' role is mostly to assist the local doctors. The hands-on work depends on how much your supervisor doctors are confident in you. Therefore, the level of hands-on work is mainly determined only during the program period.</p>
+                </div>
               </div>
             </div>
 
@@ -112,12 +148,12 @@ const DentalElectivePage: React.FC<DentalElectivePageProps> = ({
                   <span className="font-medium">2-20 weeks</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Capacity:</span>
-                  <span className="font-medium">4-8 interns</span>
+                  <span className="text-gray-600">Enrollment:</span>
+                  <span className="font-medium">Round the year</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Start Dates:</span>
-                  <span className="font-medium">Monthly</span>
+                  <span className="text-gray-600">Minimum Duration:</span>
+                  <span className="font-medium">2 weeks</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Language:</span>
