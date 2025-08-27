@@ -333,31 +333,33 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
       </section>
 
       {/* TRUST / PARTNERS */}
-      <section className="bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-10">
+      <section className="bg-white py-8">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-6">
-            <p className="text-sm uppercase tracking-wider text-gray-500">
+            <p className="text-sm text-gray-500 mb-4">
               Trusted by leading hospitals and institutions
             </p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-6 items-center opacity-80">
-            <div className="h-10 bg-gray-100 rounded flex items-center justify-center text-gray-500 text-xs">
-              Kathmandu Medical College
-            </div>
-            <div className="h-10 bg-gray-100 rounded flex items-center justify-center text-gray-500 text-xs">
-              Nobel Medical College{" "}
-            </div>
-            <div className="h-10 bg-gray-100 rounded flex items-center justify-center text-gray-500 text-xs">
-              Institute of Medicine Teaching Hospital{" "}
-            </div>
-            <div className="h-10 bg-gray-100 rounded flex items-center justify-center text-gray-500 text-xs">
-              Patan Academic of Health Science
-            </div>
-            <div className="h-10 bg-gray-100 rounded flex items-center justify-center text-gray-500 text-xs">
-              Manipal Medical College{" "}
-            </div>
-            <div className="h-10 bg-gray-100 rounded flex items-center justify-center text-gray-500 text-xs">
-              Nepaljung Medical College{" "}
+          <div className="overflow-hidden">
+            <div 
+              className="flex whitespace-nowrap"
+              style={{
+                animation: 'marquee 25s linear infinite'
+              }}
+            >
+              <span className="mx-8 text-sm text-gray-400">Kathmandu Medical College</span>
+              <span className="mx-8 text-sm text-gray-400">Nobel Medical College</span>
+              <span className="mx-8 text-sm text-gray-400">Institute of Medicine Teaching Hospital</span>
+              <span className="mx-8 text-sm text-gray-400">Patan Academy of Health Sciences</span>
+              <span className="mx-8 text-sm text-gray-400">Manipal Medical College</span>
+              <span className="mx-8 text-sm text-gray-400">Nepaljung Medical College</span>
+              {/* Duplicate for seamless loop */}
+              <span className="mx-8 text-sm text-gray-400">Kathmandu Medical College</span>
+              <span className="mx-8 text-sm text-gray-400">Nobel Medical College</span>
+              <span className="mx-8 text-sm text-gray-400">Institute of Medicine Teaching Hospital</span>
+              <span className="mx-8 text-sm text-gray-400">Patan Academy of Health Sciences</span>
+              <span className="mx-8 text-sm text-gray-400">Manipal Medical College</span>
+              <span className="mx-8 text-sm text-gray-400">Nepaljung Medical College</span>
             </div>
           </div>
         </div>
