@@ -107,10 +107,10 @@ function App() {
               className="flex items-center space-x-3 cursor-pointer group"
               onClick={() => setCurrentPage("home")}
             >
-              <img 
-                src="/logo.jpg" 
-                alt="Medical Exchange Nepal" 
-                className="h-12 w-12 rounded-full object-cover group-hover:scale-110 transition-transform duration-200" 
+              <img
+                src="/logo.jpg"
+                alt="Medical Exchange Nepal"
+                className="h-12 w-12 rounded-full object-cover group-hover:scale-110 transition-transform duration-200"
               />
               <span className="text-xl font-display hover:text-blue-500 font-bold tracking-tight text-secondary-900">
                 Medical Exchange Nepal
@@ -206,10 +206,10 @@ function App() {
             {/* Brand + About */}
             <div className="md:col-span-2">
               <div className="flex items-center gap-2 mb-4">
-                <img 
-                  src="/logo.jpg" 
-                  alt="Medical Internship Nepal" 
-                  className="h-8 w-8 rounded-full object-cover" 
+                <img
+                  src="/logo.jpg"
+                  alt="Medical Internship Nepal"
+                  className="h-8 w-8 rounded-full object-cover"
                 />
                 <span className="text-xl font-display font-bold text-white">
                   Medical Internship Nepal
@@ -259,11 +259,24 @@ function App() {
             </div>
           </div>
 
-          {/* Bottom Bar */}
-          <div className="border-t border-secondary-800 mt-8 pt-6 text-center">
-            <p className="text-sm text-secondary-500">
-              &copy; 2025 Medical Internship Nepal. All rights reserved.
-            </p>
+          <div className="border-t border-secondary-800 mt-8 pt-6">
+            <div className="flex justify-center items-center gap-2 flex-wrap">
+              <p className="text-sm text-secondary-500">
+                &copy; 2025 Medical Internship Nepal. All rights reserved.
+              </p>
+              <span className="text-sm text-secondary-500">|</span>{" "}
+              {/* optional separator */}
+              <span className="text-sm text-secondary-500">
+                Developed by
+              </span>{" "}
+              <a
+                href="https://www.sulavgautam.info.np/"
+                target="_blank"
+                className="text-secondary-400 hover:text-primary-400"
+              >
+                Sulav Gautam
+              </a>
+            </div>
           </div>
         </div>
       </footer>

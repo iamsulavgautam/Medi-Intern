@@ -6,7 +6,7 @@ const AboutPage = () => {
   const people = [
     {
       name: "Dr. Rohit Rawat",
-      title: "Co-Founder",
+      title: "Chairman",
       image: "rohit.jpeg",
       role: "chairman",
       message:
@@ -38,7 +38,8 @@ const AboutPage = () => {
     },
   ];
 
-  const currentPerson = people.find(person => person.role === selectedPerson) || people[0];
+  const currentPerson =
+    people.find((person) => person.role === selectedPerson) || people[0];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
@@ -322,7 +323,9 @@ const AboutPage = () => {
                 alt="Uddhav Kathayat"
                 className="w-32 h-32 rounded-full mx-auto mb-4 object-cover ring-4 ring-blue-100"
               />
-              <h3 className="text-xl font-semibold text-slate-900 mb-2">Uddhav Kathayat</h3>
+              <h3 className="text-xl font-semibold text-slate-900 mb-2">
+                Uddhav Kathayat
+              </h3>
               <p className="text-blue-600 mb-3 font-medium">
                 Public Health Advocate
               </p>

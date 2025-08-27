@@ -141,8 +141,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
       duration: "4-20 weeks",
       capacity: "8-12 interns",
       location: "Teaching Hospitals",
-      image:
-        "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "medicine.jpeg ",
       description:
         "Comprehensive medical elective program covering multiple specialties including internal medicine, surgery, pediatrics, and emergency medicine.",
       highlights: [

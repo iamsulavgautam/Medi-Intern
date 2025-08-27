@@ -13,8 +13,7 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
       duration: "4-20 weeks",
       capacity: "8-12 interns",
       location: "Teaching Hospitals",
-      image:
-        "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "medicine.jpeg",
       description:
         "Comprehensive medical elective program covering multiple specialties including internal medicine, surgery, pediatrics, and emergency medicine.",
       highlights: [
@@ -50,7 +49,7 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
       duration: "4-16 weeks",
       capacity: "6-10 interns",
       location: "Operating Theaters & Surgical Wards",
-      image: "surgery.jpeg",
+      image: "surgery.png",
       description:
         "Comprehensive surgical training program offering exposure to various surgical specialties and operative procedures.",
       highlights: [
@@ -68,8 +67,7 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
       duration: "3-12 weeks",
       capacity: "8-12 interns",
       location: "Labs & Diagnostic Centers",
-      image:
-        "https://images.pexels.com/photos/6129507/pexels-photo-6129507.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "paramedical.jpeg",
       description:
         "Hands-on training in diagnostic and therapeutic medical support services across various healthcare departments.",
       highlights: [
