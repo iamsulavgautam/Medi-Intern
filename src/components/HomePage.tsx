@@ -594,7 +594,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
             <div className="space-y-6">
               <WhyUsItem
                 icon={Heart}
-                title="World-Class Training"
+                title="Supportive Environment"
                 text="Learn from top professionals in modern facilities."
                 color="bg-teal-100"
               />
