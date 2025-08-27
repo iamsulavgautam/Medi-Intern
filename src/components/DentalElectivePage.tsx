@@ -60,7 +60,7 @@ const DentalElectivePage: React.FC<DentalElectivePageProps> = ({
             </div>
             <div>
               <img
-                src="https://raw.githubusercontent.com/coder-backend/Medical-Internship/refs/heads/main/assets/images/dental.png"
+                src="https://images.unsplash.com/photo-1565090567208-c8038cfcf6cd?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Dental Electives"
                 className="rounded-lg shadow-2xl"
               />

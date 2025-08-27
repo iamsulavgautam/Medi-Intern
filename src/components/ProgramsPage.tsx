@@ -14,7 +14,7 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
       capacity: "8-12 interns",
       location: "Teaching Hospitals",
       image:
-        "https://raw.githubusercontent.com/coder-backend/Medical-Internship/refs/heads/main/assets/images/medical_electives.png",
+        "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       description:
         "Comprehensive medical elective program covering multiple specialties including internal medicine, surgery, pediatrics, and emergency medicine.",
       highlights: [
@@ -33,7 +33,7 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
       capacity: "4-8 interns",
       location: "Maternity Hospitals",
       image:
-        "https://raw.githubusercontent.com/coder-backend/Medical-Internship/refs/heads/main/assets/images/mid_wifery.png",
+        "https://plus.unsplash.com/premium_photo-1661698586549-00580fb09a6b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       description:
         "Specialized nursing program focusing on maternal and newborn care, labor and delivery, and women's reproductive health.",
       highlights: [
@@ -90,7 +90,7 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
       capacity: "4-8 interns",
       location: "Dental Hospitals & Clinics",
       image:
-        "https://raw.githubusercontent.com/coder-backend/Medical-Internship/refs/heads/main/assets/images/dental.png",
+        "https://images.unsplash.com/photo-1565090567208-c8038cfcf6cd?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       description:
         "Comprehensive dental training program offering hands-on experience in various dental specialties including oral surgery, orthodontics, and general dentistry.",
       highlights: [
@@ -109,7 +109,7 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ setCurrentPage }) => {
       capacity: "6-10 interns",
       location: "Rehabilitation Centers",
       image:
-        "https://raw.githubusercontent.com/coder-backend/Medical-Internship/refs/heads/main/assets/images/physio.png",
+        "https://plus.unsplash.com/premium_photo-1661374820636-35f204935945?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       description:
         "Specialized physiotherapy training focusing on rehabilitation techniques, therapeutic exercises, and patient care in various clinical settings.",
       highlights: [
