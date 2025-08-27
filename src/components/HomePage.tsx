@@ -573,29 +573,26 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <motion.blockquote whileHover={{ y: -3 }} className="card p-6">
               <p className="text-gray-800">
-                "The surgical rotation exceeded my expectations. Incredible
-                mentorship."
+                "We had an incredible time during our medical exchange in Nepal. The hospital was among the best we've ever trained in-supportive staff, great learning opportunities, and diverse cases. Our hosts were kind, welcoming, and made us feel like part of the family."
               </p>
               <footer className="mt-4 text-sm text-gray-500">
-                — Aisha, UK
+                — Lucie and Tereza, Czech Republic
               </footer>
             </motion.blockquote>
             <motion.blockquote whileHover={{ y: -3 }} className="card p-6">
               <p className="text-gray-800">
-                "Community health camp was life‑changing and culturally
-                immersive."
+                "Our exchange in Nepal was an unforgettable blend of learning and adventure. Beyond the valuable hospital experience, we trekked through breathtaking hills and visited sacred sites like Pashupatinath Temple, which gave us a deeper appreciation for Nepal's spiritual richness."
               </p>
               <footer className="mt-4 text-sm text-gray-500">
-                — Marco, Italy
+                — Eva, Helen, and Helen, Czech Republic, Switzerland, and Germany
               </footer>
             </motion.blockquote>
             <motion.blockquote whileHover={{ y: -3 }} className="card p-6">
               <p className="text-gray-800">
-                "Well‑organized program with safe accommodation and great
-                support."
+                "Our time in Nepal was truly special. From watching the sunrise in Nagarkot to experiencing the serenity of Pashupatinath, every moment was meaningful. We even joined in on paddy farming-a unique, joyful experience we'll never forget."
               </p>
               <footer className="mt-4 text-sm text-gray-500">
-                — Priya, India
+                — Terezia and Timea, Slovakia
               </footer>
             </motion.blockquote>
           </div>
