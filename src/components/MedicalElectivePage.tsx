@@ -24,33 +24,6 @@ const MedicalElectivePage: React.FC<MedicalElectivePageProps> = ({
     setExpandedSection((prev) => (prev === section ? null : section));
   };
 
-  const renderFeeTable = (title: string, data: number[], label: string) => (
-    <div className="overflow-x-auto mt-4">
-      <table className="w-full border text-sm text-gray-700">
-        <thead className="bg-gray-100">
-          <tr>
-            <th className="border px-3 py-2 text-left">{label}</th>
-            {data.map((_, index) => (
-              <th key={index} className="border px-3 py-2 text-center">
-                {index < 5 ? `${index + 1} week` : "Extra"}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td className="border px-3 py-2 font-medium">USD</td>
-            {data.map((amount, i) => (
-              <td key={i} className="border px-3 py-2 text-center">
-                {amount}
-              </td>
-            ))}
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  );
-
   return (
     <div className="py-16">
       {/* Hero Section */}
@@ -184,7 +157,7 @@ const MedicalElectivePage: React.FC<MedicalElectivePageProps> = ({
                   <h3 className="text-xl font-semibold text-gray-900">
                     One-time Registration Fee
                   </h3>
-                  <p className="text-teal-600 font-bold">450 USD</p>
+                  <p className="text-teal-600 font-bold">12 USD</p>
                 </div>
                 {expandedSection === "registration" ? (
                   <ChevronUp className="h-5 w-5 text-gray-500" />
@@ -226,9 +199,7 @@ const MedicalElectivePage: React.FC<MedicalElectivePageProps> = ({
                   <h3 className="text-xl font-semibold text-gray-900">
                     Accommodation Fee
                   </h3>
-                  <p className="text-teal-600 font-bold">
-                    150 USD for one week
-                  </p>
+                  <p className="text-teal-600 font-bold">7-30 USD per day</p>
                 </div>
                 {expandedSection === "accommodation" ? (
                   <ChevronUp className="h-5 w-5 text-gray-500" />
@@ -238,11 +209,70 @@ const MedicalElectivePage: React.FC<MedicalElectivePageProps> = ({
               </button>
               {expandedSection === "accommodation" && (
                 <div className="mt-4 text-gray-600 space-y-4">
-                  {renderFeeTable(
-                    "Accommodation",
-                    [150, 300, 450, 600, 750, 150],
-                    "Fee"
-                  )}
+                  <div className="overflow-x-auto mt-4">
+                    <table className="w-full border text-sm text-gray-700">
+                      <thead className="bg-gray-100">
+                        <tr>
+                          <th className="border px-3 py-2 text-left">
+                            Duration
+                          </th>
+                          <th className="border px-3 py-2 text-center">
+                            Daily Rate (USD)
+                          </th>
+                          <th className="border px-3 py-2 text-center">
+                            Weekly Total (USD)
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td className="border px-3 py-2 font-medium">
+                            1 week
+                          </td>
+                          <td className="border px-3 py-2 text-center">7-30</td>
+                          <td className="border px-3 py-2 text-center">
+                            49-210
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="border px-3 py-2 font-medium">
+                            2 weeks
+                          </td>
+                          <td className="border px-3 py-2 text-center">7-30</td>
+                          <td className="border px-3 py-2 text-center">
+                            98-420
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="border px-3 py-2 font-medium">
+                            3 weeks
+                          </td>
+                          <td className="border px-3 py-2 text-center">7-30</td>
+                          <td className="border px-3 py-2 text-center">
+                            147-630
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="border px-3 py-2 font-medium">
+                            4 weeks
+                          </td>
+                          <td className="border px-3 py-2 text-center">7-30</td>
+                          <td className="border px-3 py-2 text-center">
+                            196-840
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="border px-3 py-2 font-medium">
+                            5+ weeks
+                          </td>
+                          <td className="border px-3 py-2 text-center">7-30</td>
+                          <td className="border px-3 py-2 text-center">
+                            245-1050+
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                   <div>
                     <h4 className="font-semibold mt-4">
                       What’s included in Accommodation?
@@ -272,7 +302,7 @@ const MedicalElectivePage: React.FC<MedicalElectivePageProps> = ({
                     Elective Fee
                   </h3>
                   <p className="text-teal-600 font-bold">
-                    300 USD for one week
+                    200 USD for one week
                   </p>
                 </div>
                 {expandedSection === "hospital" ? (
@@ -283,11 +313,62 @@ const MedicalElectivePage: React.FC<MedicalElectivePageProps> = ({
               </button>
               {expandedSection === "hospital" && (
                 <div className="mt-4 text-gray-600 space-y-4">
-                  {renderFeeTable(
-                    "Hospital Registration",
-                    [300, 300, 375, 450, 525, 75],
-                    "Fee"
-                  )}
+                  <div className="overflow-x-auto mt-4">
+                    <table className="w-full border text-sm text-gray-700">
+                      <thead className="bg-gray-100">
+                        <tr>
+                          <th className="border px-3 py-2 text-left">
+                            Duration
+                          </th>
+                          <th className="border px-3 py-2 text-center">
+                            Weekly Rate (USD)
+                          </th>
+                          <th className="border px-3 py-2 text-center">
+                            Total (USD)
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td className="border px-3 py-2 font-medium">
+                            1 week
+                          </td>
+                          <td className="border px-3 py-2 text-center">200</td>
+                          <td className="border px-3 py-2 text-center">200</td>
+                        </tr>
+                        <tr>
+                          <td className="border px-3 py-2 font-medium">
+                            2 weeks
+                          </td>
+                          <td className="border px-3 py-2 text-center">200</td>
+                          <td className="border px-3 py-2 text-center">400</td>
+                        </tr>
+                        <tr>
+                          <td className="border px-3 py-2 font-medium">
+                            3 weeks
+                          </td>
+                          <td className="border px-3 py-2 text-center">200</td>
+                          <td className="border px-3 py-2 text-center">600</td>
+                        </tr>
+                        <tr>
+                          <td className="border px-3 py-2 font-medium">
+                            4 weeks
+                          </td>
+                          <td className="border px-3 py-2 text-center">200</td>
+                          <td className="border px-3 py-2 text-center">800</td>
+                        </tr>
+                        <tr>
+                          <td className="border px-3 py-2 font-medium">
+                            5+ weeks
+                          </td>
+                          <td className="border px-3 py-2 text-center">200</td>
+                          <td className="border px-3 py-2 text-center">
+                            1000+
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                   <div>
                     <h4 className="font-semibold mt-4">
                       What’s Included in Elective Fee.
