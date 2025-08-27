@@ -3,33 +3,40 @@ import { MapPin, Users, Award, Heart } from "lucide-react";
 
 const AboutPage = () => {
   const [selectedPerson, setSelectedPerson] = useState("chairman");
-
-  const people = {
-    chairman: {
+  const people = [
+    {
       name: "Dr. Rohit Rawat",
       title: "Co-Founder",
       image: "rohit.jpeg",
-      message: "As a doctor and the co-founder of Medical Exchange Nepal, our vision has always been to make medical exchange programs more affordable, easing the financial burden for students compared to many other options. We also make it a priority to pair each incoming elective student with a local medical student, so they gain first-hand insight into Nepal's healthcare environment, culture, and day-to-day realities. Being from the same field, we understand their needs and create experiences that are relevant and enriching, complementing the great work of organizations from all backgrounds."
+      role: "chairman",
+      message:
+        "As a doctor and the co-founder of Medical Exchange Nepal, our vision has always been to make medical exchange programs more affordable, easing the financial burden for students compared to many other options. We also make it a priority to pair each incoming elective student with a local medical student, so they gain first-hand insight into Nepal's healthcare environment, culture, and day-to-day realities. Being from the same field, we understand their needs and create experiences that are relevant and enriching, complementing the great work of organizations from all backgrounds.",
     },
-    publichealth: {
-      name: "HA",
-      title: "Public Health Advocate", 
-      image: "person.jpg",
-      message: "With over three years of experience in Nepal's rural health systems, I've witnessed firsthand the challenges and opportunities in community healthcare. Our medical exchange programs not only provide students with clinical experience but also expose them to the realities of public health in resource-limited settings. Through community health initiatives and rural rotations, students gain valuable insights into preventive medicine and community empowerment, preparing them to be well-rounded healthcare professionals who understand healthcare beyond hospital walls."
-    },
-    coordinator: {
-      name: "Pratik Gautam", 
+    {
+      name: "Pratik Gautam",
       title: "Software Engineer & Co-Founder",
       image: "pratik.jpg",
-      message: "Technology plays a crucial role in modernizing medical education and making our programs accessible to students worldwide. Our platform ensures seamless communication, efficient program management, and enhanced learning experiences. We believe in bridging the gap between traditional medical education and innovative digital solutions, creating opportunities for students to excel in their medical careers while experiencing the rich culture and healthcare system of Nepal."
+      role: "coordinator",
+      message:
+        "Technology plays a crucial role in modernizing medical education and making our programs accessible to students worldwide. Our platform ensures seamless communication, efficient program management, and enhanced learning experiences. We believe in bridging the gap between traditional medical education and innovative digital solutions, creating opportunities for students to excel in their medical careers while experiencing the rich culture and healthcare system of Nepal.",
     },
-    designer: {
+    {
+      name: "HA",
+      title: "Public Health Advocate",
+      image: "person.jpg",
+      role: "publichealth",
+      message:
+        "With over three years of experience in Nepal's rural health systems, I've witnessed firsthand the challenges and opportunities in community healthcare. Our medical exchange programs not only provide students with clinical experience but also expose them to the realities of public health in resource-limited settings. Through community health initiatives and rural rotations, students gain valuable insights into preventive medicine and community empowerment, preparing them to be well-rounded healthcare professionals who understand healthcare beyond hospital walls.",
+    },
+    {
       name: "Sulav Gautam",
-      title: "Design-Led Builder",
-      image: "sullo.jpg", 
-      message: "I'm a design-led builder focused on clarity, structure, and meaningful digital experiences. I create intuitive systems that scale with intent and feel effortless to use. For our medical exchange programs, I ensure that every touchpoint - from our website to student communications - reflects our commitment to excellence and provides a seamless experience. Rooted in simplicity and driven by purpose, I believe great design enhances both functionality and the human connection at the heart of medical education."
-    }
-  };
+      title: "Digital Product Architect",
+      image: "sullo.jpg",
+      role: "designer",
+      message:
+        "I believe every design and product should make sense. Technology should solve real problems, simplify complex processes, and create meaningful experiences for users. By focusing on clarity, usability, and purpose, I craft apps and web solutions that empower people, enhance engagement, and deliver value in every interaction.",
+    },
+  ];
 
   const currentPerson = people[selectedPerson];
 
@@ -74,7 +81,8 @@ const AboutPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-                Message from {currentPerson.title === "Co-Founder" ? "Chairman" : "Team"}
+                Message from{" "}
+                {currentPerson.title === "Co-Founder" ? "Chairman" : "Team"}
               </h2>
 
               {/* Quote Section */}
@@ -95,8 +103,8 @@ const AboutPage = () => {
                 <button
                   onClick={() => setSelectedPerson("chairman")}
                   className={`relative w-16 h-16 rounded-full overflow-hidden ring-4 transition-all duration-300 transform hover:scale-105 ${
-                    selectedPerson === "chairman" 
-                      ? "ring-blue-500 shadow-lg" 
+                    selectedPerson === "chairman"
+                      ? "ring-blue-500 shadow-lg"
                       : "ring-gray-300 hover:ring-blue-300"
                   }`}
                 >
@@ -109,8 +117,8 @@ const AboutPage = () => {
                 <button
                   onClick={() => setSelectedPerson("publichealth")}
                   className={`relative w-16 h-16 rounded-full overflow-hidden ring-4 transition-all duration-300 transform hover:scale-105 ${
-                    selectedPerson === "publichealth" 
-                      ? "ring-blue-500 shadow-lg" 
+                    selectedPerson === "publichealth"
+                      ? "ring-blue-500 shadow-lg"
                       : "ring-gray-300 hover:ring-blue-300"
                   }`}
                 >
@@ -123,8 +131,8 @@ const AboutPage = () => {
                 <button
                   onClick={() => setSelectedPerson("coordinator")}
                   className={`relative w-16 h-16 rounded-full overflow-hidden ring-4 transition-all duration-300 transform hover:scale-105 ${
-                    selectedPerson === "coordinator" 
-                      ? "ring-blue-500 shadow-lg" 
+                    selectedPerson === "coordinator"
+                      ? "ring-blue-500 shadow-lg"
                       : "ring-gray-300 hover:ring-blue-300"
                   }`}
                 >
@@ -137,8 +145,8 @@ const AboutPage = () => {
                 <button
                   onClick={() => setSelectedPerson("designer")}
                   className={`relative w-16 h-16 rounded-full overflow-hidden ring-4 transition-all duration-300 transform hover:scale-105 ${
-                    selectedPerson === "designer" 
-                      ? "ring-blue-500 shadow-lg" 
+                    selectedPerson === "designer"
+                      ? "ring-blue-500 shadow-lg"
                       : "ring-gray-300 hover:ring-blue-300"
                   }`}
                 >
@@ -293,22 +301,6 @@ const AboutPage = () => {
             </div>
             <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
               <img
-                src="person.jpg"
-                alt="HA"
-                className="w-32 h-32 rounded-full mx-auto mb-4 object-cover ring-4 ring-blue-100"
-              />
-              <h3 className="text-xl font-semibold text-slate-900 mb-2">
-                HA
-              </h3>
-              <p className="text-blue-600 mb-3 font-medium">
-                Public Health Advocate
-              </p>
-              <p className="text-slate-600 text-sm">
-                BPH with 3+ years experience in rural health systems. Dedicated to improving community well-being and empowering youth through health initiatives.
-              </p>
-            </div>
-            <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
-              <img
                 src="pratik.jpg"
                 alt="Pratik Gautam"
                 className="w-32 h-32 rounded-full mx-auto mb-4 object-cover ring-4 ring-blue-100"
@@ -326,6 +318,23 @@ const AboutPage = () => {
             </div>
             <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
               <img
+                src="person.jpg"
+                alt="HA"
+                className="w-32 h-32 rounded-full mx-auto mb-4 object-cover ring-4 ring-blue-100"
+              />
+              <h3 className="text-xl font-semibold text-slate-900 mb-2">HA</h3>
+              <p className="text-blue-600 mb-3 font-medium">
+                Public Health Advocate
+              </p>
+              <p className="text-slate-600 text-sm">
+                BPH with 3+ years experience in rural health systems. Dedicated
+                to improving community well-being and empowering youth through
+                health initiatives.
+              </p>
+            </div>
+
+            <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
+              <img
                 src="sullo.jpg"
                 alt="Sulav Gautam"
                 className="w-32 h-32 rounded-full mx-auto mb-4 object-cover ring-4 ring-blue-100"
@@ -334,10 +343,11 @@ const AboutPage = () => {
                 Sulav Gautam
               </h3>
               <p className="text-blue-600 mb-3 font-medium">
-                Design-Led Builder
+                Digital Product Architect
               </p>
               <p className="text-slate-600 text-sm">
-                Focused on clarity, systems & UX. Creates intuitive digital experiences that scale with intent and feel effortless to use.
+                Developer with clear, effective apps and web solutions that
+                solve real-world problems.
               </p>
             </div>
           </div>
