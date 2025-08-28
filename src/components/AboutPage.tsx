@@ -50,46 +50,48 @@ const AboutPage = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "AboutPage",
-            "name": "About Medical Exchange Nepal - Medical Internship Programs",
-            "description": "Learn about Medical Exchange Nepal, our mission, vision, and the team behind our premium medical internship programs in Nepal. Founded by Dr. Rohit Rawat, Pratik Gautam, Uddhav Kathayat, and Sulav Gautam.",
-            "url": "https://medicalexchangenepal.com/about",
-            "mainEntity": {
+            name: "About Medical Exchange Nepal - Medical Internship Programs",
+            description:
+              "Learn about Medical Exchange Nepal, our mission, vision, and the team behind our premium medical internship programs in Nepal. Founded by Dr. Rohit Rawat, Pratik Gautam, Uddhav Kathayat, and Sulav Gautam.",
+            url: "https://medicalexchangenepal.com/about",
+            mainEntity: {
               "@type": "Organization",
-              "name": "Medical Exchange Nepal",
-              "description": "Premium medical internship programs and clinical rotations in Nepal",
-              "foundingDate": "2024",
-              "founder": [
+              name: "Medical Exchange Nepal",
+              description:
+                "Premium medical internship programs and clinical rotations in Nepal",
+              foundingDate: "2024",
+              founder: [
                 {
                   "@type": "Person",
-                  "name": "Dr. Rohit Rawat",
-                  "jobTitle": "Chairman",
-                  "worksFor": "Medical Exchange Nepal",
-                  "image": "https://medicalexchangenepal.com/rohit.jpeg"
+                  name: "Dr. Rohit Rawat",
+                  jobTitle: "Chairman",
+                  worksFor: "Medical Exchange Nepal",
+                  image: "https://medicalexchangenepal.com/rohit.jpeg",
                 },
                 {
                   "@type": "Person",
-                  "name": "Pratik Gautam",
-                  "jobTitle": "Software Engineer",
-                  "worksFor": "Medical Exchange Nepal",
-                  "image": "https://medicalexchangenepal.com/pratik.jpg"
+                  name: "Pratik Gautam",
+                  jobTitle: "Software Engineer",
+                  worksFor: "Medical Exchange Nepal",
+                  image: "https://medicalexchangenepal.com/pratik.jpg",
                 },
                 {
                   "@type": "Person",
-                  "name": "Uddhav Kathayat",
-                  "jobTitle": "Public Health Advocate",
-                  "worksFor": "Medical Exchange Nepal",
-                  "image": "https://medicalexchangenepal.com/Uddav.jpg"
+                  name: "Uddhav Kathayat",
+                  jobTitle: "Public Health Advocate",
+                  worksFor: "Medical Exchange Nepal",
+                  image: "https://medicalexchangenepal.com/Uddav.jpg",
                 },
                 {
                   "@type": "Person",
-                  "name": "Sulav Gautam",
-                  "jobTitle": "Digital Product Architect",
-                  "worksFor": "Medical Exchange Nepal",
-                  "image": "https://medicalexchangenepal.com/sullo.jpg"
-                }
-              ]
-            }
-          })
+                  name: "Sulav Gautam",
+                  jobTitle: "Digital Product Architect",
+                  worksFor: "Medical Exchange Nepal",
+                  image: "https://medicalexchangenepal.com/sullo.jpg",
+                },
+              ],
+            },
+          }),
         }}
       />
 
@@ -100,7 +102,10 @@ const AboutPage = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="relative pt-24 pb-16 overflow-hidden" aria-label="About Medical Exchange Nepal">
+      <section
+        className="relative pt-24 pb-16 overflow-hidden"
+        aria-label="About Medical Exchange Nepal"
+      >
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-700"></div>
         <div className="absolute inset-0 bg-black/10"></div>
 
@@ -127,7 +132,10 @@ const AboutPage = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="relative py-16" aria-label="Mission and Vision of Medical Exchange Nepal">
+      <section
+        className="relative py-16"
+        aria-label="Mission and Vision of Medical Exchange Nepal"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -344,7 +352,7 @@ const AboutPage = () => {
               <h3 className="text-xl font-semibold text-slate-900 mb-2">
                 Dr. Rohit Rawat
               </h3>
-              <p className="text-blue-600 mb-3 font-medium">Co-Founder</p>
+              <p className="text-blue-600 mb-3 font-medium">Chairman</p>
               <p className="text-slate-600 text-sm">
                 Founder of NGO Aarogya Nepal, MBBS, 2+ years experience in
                 medical education and hospital administration.

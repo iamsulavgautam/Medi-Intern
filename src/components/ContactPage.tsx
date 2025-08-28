@@ -50,7 +50,7 @@ const ContactPage = () => {
         },
         {
           "@type": "ContactPoint",
-          email: "info@medicalinternshipnepal.com",
+          email: "info@medicalexchangenepal.com",
           contactType: "customer service",
         },
       ],
@@ -113,9 +113,9 @@ const ContactPage = () => {
       title: "Email Support",
       description: "Professional email assistance",
       details: [
-        "info@medicalinternshipnepal.com",
-        "applications@medicalinternshipnepal.com",
-        "support@medicalinternshipnepal.com",
+        "info@medicalexchangenepal.com",
+        "applications@medicalexchangenepal.com",
+        "support@medicalexchangenepal.com",
       ],
     },
     {
@@ -134,25 +134,25 @@ const ContactPage = () => {
   const departments = [
     {
       name: "General Inquiries",
-      email: "info@medicalinternshipnepal.com",
+      email: "info@medicalexchangenepal.com",
       icon: <Globe className="h-5 w-5" />,
       description: "General questions and information",
     },
     {
       name: "Applications",
-      email: "applications@medicalinternshipnepal.com",
+      email: "applications@medicalexchangenepal.com",
       icon: <CheckCircle className="h-5 w-5" />,
       description: "Application process and requirements",
     },
     {
       name: "Program Support",
-      email: "support@medicalinternshipnepal.com",
+      email: "support@medicalexchangenepal.com",
       icon: <Shield className="h-5 w-5" />,
       description: "Technical and program assistance",
     },
     {
       name: "Emergency Contact",
-      email: "emergency@medicalinternshipnepal.com",
+      email: "emergency@medicalexchangenepal.com",
       icon: <Zap className="h-5 w-5" />,
       description: "Urgent matters and emergencies",
     },
@@ -623,7 +623,7 @@ const ContactPage = () => {
                     Emergency Email
                   </p>
                   <p className="text-sm sm:text-base font-bold break-all">
-                    emergency@medicalinternshipnepal.com
+                    emergency@medicalexchangenepal.com
                   </p>
                 </div>
               </div>
