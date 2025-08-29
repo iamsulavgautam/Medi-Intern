@@ -1,4 +1,5 @@
 import React from "react";
+import Counter from "./Counter";
 import type { LucideIcon } from "lucide-react";
 import {
   ArrowRight,
@@ -18,6 +19,7 @@ interface HomePageProps {
 }
 
 // ✅ Reusable Components
+import type { ReactNode } from "react";
 const StatCard = ({
   icon: Icon,
   number,
@@ -25,7 +27,7 @@ const StatCard = ({
   color,
 }: {
   icon: LucideIcon;
-  number: string;
+  number: ReactNode;
   label: string;
   color?: string;
 }) => (
@@ -492,25 +494,25 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
           <StatCard
             icon={Heart}
-            number="100+"
+            number={<Counter to={100} duration={1500} suffix="+" />}
             label="Medical Interns Trained"
             color="bg-teal-50"
           />
           <StatCard
             icon={Users}
-            number="10+"
+            number={<Counter to={10} duration={1200} suffix="+" />}
             label="Partner Hospitals"
             color="bg-emerald-50"
           />
           <StatCard
             icon={Award}
-            number="3"
+            number={<Counter to={3} duration={1000} />}
             label="Years of Excellence"
             color="bg-blue-50"
           />
           <StatCard
             icon={Globe}
-            number="30+"
+            number={<Counter to={30} duration={1300} suffix="+" />}
             label="Countries Represented"
             color="bg-indigo-50"
           />
