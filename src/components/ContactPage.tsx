@@ -90,11 +90,11 @@ const ContactPage = () => {
     {
       icon: <MapPin className="h-6 w-6" />,
       title: "Our Location",
-      description: "Located in Kathmandu's medical district",
+      description: "We are located in",
       details: [
         "Medical Exchange Nepal",
         "Kathmandu Medical College Road",
-        "Sinamangal, Kathmandu 44600",
+        "Sitapaila, Kathmandu 44600",
         "Nepal",
       ],
     },
