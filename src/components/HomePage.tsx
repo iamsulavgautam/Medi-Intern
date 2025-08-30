@@ -167,7 +167,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
       duration: "4-12 weeks",
       capacity: "4-8 interns",
       location: "Maternity Hospitals",
-      image: "nurse.png",
+      image: "nurse1.png",
       description:
         "Specialized nursing program focusing on maternal and newborn care, labor and delivery, and women's reproductive health.",
       highlights: [
