@@ -90,11 +90,11 @@ const ContactPage = () => {
     {
       icon: <MapPin className="h-6 w-6" />,
       title: "Our Location",
-      description: "Located in Kathmandu's medical district",
+      description: "We are located in",
       details: [
-        "Medical Internship Nepal",
+        "Medical Exchange Nepal",
         "Kathmandu Medical College Road",
-        "Sinamangal, Kathmandu 44600",
+        "Sitapaila, Kathmandu 44600",
         "Nepal",
       ],
     },
@@ -512,7 +512,7 @@ const ContactPage = () => {
                     <div>
                       <h4 className="font-bold text-slate-900 mb-2">Address</h4>
                       <div className="text-slate-600 space-y-1">
-                        <p className="font-medium">Medical Internship Nepal</p>
+                        <p className="font-medium">Medical Exchange Nepal</p>
                         <p>Baneshwor, Kathmandu, Nepal</p>
                       </div>
                     </div>
