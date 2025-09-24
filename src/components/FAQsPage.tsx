@@ -187,6 +187,13 @@ const FAQsPage = () => {
                   );
                 })}
               </div>
+              {category.category === "Costs & Payments" && (
+                <div className="mt-6 p-4 bg-blue-50/80 backdrop-blur-sm rounded-xl border border-blue-200/50">
+                  <p className="text-sm text-blue-700 italic text-center">
+                    The payment could vary according to the MOU signed with the different organization.
+                  </p>
+                </div>
+              )}
             </div>
           ))}
         </div>
