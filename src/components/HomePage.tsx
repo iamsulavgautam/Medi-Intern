@@ -11,6 +11,7 @@ import {
   CheckCircle,
   ArrowUpRight,
   Images,
+  Plane,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -485,6 +486,45 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
                 Nepaljung Medical College
               </span>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* MEDICAL TOURISM CONTEXT */}
+      <section
+        className="py-14 bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 text-white"
+        aria-label="Medical tourism in Nepal"
+      >
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-10">
+          <div className="flex-1 flex justify-center lg:justify-start">
+            <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-white/10 ring-1 ring-white/20">
+              <Plane className="h-10 w-10 text-teal-300" aria-hidden />
+            </div>
+          </div>
+          <div className="flex-[2] text-center lg:text-left">
+            <h2 className="text-2xl md:text-3xl font-bold mb-3">
+              Medical tourism &amp; Nepal’s clinical story
+            </h2>
+            <p className="text-blue-100 leading-relaxed mb-6 max-w-2xl mx-auto lg:mx-0">
+              Patients worldwide compare accredited hospitals, costs, and
+              reviews before they travel for care. Nepal’s cost position, eye
+              care reputation, and Himalayan wellness context fit that global
+              picture—and{" "}
+              <span className="text-white font-semibold">
+                Medical Exchange Nepal
+              </span>{" "}
+              helps international trainees experience Nepali hospitals as a
+              first step toward wider trust.
+            </p>
+            <button
+              type="button"
+              onClick={() => setCurrentPage("medical-tourism")}
+              className="inline-flex items-center px-6 py-3 rounded-xl font-semibold bg-white text-blue-900 hover:bg-blue-50 shadow-lg transition-colors"
+              aria-label="Learn about medical tourism in Nepal"
+            >
+              Read context &amp; global resources
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </button>
           </div>
         </div>
       </section>

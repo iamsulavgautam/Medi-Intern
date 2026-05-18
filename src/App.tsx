@@ -15,6 +15,7 @@ import FAQsPage from "./components/FAQsPage";
 import TestimonialsPage from "./components/TestimonialsPage";
 import ApplicationPage from "./components/ApplicationPage";
 import ContactPage from "./components/ContactPage";
+import MedicalTourismPage from "./components/MedicalTourismPage";
 import AdminLoginPage from "./components/AdminLoginPage";
 import AdminDashboardPage from "./components/AdminDashboardPage";
 
@@ -34,6 +35,7 @@ function App() {
   const pages = [
     { id: "home", label: "Home" },
     { id: "about", label: "About" },
+    { id: "medical-tourism", label: "Medical Tourism" },
     { id: "programs", label: "Programs" },
     { id: "gallery", label: "Gallery" },
     { id: "accommodation", label: "Accommodation" },
@@ -49,6 +51,8 @@ function App() {
         return <HomePage setCurrentPage={setCurrentPage} />;
       case "about":
         return <AboutPage />;
+      case "medical-tourism":
+        return <MedicalTourismPage setCurrentPage={setCurrentPage} />;
       case "programs":
         return <ProgramsPage setCurrentPage={setCurrentPage} />;
       case "gallery":
@@ -229,6 +233,7 @@ function App() {
               <ul className="space-y-2">
                 {[
                   { label: "Programs", page: "programs" },
+                  { label: "Medical Tourism", page: "medical-tourism" },
                   { label: "Gallery", page: "gallery" },
                   { label: "Apply Now", page: "application" },
                   { label: "FAQs", page: "faqs" },
