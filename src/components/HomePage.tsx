@@ -520,9 +520,9 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
               type="button"
               onClick={() => setCurrentPage("medical-tourism")}
               className="inline-flex items-center px-6 py-3 rounded-xl font-semibold bg-white text-blue-900 hover:bg-blue-50 shadow-lg transition-colors"
-              aria-label="Learn about medical tourism in Nepal"
+              aria-label="Explore medical tourism in Nepal"
             >
-              Read context &amp; global resources
+              Explore what Nepal offers
               <ArrowRight className="ml-2 h-5 w-5" />
             </button>
           </div>

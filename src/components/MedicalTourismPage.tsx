@@ -3,52 +3,168 @@ import { motion } from "framer-motion";
 import {
   Globe,
   Mountain,
-  ExternalLink,
   Stethoscope,
   Sparkles,
   ArrowRight,
+  Eye,
+  HeartPulse,
+  Smile,
+  Leaf,
+  Languages,
+  Building2,
+  CheckCircle,
+  MapPin,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 interface MedicalTourismPageProps {
   setCurrentPage: (page: string) => void;
 }
 
-const globalResources = [
+type ShowcaseAccent = "blue" | "teal" | "indigo" | "emerald" | "violet" | "amber";
+
+const accentStyles: Record<
+  ShowcaseAccent,
+  { badge: string; icon: string; ring: string; stat: string }
+> = {
+  blue: {
+    badge: "bg-blue-100 text-blue-800 border-blue-200/60",
+    icon: "bg-blue-50 text-blue-600",
+    ring: "hover:ring-blue-200",
+    stat: "text-blue-700 bg-blue-50",
+  },
+  teal: {
+    badge: "bg-teal-100 text-teal-800 border-teal-200/60",
+    icon: "bg-teal-50 text-teal-600",
+    ring: "hover:ring-teal-200",
+    stat: "text-teal-700 bg-teal-50",
+  },
+  indigo: {
+    badge: "bg-indigo-100 text-indigo-800 border-indigo-200/60",
+    icon: "bg-indigo-50 text-indigo-600",
+    ring: "hover:ring-indigo-200",
+    stat: "text-indigo-700 bg-indigo-50",
+  },
+  emerald: {
+    badge: "bg-emerald-100 text-emerald-800 border-emerald-200/60",
+    icon: "bg-emerald-50 text-emerald-600",
+    ring: "hover:ring-emerald-200",
+    stat: "text-emerald-700 bg-emerald-50",
+  },
+  violet: {
+    badge: "bg-violet-100 text-violet-800 border-violet-200/60",
+    icon: "bg-violet-50 text-violet-600",
+    ring: "hover:ring-violet-200",
+    stat: "text-violet-700 bg-violet-50",
+  },
+  amber: {
+    badge: "bg-amber-100 text-amber-800 border-amber-200/60",
+    icon: "bg-amber-50 text-amber-600",
+    ring: "hover:ring-amber-200",
+    stat: "text-amber-700 bg-amber-50",
+  },
+};
+
+const nepalShowcase: {
+  category: string;
+  title: string;
+  description: string;
+  highlights: string[];
+  stat: string;
+  icon: LucideIcon;
+  accent: ShowcaseAccent;
+}[] = [
   {
-    name: "Flytocure Healthcare",
+    category: "Value",
+    title: "Affordable accredited care",
     description:
-      "Compares over 600 accredited hospitals and clinics across 60+ countries for treatments including dental, cosmetic, cardiac, and oncology care.",
-    href: "https://flytocure.com",
-    displayHost: "flytocure.com",
+      "Nepal offers major cost savings on procedures compared with Western markets—without sacrificing access to modern equipment and trained specialists.",
+    highlights: [
+      "Lower treatment and stay costs",
+      "Growing accredited hospital network",
+      "Ideal for elective and planned care",
+    ],
+    stat: "Significant savings vs. Western markets",
+    icon: Building2,
+    accent: "teal",
   },
   {
-    name: "Treatment Abroad",
+    category: "Specialty",
+    title: "Eye care & diagnostics",
     description:
-      "Comprehensive information on medical treatments overseas—hospital comparisons, patient stories, and cost estimates.",
-    href: "https://treatmentabroad.com",
-    displayHost: "treatmentabroad.com",
+      "Nepal is internationally referenced for ophthalmology and vision care, with teaching hospitals offering advanced diagnostics and surgical pathways.",
+    highlights: [
+      "Globally noted eye care reputation",
+      "Modern imaging and lab services",
+      "Experienced surgical teams",
+    ],
+    stat: "Leading regional ophthalmology hub",
+    icon: Eye,
+    accent: "blue",
   },
   {
-    name: "MedicalTourism.com",
+    category: "Treatment",
+    title: "Dental, cosmetic & restorative",
     description:
-      "A global portal with independent information on healthcare, dental, and wellness tourism worldwide.",
-    href: "https://medicaltourism.com",
-    displayHost: "medicaltourism.com",
+      "Patients travel for dental work, cosmetic procedures, and restorative treatments—combining clinical quality with shorter wait times.",
+    highlights: [
+      "Dental and cosmetic procedures",
+      "Transparent comparison-friendly pricing",
+      "Recovery-friendly urban centers",
+    ],
+    stat: "Popular cross-border treatment category",
+    icon: Smile,
+    accent: "violet",
   },
   {
-    name: "AirClinic",
+    category: "Complex care",
+    title: "Cardiac, oncology & surgery",
     description:
-      "A global directory to compare medical and dental providers across 50+ destinations.",
-    href: "https://airclinic.io",
-    displayHost: "airclinic.io",
+      "Teaching hospitals in Kathmandu and major cities support cardiac, oncology, and surgical care—with referral pathways for complex cases.",
+    highlights: [
+      "Cardiac and oncology pathways",
+      "Multi-specialty teaching hospitals",
+      "Coordinated inpatient support",
+    ],
+    stat: "Referral-capable tertiary centers",
+    icon: HeartPulse,
+    accent: "indigo",
   },
   {
-    name: "Compare Medical Tourism",
+    category: "Wellness",
+    title: "Himalayan recovery context",
     description:
-      "Compare providers by price, accreditation, and patient reviews across a wide range of international treatments.",
-    href: "https://comparemedicaltourism.com",
-    displayHost: "comparemedicaltourism.com",
+      "Nepal pairs clinical services with a wellness story—mountain air, Ayurvedic heritage, and recovery settings that support healing beyond the hospital.",
+    highlights: [
+      "Post-procedure recovery options",
+      "Ayurveda and wellness heritage",
+      "Unique Himalayan travel context",
+    ],
+    stat: "Care + wellness in one destination",
+    icon: Leaf,
+    accent: "emerald",
   },
+  {
+    category: "Access",
+    title: "English-speaking clinical teams",
+    description:
+      "International patients benefit from English-medium communication in major hospitals—making consultations, consent, and follow-up clearer.",
+    highlights: [
+      "English used in teaching hospitals",
+      "International patient familiarity",
+      "Diaspora and regional connectivity",
+    ],
+    stat: "Easy communication for global visitors",
+    icon: Languages,
+    accent: "amber",
+  },
+];
+
+const destinationStats = [
+  { label: "Partner hospitals", value: "10+" },
+  { label: "Clinical specialties", value: "6+" },
+  { label: "English-medium care", value: "Yes" },
+  { label: "Himalayan wellness", value: "Unique" },
 ];
 
 const platformHighlights = [
@@ -87,7 +203,7 @@ const MedicalTourismPage: React.FC<MedicalTourismPageProps> = ({
             "@type": "WebPage",
             name: "Medical Tourism in Nepal | Medical Exchange Nepal",
             description:
-              "Context on medical tourism in Nepal and how Medical Exchange Nepal connects international trainees with Nepali hospitals. Independent global medical tourism resources.",
+              "Explore medical tourism in Nepal—affordable care, specialty hospitals, wellness recovery, and how Medical Exchange Nepal connects international trainees with Nepali hospitals.",
             url: "https://medicalexchangenepal.com/medical-tourism",
           }),
         }}
@@ -150,6 +266,123 @@ const MedicalTourismPage: React.FC<MedicalTourismPageProps> = ({
         </div>
       </section>
 
+      <section
+        className="relative py-16 bg-white/80"
+        aria-label="Explore medical tourism offerings in Nepal"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        >
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 rounded-full bg-slate-100 px-4 py-1.5 text-sm font-medium text-slate-600 mb-4">
+              <MapPin className="h-4 w-4 text-primary-600" />
+              Destination directory
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              What Nepal offers medical travelers
+            </h2>
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+              Compare hospitals, specialties, treatment costs, and recovery
+              options—the same information patients research before traveling
+              for care, brought together for Nepal.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            {destinationStats.map(({ label, value }) => (
+              <div
+                key={label}
+                className="rounded-xl bg-slate-50 border border-slate-100 px-4 py-5 text-center"
+              >
+                <p className="text-2xl font-bold text-slate-900">{value}</p>
+                <p className="text-sm text-slate-600 mt-1">{label}</p>
+              </div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            {nepalShowcase.map(
+              (
+                { category, title, description, highlights, stat, icon: Icon, accent },
+                index
+              ) => {
+                const styles = accentStyles[accent];
+                return (
+                  <motion.div
+                    key={title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.08 }}
+                    whileHover={{ y: -4 }}
+                    className={`card p-0 flex flex-col h-full overflow-hidden ring-1 ring-slate-100 ${styles.ring} transition-all shadow-sm hover:shadow-md`}
+                  >
+                    <div className="px-6 pt-6 pb-4 border-b border-slate-100">
+                      <div className="flex items-start justify-between gap-3 mb-4">
+                        <span
+                          className={`inline-flex items-center rounded-full border px-2.5 py-1 text-xs font-semibold ${styles.badge}`}
+                        >
+                          {category}
+                        </span>
+                        <motion.div
+                          initial={{ scale: 0.8, opacity: 0 }}
+                          whileInView={{ scale: 1, opacity: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.4, delay: index * 0.08 + 0.15 }}
+                          className={`p-2.5 rounded-xl shrink-0 ${styles.icon}`}
+                        >
+                          <Icon className="h-5 w-5" />
+                        </motion.div>
+                      </div>
+                      <h3 className="text-lg font-display font-semibold text-slate-900 mb-2">
+                        {title}
+                      </h3>
+                      <p className="text-slate-600 text-sm leading-relaxed">
+                        {description}
+                      </p>
+                    </div>
+                    <div className="px-6 py-4 flex-1 flex flex-col">
+                      <ul className="space-y-2 mb-4 flex-1">
+                        {highlights.map((item) => (
+                          <li
+                            key={item}
+                            className="flex items-start text-sm text-slate-600"
+                          >
+                            <CheckCircle className="h-4 w-4 text-primary-500 mr-2 mt-0.5 shrink-0" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <span
+                        className={`inline-flex items-center rounded-lg px-3 py-2 text-xs font-semibold ${styles.stat}`}
+                      >
+                        {stat}
+                      </span>
+                    </div>
+                  </motion.div>
+                );
+              }
+            )}
+          </motion.div>
+
+          <p className="mt-10 text-center text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            Medical Exchange Nepal is building this gateway—helping international
+            patients and learners explore Nepali hospitals, understand costs,
+            and plan care with confidence.
+          </p>
+        </motion.div>
+      </section>
+
       <section className="relative py-16 bg-white/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -186,51 +419,6 @@ const MedicalTourismPage: React.FC<MedicalTourismPageProps> = ({
             “Every international student who trains in Nepal is a future
             ambassador, patient, or investor in Nepal’s healthcare.”
           </blockquote>
-        </div>
-      </section>
-
-      <section className="relative py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 flex items-center justify-center gap-2 flex-wrap">
-              <Globe className="h-8 w-8 text-primary-600" />
-              Global medical tourism information &amp; services
-            </h2>
-            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-              Here are some major websites that provide global medical tourism
-              information and services. They are independent of Medical Exchange
-              Nepal—we list them to help you research hospitals, reviews, and
-              costs the same way patients plan care worldwide.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {globalResources.map((site) => (
-              <motion.a
-                key={site.href}
-                href={site.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ y: -4 }}
-                className="card p-6 flex flex-col h-full ring-1 ring-slate-100 hover:ring-primary-200 transition-all shadow-sm hover:shadow-md"
-              >
-                <h3 className="text-lg font-display font-semibold text-slate-900 mb-2 pr-8">
-                  {site.name}
-                </h3>
-                <p className="text-slate-600 text-sm leading-relaxed flex-1 mb-4">
-                  {site.description}
-                </p>
-                <span className="inline-flex items-center text-primary-600 font-medium text-sm">
-                  {site.displayHost}
-                  <ExternalLink className="ml-1 h-4 w-4" />
-                </span>
-              </motion.a>
-            ))}
-          </div>
-          <p className="mt-10 text-center text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            These platforms help patients explore hospitals, read verified
-            reviews, compare treatment costs, and contact providers directly
-            for medical travel arrangements.
-          </p>
         </div>
       </section>
 
