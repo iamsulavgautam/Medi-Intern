@@ -28,6 +28,14 @@ const AboutPage = () => {
       message:
         "I believe every design and product should make sense. Technology should solve real problems, simplify complex processes, and create meaningful experiences for users. By focusing on clarity, usability, and purpose, I craft apps and web solutions that empower people, enhance engagement, and deliver value in every interaction.",
     },
+    {
+      name: "Shubham Khanal",
+      title: "Software Engineer",
+      image: "shubha.jpg",
+      role: "software",
+      message:
+        "Building reliable, scalable software is at the heart of everything I do. I specialize in crafting clean, efficient code that powers seamless digital experiences. At Medical Exchange Nepal, I work to ensure our platform is robust, secure, and continuously evolving to meet the needs of students and healthcare partners worldwide. I believe great software is invisible — it just works.",
+    },
   ];
 
   const currentPerson =
@@ -44,7 +52,7 @@ const AboutPage = () => {
             "@type": "AboutPage",
             name: "About Medical Exchange Nepal - Medical Internship Programs",
             description:
-              "Learn about Medical Exchange Nepal, our mission, vision, and the team behind our premium medical internship programs in Nepal. Founded by Dr. Rohit Rawat, Pratik Gautam, and Sulav Gautam.",
+              "Learn about Medical Exchange Nepal, our mission, vision, and the team behind our premium medical internship programs in Nepal. Founded by Dr. Rohit Rawat, Pratik Gautam, Sulav Gautam, and Shubham Khanal.",
             url: "https://medicalexchangenepal.com/about",
             mainEntity: {
               "@type": "Organization",
@@ -73,6 +81,13 @@ const AboutPage = () => {
                   jobTitle: "Digital Product Architect",
                   worksFor: "Medical Exchange Nepal",
                   image: "https://medicalexchangenepal.com/sullo.jpg",
+                },
+                {
+                  "@type": "Person",
+                  name: "Shubham Khanal",
+                  jobTitle: "Software Engineer",
+                  worksFor: "Medical Exchange Nepal",
+                  image: "https://medicalexchangenepal.com/shubha.jpg",
                 },
               ],
             },
@@ -183,6 +198,20 @@ const AboutPage = () => {
                   <img
                     src="sullo.jpg"
                     alt="Sulav Gautam"
+                    className="w-full h-full object-cover"
+                  />
+                </button>
+                <button
+                  onClick={() => setSelectedPerson("software")}
+                  className={`relative w-16 h-16 rounded-full overflow-hidden ring-4 transition-all duration-300 transform hover:scale-105 ${
+                    selectedPerson === "software"
+                      ? "ring-blue-500 shadow-lg"
+                      : "ring-gray-300 hover:ring-blue-300"
+                  }`}
+                >
+                  <img
+                    src="shubha.jpg"
+                    alt="Shubham Khanal"
                     className="w-full h-full object-cover"
                   />
                 </button>
@@ -313,7 +342,7 @@ const AboutPage = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
               <img
                 src="rohit.jpeg"
@@ -361,6 +390,25 @@ const AboutPage = () => {
               <p className="text-slate-600 text-sm">
                 Developer with clear, effective apps and web solutions that
                 solve real-world problems.
+              </p>
+            </div>
+
+            <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
+              <img
+                src="shubha.jpg"
+                alt="Shubham Khanal"
+                className="w-32 h-32 rounded-full mx-auto mb-4 object-cover ring-4 ring-blue-100"
+              />
+              <h3 className="text-xl font-semibold text-slate-900 mb-2">
+                Shubham Khanal
+              </h3>
+              <p className="text-blue-600 mb-3 font-medium">
+                Software Engineer
+              </p>
+              <p className="text-slate-600 text-sm">
+                Full-stack software engineer passionate about building robust,
+                scalable platforms that power seamless digital experiences in
+                healthcare.
               </p>
             </div>
           </div>
