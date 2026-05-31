@@ -3,6 +3,7 @@ import {
   Menu, X, ChevronDown, ChevronUp, ChevronRight,
   LayoutGrid, Building2, Tag, Stethoscope, Scissors, Baby, Smile,
   Dumbbell, HeartPulse, Globe, Syringe, Leaf, GraduationCap, ClipboardList,
+  MapPin, Phone, Mail,
 } from "lucide-react";
 import HomePage from "./components/HomePage";
 import GalleryPage from "./components/GalleryPage";
@@ -30,6 +31,32 @@ import ForUniversitiesPage from "./components/ForUniversitiesPage";
 import HospitalsPage from "./components/HospitalsPage";
 import AnnualReportPage from "./components/AnnualReportPage";
 import OutcomesPage from "./components/OutcomesPage";
+
+const FOOTER_PROGRAM_LINKS = [
+  { label: "Programs", page: "programs" },
+  { label: "Pricing", page: "pricing" },
+  { label: "Medical Tourism", page: "medical-tourism" },
+  { label: "Elective Treatment", page: "elective-treatment" },
+  { label: "Spiritual & Wellness", page: "spiritual-wellness" },
+  { label: "Partner Hospitals", page: "hospitals" },
+  { label: "For Universities", page: "for-universities" },
+] as const;
+
+const FOOTER_RESOURCE_LINKS = [
+  { label: "2025 Impact Report", page: "annual-report" },
+  { label: "Alumni Outcomes", page: "outcomes" },
+  { label: "Gallery", page: "gallery" },
+  { label: "My Elective Portal", page: "my-elective" },
+  { label: "FAQs", page: "faqs" },
+  { label: "About Us", page: "about" },
+  { label: "Contact", page: "contact" },
+] as const;
+
+const FOOTER_SOCIAL_LINKS = [
+  { label: "Facebook", href: "https://www.facebook.com/iamsulavgautam" },
+  { label: "Instagram", href: "https://www.instagram.com/iamsulavgautam" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/iamsulavgautam" },
+] as const;
 
 function App() {
   const [currentPage, setCurrentPage] = useState("home");
@@ -535,52 +562,51 @@ function App() {
 
       {/* Footer */}
       <footer className="bg-secondary-900 text-secondary-300 border-t border-secondary-800 mt-auto">
-        <div className="container-custom py-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {/* Brand + About */}
-            <div className="md:col-span-2">
-              <div className="flex items-center gap-2 mb-4">
+        <div className="container-custom py-12 lg:py-14">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
+            {/* Brand */}
+            <div className="sm:col-span-2 lg:col-span-4">
+              <div className="flex items-center gap-3 mb-4">
                 <img
                   src="/logo.jpg"
                   alt="Medical Internship Nepal"
-                  className="h-12 w-12 rounded-full object-cover"
+                  className="h-11 w-11 rounded-full object-cover ring-2 ring-secondary-700"
                 />
-                <span className="text-xl font-display font-bold text-white">
+                <span className="text-lg font-display font-bold text-white leading-tight">
                   Medical Internship Nepal
                 </span>
               </div>
-              <p className="text-secondary-400 leading-relaxed max-w-md">
-                Providing world-class medical internship opportunities in
-                Nepal's leading hospitals and healthcare facilities.
+              <p className="text-secondary-400 text-sm leading-relaxed max-w-sm mb-6">
+                World-class medical internships, elective placements, and
+                healthcare programmes across Nepal&apos;s leading hospitals.
               </p>
+              <div className="flex flex-wrap gap-2">
+                {FOOTER_SOCIAL_LINKS.map(({ label, href }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center rounded-lg border border-secondary-700 px-3 py-1.5 text-xs font-medium text-secondary-300 hover:border-primary-500 hover:text-primary-400 transition-colors"
+                  >
+                    {label}
+                  </a>
+                ))}
+              </div>
             </div>
 
-            {/* Quick Links */}
-            <div>
-              <h3 className="text-lg font-display font-semibold text-white mb-4">
-                Quick Links
+            {/* Programs */}
+            <div className="lg:col-span-2">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-white mb-4">
+                Programmes
               </h3>
-              <ul className="space-y-2">
-                {[
-                  { label: "Programs", page: "programs" },
-                  { label: "Pricing", page: "pricing" },
-                  { label: "Medical Tourism", page: "medical-tourism" },
-                  { label: "Elective Treatment", page: "elective-treatment" },
-                  { label: "Spiritual & Wellness", page: "spiritual-wellness" },
-                  { label: "Partner Hospitals", page: "hospitals" },
-                  { label: "For Universities", page: "for-universities" },
-                  { label: "2025 Impact Report", page: "annual-report" },
-                  { label: "Alumni Outcomes", page: "outcomes" },
-                  { label: "Gallery", page: "gallery" },
-                  { label: "Apply Now", page: "application" },
-                  { label: "My Elective Portal", page: "my-elective" },
-                  { label: "FAQs", page: "faqs" },
-                  { label: "Contact", page: "contact" },
-                ].map((link) => (
+              <ul className="space-y-2.5">
+                {FOOTER_PROGRAM_LINKS.map((link) => (
                   <li key={link.page}>
                     <button
+                      type="button"
                       onClick={() => setCurrentPage(link.page)}
-                      className="hover:text-primary-400 transition-colors duration-200"
+                      className="text-sm text-secondary-400 hover:text-primary-400 transition-colors text-left"
                     >
                       {link.label}
                     </button>
@@ -589,37 +615,78 @@ function App() {
               </ul>
             </div>
 
-            {/* Contact Info */}
-            <div>
-              <h3 className="text-lg font-display font-semibold text-white mb-4">
-                Contact Info
+            {/* Resources */}
+            <div className="lg:col-span-2">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-white mb-4">
+                Resources
               </h3>
-              <ul className="space-y-2 text-secondary-400">
-                <li>Kathmandu, Nepal</li>
-                <li>+977-9862728072</li>
-                <li>info@medicalinternshipnepal.com</li>
+              <ul className="space-y-2.5">
+                {FOOTER_RESOURCE_LINKS.map((link) => (
+                  <li key={link.page}>
+                    <button
+                      type="button"
+                      onClick={() => setCurrentPage(link.page)}
+                      className="text-sm text-secondary-400 hover:text-primary-400 transition-colors text-left"
+                    >
+                      {link.label}
+                    </button>
+                  </li>
+                ))}
               </ul>
+            </div>
+
+            {/* Contact */}
+            <div className="sm:col-span-2 lg:col-span-4">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-white mb-4">
+                Get in Touch
+              </h3>
+              <ul className="space-y-3 text-sm text-secondary-400 mb-6">
+                <li className="flex items-start gap-3">
+                  <MapPin className="h-4 w-4 text-primary-400 mt-0.5 shrink-0" strokeWidth={1.75} />
+                  <span>Kathmandu, Nepal</span>
+                </li>
+                <li>
+                  <a
+                    href="tel:+9779862728072"
+                    className="flex items-center gap-3 hover:text-primary-400 transition-colors"
+                  >
+                    <Phone className="h-4 w-4 text-primary-400 shrink-0" strokeWidth={1.75} />
+                    +977-9862728072
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="mailto:info@medicalinternshipnepal.com"
+                    className="flex items-center gap-3 hover:text-primary-400 transition-colors break-all"
+                  >
+                    <Mail className="h-4 w-4 text-primary-400 shrink-0" strokeWidth={1.75} />
+                    info@medicalinternshipnepal.com
+                  </a>
+                </li>
+              </ul>
+              <button
+                type="button"
+                onClick={() => setCurrentPage("application")}
+                className="inline-flex items-center justify-center rounded-lg bg-primary-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-700 transition-colors"
+              >
+                Apply Now
+              </button>
             </div>
           </div>
 
-          <div className="border-t border-secondary-800 mt-8 pt-6">
-            <div className="flex justify-center items-center gap-2 flex-wrap">
-              <p className="text-sm text-secondary-500">
-                &copy; 2025 Medical Internship Nepal. All rights reserved.
-              </p>
-              <span className="text-sm text-secondary-500">|</span>{" "}
-              {/* optional separator */}
-              <span className="text-sm text-secondary-500">
-                Developed by
-              </span>{" "}
+          <div className="border-t border-secondary-800 mt-10 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs sm:text-sm text-secondary-500">
+            <p>&copy; {new Date().getFullYear()} Medical Internship Nepal. All rights reserved.</p>
+            <p>
+              Developed by{" "}
               <a
                 href="https://www.sulavgautam.info.np/"
                 target="_blank"
-                className="text-secondary-400 hover:text-primary-400"
+                rel="noopener noreferrer"
+                className="text-secondary-400 hover:text-primary-400 transition-colors"
               >
                 Sulav Gautam
               </a>
-            </div>
+            </p>
           </div>
         </div>
       </footer>
