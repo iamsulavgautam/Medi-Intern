@@ -1,15 +1,14 @@
+@import "./design/dal.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Modern base typography and design system */
 :root {
-  --content-width: 1200px;
+  --content-width: 1120px;
 }
 
-html,
-body,
-#root {
+html, body, #root {
   height: 100%;
   scroll-behavior: smooth;
 }
@@ -17,145 +16,142 @@ body,
 body {
   font-family: "Inter", ui-sans-serif, system-ui, -apple-system,
     Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  color: #1e293b;
-  background-color: #f8fafc;
+  color: #0f172a;
+  background-color: #ffffff;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Single font stack — headings inherit body font */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Sora", "Inter", ui-sans-serif, system-ui;
+  font-family: "Inter", ui-sans-serif, system-ui;
 }
 
-/* Premium animations and effects */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
+/* ── Spacing tokens ──────────────────────────────────────────────────────────
+   Use only these for section vertical rhythm. Nothing else.
+   section-default  = 80px  (py-20)  — standard content sections
+   section-compact  = 48px  (py-12)  — tight paired sections
+   section-hero     = 96px  (py-24)  — hero / page headers
+   ─────────────────────────────────────────────────────────────────────────── */
 
-@keyframes glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
-  50% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.5); }
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-@keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-.animate-glow {
-  animation: glow 2s ease-in-out infinite;
-}
-
-.shimmer {
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-  background-size: 200% 100%;
-  animation: shimmer 2s infinite;
-}
-
-/* Glass morphism effects */
-.glass {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.glass-strong {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-/* Shared UI tokens and components */
+/* ── Component library ───────────────────────────────────────────────────── */
 @layer components {
+
+  /* Container */
   .container-custom {
+    @apply max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16;
+  }
+
+  /* Deprecated — kept for migration compatibility, maps to container-custom */
+  .container-wide {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
-  
-  .section-padding {
-    @apply py-16 md:py-24;
-  }
 
+  /* ── Buttons ────────────────────────────────────────────────────────────── */
   .btn-primary {
-    @apply inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-primary-600 hover:bg-primary-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+    @apply inline-flex items-center justify-center px-5 py-2.5
+           rounded-md text-sm font-medium text-white
+           bg-primary-600 hover:bg-primary-700
+           transition-colors duration-150;
   }
-  
+
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-semibold text-primary-700 bg-primary-50 hover:bg-primary-100 transition-all duration-300 transform hover:-translate-y-0.5;
+    @apply inline-flex items-center justify-center px-5 py-2.5
+           rounded-md text-sm font-medium
+           text-primary-700 bg-primary-50 hover:bg-primary-100
+           transition-colors duration-150;
   }
-  
+
   .btn-ghost {
-    @apply inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-medium text-secondary-700 hover:bg-secondary-50 hover:text-primary-700 transition-all duration-300;
+    @apply inline-flex items-center justify-center px-4 py-2
+           rounded-md text-sm font-medium
+           text-slate-600 hover:text-slate-900 hover:bg-slate-100
+           transition-colors duration-150;
   }
-  
+
   .btn-outline {
-    @apply inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-semibold text-primary-600 border border-primary-600 hover:bg-primary-50 transition-all duration-300 transform hover:-translate-y-0.5;
+    @apply inline-flex items-center justify-center px-5 py-2.5
+           rounded-md text-sm font-medium
+           text-primary-600 border border-primary-300
+           hover:bg-primary-50 hover:border-primary-400
+           transition-colors duration-150;
   }
 
-  /* Enhanced card styles */
+  .btn-primary:focus-visible,
+  .btn-secondary:focus-visible,
+  .btn-outline:focus-visible,
+  .btn-ghost:focus-visible {
+    @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+  }
+
+  /* ── Cards ──────────────────────────────────────────────────────────────── */
   .card {
-    @apply bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 transition-all duration-300;
+    @apply bg-white rounded-xl border border-slate-200 shadow-sm
+           transition-all duration-200;
   }
-  
+
   .card-hover {
-    @apply hover:shadow-2xl hover:border-white/40 transform hover:-translate-y-2 transition-all duration-500;
+    @apply hover:border-slate-300 hover:shadow-md;
   }
-  
-  /* Premium form elements */
+
+  /* ── Forms ──────────────────────────────────────────────────────────────── */
   .form-input {
-    @apply w-full px-4 py-3 bg-white/80 backdrop-blur-sm border border-slate-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300;
+    @apply w-full px-3 py-2.5 bg-white border border-slate-300
+           rounded-md text-sm text-slate-900 placeholder:text-slate-400
+           focus:outline-none focus:ring-2 focus:ring-blue-100
+           focus:border-blue-500 transition-colors duration-150;
   }
-  
+
   .form-label {
-    @apply block text-sm font-semibold text-slate-700 mb-2;
+    @apply block text-sm font-medium text-slate-700 mb-1.5;
   }
-  
-  /* Enhanced badges */
+
+  /* ── Badges ─────────────────────────────────────────────────────────────── */
   .badge {
-    @apply inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-xs font-semibold backdrop-blur-sm;
+    @apply inline-flex items-center gap-1 rounded-full
+           px-2.5 py-1 text-xs font-medium;
   }
-  
+
   .badge-primary {
-    @apply bg-primary-100/80 text-primary-700 border border-primary-200/50;
+    @apply bg-primary-50 text-primary-700 border border-primary-200;
   }
-  
+
   .badge-secondary {
-    @apply bg-secondary-100/80 text-secondary-800 border border-secondary-200/50;
+    @apply bg-slate-100 text-slate-700 border border-slate-200;
   }
-  
+
   .badge-accent {
-    @apply bg-accent-100/80 text-accent-700 border border-accent-200/50;
+    @apply bg-amber-50 text-amber-700 border border-amber-200;
   }
 
-  /* Premium shadow utilities */
+  /* ── Shadow scale — use only these ─────────────────────────────────────── */
   .shadow-soft {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-  }
-  
-  .shadow-card {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  }
-  
-  .shadow-premium {
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
   }
 
-  /* Text gradients */
+  .shadow-card {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  }
+
+  /* ── Text utilities ─────────────────────────────────────────────────────── */
   .text-gradient {
     @apply bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent;
   }
-  
-  .text-gradient-warm {
-    @apply bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent;
+
+  /* ── Section spacing — only two variants ───────────────────────────────── */
+  .section-default {
+    @apply py-20;
+  }
+
+  .section-compact {
+    @apply py-12;
+  }
+
+  /* Hero headline alias (DAL .dal-headline) */
+  .hero-headline {
+    font-size: clamp(3.5rem, 6vw, 5rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
   }
 }

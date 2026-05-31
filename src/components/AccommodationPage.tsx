@@ -7,8 +7,7 @@ const AccommodationPage = () => {
       title: "Medical Intern House",
       type: "Shared Accommodation",
       price: "$7-10/night",
-      image:
-        "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "/stay/medicalhouseintern.png",
       features: [
         "Shared rooms with 2-4 interns",
         "Common kitchen and living area",
@@ -24,8 +23,7 @@ const AccommodationPage = () => {
       title: "Host Family Stay",
       type: "Cultural Immersion",
       price: "$20-30/night",
-      image:
-        "https://images.pexels.com/photos/6186810/pexels-photo-6186810.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "/stay/hostfamilystay.png",
       features: [
         "Private room in family home",
         "Meals included",
@@ -41,8 +39,7 @@ const AccommodationPage = () => {
       title: "Private Apartments",
       type: "Independent Living",
       price: "$35-50/night",
-      image:
-        "https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "/stay/privateapartment.png",
       features: [
         "Fully furnished studio/1BR",
         "Private kitchen and bathroom",
@@ -58,8 +55,7 @@ const AccommodationPage = () => {
       title: "Hotel Partnerships",
       type: "Short-term Stay",
       price: "$40-80/night",
-      image:
-        "https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "/stay/hote.png",
       features: [
         "3-4 star hotel rooms",
         "Daily housekeeping",

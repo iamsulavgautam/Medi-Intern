@@ -1,0 +1,448 @@
+/**
+ * DAL design system — tokens + layout/anchor/ink utilities
+ */
+
+:root {
+  --dal-max-width: 1400px;
+  --dal-gutter: 1.5rem;
+  --dal-gutter-lg: 1.75rem;
+  --dal-ink-atmosphere: 0.025;
+  --dal-ink-glow: 0.07;
+  --dal-brand: #0a3d91;
+  --dal-surface-hero: #fafaf7;
+}
+
+/* ── L · Layout ───────────────────────────────────────────────────────────── */
+.dal-layout-container,
+.layout-container {
+  width: 100%;
+  max-width: var(--dal-max-width);
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 3vw, 2.5rem);
+}
+
+.dal-grid-12,
+.layout-grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--dal-gutter);
+}
+
+@media (min-width: 1024px) {
+  .dal-grid-12,
+  .layout-grid-12 {
+    gap: var(--dal-gutter-lg);
+  }
+}
+
+/* Hero zones — shared grid, aligned tops (anchoring) */
+.dal-hero-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--dal-gutter);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .dal-hero-grid {
+    gap: var(--dal-gutter-lg);
+  }
+}
+
+.dal-zone-message {
+  grid-column: 1 / -1;
+}
+
+.dal-zone-anchor {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 1024px) {
+  .dal-zone-message {
+    grid-column: 1 / 6;
+  }
+
+  .dal-zone-anchor {
+    grid-column: 6 / 13;
+  }
+}
+
+/* In Pictures — 8 tiles × 3 cols */
+.dal-gallery-tile {
+  grid-column: span 6;
+}
+
+.dal-gallery-tile-feature {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 640px) {
+  .dal-gallery-tile {
+    grid-column: span 3;
+  }
+
+  .dal-gallery-tile-feature {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ── A · Anchoring ─────────────────────────────────────────────────────────── */
+.dal-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.dal-flow > * + * {
+  margin-top: 0;
+}
+
+.dal-flow-eyebrow {
+  margin-bottom: 1rem;
+}
+
+.dal-flow-headline {
+  margin-bottom: 1rem;
+}
+
+.dal-flow-lede {
+  margin-bottom: 1.5rem;
+}
+
+.dal-flow-cta {
+  margin-bottom: 1.5rem;
+}
+
+.dal-anchor-primary {
+  position: relative;
+  z-index: 1;
+}
+
+.dal-anchor-glow {
+  position: absolute;
+  inset: -1.5rem;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 85% 75% at 55% 48%,
+    rgba(37, 99, 235, calc(var(--dal-ink-glow) * 1.15)) 0%,
+    rgba(10, 61, 145, calc(var(--dal-ink-glow) * 0.5)) 45%,
+    transparent 72%
+  );
+}
+
+/* ── D · Data-Ink ──────────────────────────────────────────────────────────── */
+.dal-ink-nondata {
+  opacity: var(--dal-ink-atmosphere);
+  pointer-events: none;
+  user-select: none;
+}
+
+.dal-ink-data {
+  /* Explicit marker for information-bearing elements */
+}
+
+.dal-proof {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #374151;
+}
+
+.dal-proof-sep {
+  color: #d1d5db;
+  margin-inline: 0.5rem;
+  user-select: none;
+}
+
+/* Hero headline — anchored type scale */
+.dal-headline {
+  font-size: clamp(3.5rem, 6vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* Story collage — 70 / 10 / 10 / 10 */
+.dal-collage {
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "feature clinical"
+    "feature mentorship"
+    "feature nepal";
+  gap: 12px;
+  width: 100%;
+  height: min(52vh, 480px);
+  min-height: 360px;
+  max-height: 500px;
+}
+
+.dal-collage-tile {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 0;
+}
+
+.dal-collage-tile > .dal-collage-frame {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background: #e2e8f0;
+}
+
+.dal-collage-caption {
+  margin-top: 0.5rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+@media (max-width: 1023px) {
+  .dal-collage {
+    display: none;
+  }
+}
+
+/* ── Interaction: zoom hover (images + buttons) ─────────────────────────────── */
+.dal-hover-zoom {
+  overflow: hidden;
+}
+
+.dal-hover-zoom img,
+.dal-hover-zoom__media {
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+.dal-hover-zoom:hover img,
+.dal-hover-zoom:hover .dal-hover-zoom__media,
+.dal-hover-zoom:focus-visible img,
+.dal-hover-zoom:focus-visible .dal-hover-zoom__media,
+.group:hover .dal-hover-zoom__media,
+.group:focus-within .dal-hover-zoom__media {
+  transform: scale(1.06);
+}
+
+.dal-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.dal-btn:hover {
+  transform: scale(1.04);
+}
+
+.dal-btn:active {
+  transform: scale(0.98);
+}
+
+.dal-btn-primary {
+  background-color: var(--dal-brand);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 0.375rem;
+  border: none;
+  cursor: pointer;
+}
+
+.dal-btn-primary:hover {
+  background-color: #083174;
+}
+
+.dal-btn-secondary {
+  background-color: transparent;
+  color: #111827;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 0.375rem;
+  border: 1px solid rgba(17, 24, 39, 0.2);
+  cursor: pointer;
+}
+
+.dal-btn-secondary:hover {
+  background-color: rgba(17, 24, 39, 0.05);
+  border-color: rgba(17, 24, 39, 0.35);
+}
+
+.dal-btn-ghost {
+  background: transparent;
+  color: var(--dal-brand);
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  gap: 0.25rem;
+}
+
+.dal-btn-ghost:hover {
+  color: #083174;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dal-hover-zoom img,
+  .dal-hover-zoom__media,
+  .dal-btn {
+    transition: none;
+  }
+
+  .dal-hover-zoom:hover img,
+  .dal-hover-zoom:hover .dal-hover-zoom__media,
+  .group:hover .dal-hover-zoom__media,
+  .dal-btn:hover,
+  .dal-btn:active {
+    transform: none;
+  }
+}
+
+/* ── Page hero — readable text over photography (Nielsen: visibility + contrast) */
+.dal-page-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 28rem;
+  padding-top: 6rem;
+  padding-bottom: 5rem;
+  overflow: hidden;
+}
+
+.dal-page-hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.42) saturate(0.85);
+}
+
+.dal-page-hero__scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.dal-page-hero__scrim--violet {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(15, 5, 35, 0.82) 0%,
+      rgba(46, 16, 101, 0.9) 45%,
+      rgba(20, 8, 45, 0.94) 100%
+    ),
+    radial-gradient(
+      ellipse 85% 65% at 50% 38%,
+      rgba(91, 33, 182, 0.35) 0%,
+      rgba(15, 5, 35, 0.92) 72%
+    );
+}
+
+.dal-page-hero__scrim--blue {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(8, 25, 60, 0.82) 0%,
+      rgba(15, 45, 100, 0.9) 45%,
+      rgba(8, 20, 50, 0.94) 100%
+    ),
+    radial-gradient(
+      ellipse 85% 65% at 50% 38%,
+      rgba(37, 99, 235, 0.3) 0%,
+      rgba(8, 25, 60, 0.92) 72%
+    );
+}
+
+.dal-page-hero__scrim--emerald {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(4, 30, 22, 0.88) 0%,
+      rgba(6, 50, 38, 0.92) 50%,
+      rgba(4, 25, 18, 0.96) 100%
+    ),
+    radial-gradient(
+      ellipse 85% 65% at 50% 38%,
+      rgba(16, 185, 129, 0.22) 0%,
+      rgba(4, 30, 22, 0.94) 72%
+    );
+}
+
+.dal-page-hero__scrim--solid.dal-page-hero__scrim--emerald {
+  background: linear-gradient(135deg, #022c22 0%, #134e4a 50%, #064e3b 100%);
+}
+
+.dal-page-hero__content {
+  position: relative;
+  z-index: 10;
+}
+
+.dal-hero-eyebrow {
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.65);
+}
+
+.dal-hero-title {
+  color: #ffffff;
+  text-shadow:
+    0 2px 18px rgba(0, 0, 0, 0.55),
+    0 1px 4px rgba(0, 0, 0, 0.75);
+}
+
+.dal-hero-highlight {
+  color: #fde047;
+  text-shadow:
+    0 2px 22px rgba(0, 0, 0, 0.65),
+    0 1px 5px rgba(0, 0, 0, 0.85);
+}
+
+.dal-hero-lede {
+  color: rgba(255, 255, 255, 0.94);
+  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.55);
+}
+
+.dal-page-hero__btn-primary:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+.dal-page-hero__btn-secondary {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.dal-page-hero__btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.dal-page-hero__btn-secondary:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+/* Filter chips — visible active state (Nielsen: system status) */
+.dal-filter-chip[aria-pressed="true"] {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.dal-filter-chip:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}

@@ -1,25 +1,115 @@
-import React, { useMemo, useState } from "react";
-import { X, ZoomIn, Images } from "lucide-react";
+import React, { useMemo, useState, useRef } from "react";
+import { X, ZoomIn, Images, Play, Pause, Volume2, VolumeX } from "lucide-react";
 
 interface GalleryPageProps {
   setCurrentPage?: (page: string) => void;
 }
 
+const videos = [
+  {
+    src: "/gallery/video.mp4",
+    title: "Adventure Programme",
+    desc: "Explore Nepal's breathtaking landscapes and outdoor adventures",
+  },
+  {
+    src: "/gallery/video%202.mp4",
+    title: "Adventure Programme",
+    desc: "Thrilling activities and unforgettable experiences in Nepal",
+  },
+  {
+    src: "/gallery/video%203.mp4",
+    title: "Adventure Programme",
+    desc: "Trekking, rafting, and discovering the spirit of Nepal",
+  },
+];
+
+const VideoCard: React.FC<{ src: string; title: string; desc: string }> = ({
+  src,
+  title,
+  desc,
+}) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(false);
+  const [muted, setMuted] = useState(true);
+
+  const togglePlay = () => {
+    if (!videoRef.current) return;
+    if (playing) {
+      videoRef.current.pause();
+    } else {
+      videoRef.current.play();
+    }
+    setPlaying(!playing);
+  };
+
+  const toggleMute = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!videoRef.current) return;
+    videoRef.current.muted = !muted;
+    setMuted(!muted);
+  };
+
+  return (
+    <div className="group relative overflow-hidden rounded-2xl shadow-xl border border-white/20 bg-black">
+      <video
+        ref={videoRef}
+        src={src}
+        className="w-full aspect-video object-cover"
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        onEnded={() => setPlaying(false)}
+      />
+      {/* Overlay controls */}
+      <div
+        className="absolute inset-0 flex flex-col justify-between cursor-pointer"
+        onClick={togglePlay}
+      >
+        {/* Top gradient */}
+        <div className="h-16 bg-gradient-to-b from-black/50 to-transparent" />
+
+        {/* Centre play button */}
+        <div className="flex items-center justify-center">
+          <div
+            className={`rounded-full bg-white/20 backdrop-blur-sm border border-white/40 p-4 transition-opacity duration-300 ${
+              playing ? "opacity-0 group-hover:opacity-100" : "opacity-100"
+            }`}
+          >
+            {playing ? (
+              <Pause className="h-8 w-8 text-white" />
+            ) : (
+              <Play className="h-8 w-8 text-white fill-white" />
+            )}
+          </div>
+        </div>
+
+        {/* Bottom gradient + labels */}
+        <div className="h-24 bg-gradient-to-t from-black/70 to-transparent flex items-end px-4 pb-3">
+          <div className="flex-1">
+            <p className="text-white font-semibold text-sm leading-tight">{title}</p>
+            <p className="text-white/70 text-xs mt-0.5">{desc}</p>
+          </div>
+          <button
+            className="ml-2 p-1.5 rounded-full bg-white/20 hover:bg-white/30 transition-colors"
+            onClick={toggleMute}
+            aria-label={muted ? "Unmute" : "Mute"}
+          >
+            {muted ? (
+              <VolumeX className="h-4 w-4 text-white" />
+            ) : (
+              <Volume2 className="h-4 w-4 text-white" />
+            )}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const GalleryPage: React.FC<GalleryPageProps> = () => {
   const allImages = useMemo(() => {
-    // Local gallery images (1-10)
-    return [
-      "/gallery/(1).jpeg",
-      "/gallery/(2).jpeg",
-      "/gallery/(2).jpeg",
-      "/gallery/(3).jpeg",
-      "/gallery/(4).JPG",
-      "/gallery/(5).jpeg",
-      "/gallery/(6).jpeg",
-      "/gallery/(7).jpg",
-      "/gallery/(8).JPG",
-      "/gallery/(9).jpeg",
-    ];
+    return Array.from({ length: 8 }, (_, i) => `/gallery/${i + 1}.jpeg`);
   }, []);
 
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
@@ -83,6 +173,35 @@ const GalleryPage: React.FC<GalleryPageProps> = () => {
           </div>
         </div>
       </section>
+
+      {/* ── Real Activities Videos ── */}
+      <section className="relative py-14" aria-label="Real Activities Videos">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <span className="inline-block bg-blue-100 text-blue-700 text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-3">
+              Real Footage
+            </span>
+            <h2 className="text-3xl md:text-4xl font-black text-slate-800 mb-2">
+              Activities in Action
+            </h2>
+            <p className="text-slate-500 max-w-xl mx-auto text-sm">
+              Watch genuine moments from our interns — inside hospitals, at
+              community camps, and out exploring Nepal.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {videos.map((v) => (
+              <VideoCard key={v.src} {...v} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="border-t border-slate-200" />
+      </div>
 
       {/* Masonry-like Grid */}
       <section className="relative py-16" aria-label="Medical Internship Photo Gallery">

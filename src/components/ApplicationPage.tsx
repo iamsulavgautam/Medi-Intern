@@ -240,6 +240,20 @@ const ApplicationPage = () => {
       // In a real app, you would replace this with an actual API call
       await new Promise(resolve => setTimeout(resolve, 1500));
       
+      // Save application data to localStorage to unlock MyElective portal
+      const portalData: Record<string, string> = {
+        firstName:     formData.firstName,
+        familyName:    formData.familyName,
+        email:         formData.email,
+        program:       formData.program.join(", "),
+        startDateA:    formData.startDateA,
+        departmentA:   formData.departmentA,
+        accommodation: formData.accommodation,
+        clerkshipType: formData.clerkshipType,
+        country:       formData.country,
+      };
+      localStorage.setItem("menApplication", JSON.stringify(portalData));
+
       // Mock successful submission
       setSubmitMessage("Your application has been submitted successfully! We'll be in touch soon.");
       

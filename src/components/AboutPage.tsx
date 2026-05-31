@@ -21,20 +21,20 @@ const AboutPage = () => {
         "Technology plays a crucial role in modernizing medical education and making our programs accessible to students worldwide. Our platform ensures seamless communication, efficient program management, and enhanced learning experiences. We believe in bridging the gap between traditional medical education and innovative digital solutions, creating opportunities for students to excel in their medical careers while experiencing the rich culture and healthcare system of Nepal.",
     },
     {
-      name: "Uddhav Kathayat",
-      title: "Public Health Advocate",
-      image: "Uddav.jpg",
-      role: "publichealth",
-      message:
-        "With over three years of experience in Nepal's rural health systems, I've witnessed firsthand the challenges and opportunities in community healthcare. Our medical exchange programs not only provide students with clinical experience but also expose them to the realities of public health in resource-limited settings. Through community health initiatives and rural rotations, students gain valuable insights into preventive medicine and community empowerment, preparing them to be well-rounded healthcare professionals who understand healthcare beyond hospital walls.",
-    },
-    {
       name: "Sulav Gautam",
       title: "Digital Product Architect",
       image: "sullo.jpg",
       role: "designer",
       message:
         "I believe every design and product should make sense. Technology should solve real problems, simplify complex processes, and create meaningful experiences for users. By focusing on clarity, usability, and purpose, I craft apps and web solutions that empower people, enhance engagement, and deliver value in every interaction.",
+    },
+    {
+      name: "Shubham Khanal",
+      title: "Software Engineer",
+      image: "shubha.jpg",
+      role: "software",
+      message:
+        "Building reliable, scalable software is at the heart of everything I do. I specialize in crafting clean, efficient code that powers seamless digital experiences. At Medical Exchange Nepal, I work to ensure our platform is robust, secure, and continuously evolving to meet the needs of students and healthcare partners worldwide. I believe great software is invisible — it just works.",
     },
   ];
 
@@ -52,7 +52,7 @@ const AboutPage = () => {
             "@type": "AboutPage",
             name: "About Medical Exchange Nepal - Medical Internship Programs",
             description:
-              "Learn about Medical Exchange Nepal, our mission, vision, and the team behind our premium medical internship programs in Nepal. Founded by Dr. Rohit Rawat, Pratik Gautam, Uddhav Kathayat, and Sulav Gautam.",
+              "Learn about Medical Exchange Nepal, our mission, vision, and the team behind our premium medical internship programs in Nepal. Founded by Dr. Rohit Rawat, Pratik Gautam, Sulav Gautam, and Shubham Khanal.",
             url: "https://medicalexchangenepal.com/about",
             mainEntity: {
               "@type": "Organization",
@@ -77,17 +77,17 @@ const AboutPage = () => {
                 },
                 {
                   "@type": "Person",
-                  name: "Uddhav Kathayat",
-                  jobTitle: "Public Health Advocate",
-                  worksFor: "Medical Exchange Nepal",
-                  image: "https://medicalexchangenepal.com/Uddav.jpg",
-                },
-                {
-                  "@type": "Person",
                   name: "Sulav Gautam",
                   jobTitle: "Digital Product Architect",
                   worksFor: "Medical Exchange Nepal",
                   image: "https://medicalexchangenepal.com/sullo.jpg",
+                },
+                {
+                  "@type": "Person",
+                  name: "Shubham Khanal",
+                  jobTitle: "Software Engineer",
+                  worksFor: "Medical Exchange Nepal",
+                  image: "https://medicalexchangenepal.com/shubha.jpg",
                 },
               ],
             },
@@ -188,20 +188,6 @@ const AboutPage = () => {
                   />
                 </button>
                 <button
-                  onClick={() => setSelectedPerson("publichealth")}
-                  className={`relative w-16 h-16 rounded-full overflow-hidden ring-4 transition-all duration-300 transform hover:scale-105 ${
-                    selectedPerson === "publichealth"
-                      ? "ring-blue-500 shadow-lg"
-                      : "ring-gray-300 hover:ring-blue-300"
-                  }`}
-                >
-                  <img
-                    src="Uddav.jpg"
-                    alt="Uddhav Kathayat"
-                    className="w-full h-full object-cover"
-                  />
-                </button>
-                <button
                   onClick={() => setSelectedPerson("designer")}
                   className={`relative w-16 h-16 rounded-full overflow-hidden ring-4 transition-all duration-300 transform hover:scale-105 ${
                     selectedPerson === "designer"
@@ -212,6 +198,20 @@ const AboutPage = () => {
                   <img
                     src="sullo.jpg"
                     alt="Sulav Gautam"
+                    className="w-full h-full object-cover"
+                  />
+                </button>
+                <button
+                  onClick={() => setSelectedPerson("software")}
+                  className={`relative w-16 h-16 rounded-full overflow-hidden ring-4 transition-all duration-300 transform hover:scale-105 ${
+                    selectedPerson === "software"
+                      ? "ring-blue-500 shadow-lg"
+                      : "ring-gray-300 hover:ring-blue-300"
+                  }`}
+                >
+                  <img
+                    src="shubha.jpg"
+                    alt="Shubham Khanal"
                     className="w-full h-full object-cover"
                   />
                 </button>
@@ -377,25 +377,6 @@ const AboutPage = () => {
             </div>
             <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
               <img
-                src="Uddav.jpg"
-                alt="Uddhav Kathayat"
-                className="w-32 h-32 rounded-full mx-auto mb-4 object-cover ring-4 ring-blue-100"
-              />
-              <h3 className="text-xl font-semibold text-slate-900 mb-2">
-                Uddhav Kathayat
-              </h3>
-              <p className="text-blue-600 mb-3 font-medium">
-                Public Health Advocate
-              </p>
-              <p className="text-slate-600 text-sm">
-                BPH with 3+ years experience in rural health systems. Dedicated
-                to improving community well-being and empowering youth through
-                health initiatives.
-              </p>
-            </div>
-
-            <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
-              <img
                 src="sullo.jpg"
                 alt="Sulav Gautam"
                 className="w-32 h-32 rounded-full mx-auto mb-4 object-cover ring-4 ring-blue-100"
@@ -409,6 +390,25 @@ const AboutPage = () => {
               <p className="text-slate-600 text-sm">
                 Developer with clear, effective apps and web solutions that
                 solve real-world problems.
+              </p>
+            </div>
+
+            <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
+              <img
+                src="shubha.jpg"
+                alt="Shubham Khanal"
+                className="w-32 h-32 rounded-full mx-auto mb-4 object-cover ring-4 ring-blue-100"
+              />
+              <h3 className="text-xl font-semibold text-slate-900 mb-2">
+                Shubham Khanal
+              </h3>
+              <p className="text-blue-600 mb-3 font-medium">
+                Software Engineer
+              </p>
+              <p className="text-slate-600 text-sm">
+                Full-stack software engineer passionate about building robust,
+                scalable platforms that power seamless digital experiences in
+                healthcare.
               </p>
             </div>
           </div>

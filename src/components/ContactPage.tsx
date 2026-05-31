@@ -11,6 +11,7 @@ import {
   MessageCircle,
   Zap,
   Shield,
+  Calendar,
 } from "lucide-react";
 
 const ContactPage = () => {
@@ -72,18 +73,35 @@ const ContactPage = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    console.log("Contact form submitted:", formData);
-
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    }, 3000);
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          // Get a free access key at https://web3forms.com and replace the string below
+          access_key: "YOUR_WEB3FORMS_ACCESS_KEY",
+          subject: `MEN Contact: ${formData.subject || "General"} — ${formData.name}`,
+          from_name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          botcheck: "",
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setIsSubmitted(true);
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({ name: "", email: "", subject: "", message: "" });
+        }, 4000);
+      } else {
+        alert("Submission failed — please email info@medicalexchangenepal.com directly.");
+      }
+    } catch {
+      alert("Network error — please email info@medicalexchangenepal.com directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -182,7 +200,7 @@ const ContactPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-white">
       {/* SEO Structured Data */}
       <script
         type="application/ld+json"
@@ -191,32 +209,21 @@ const ContactPage = () => {
         }}
       />
 
-      {/* Animated Background Elements - matching HomePage */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-indigo-600/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-teal-400/20 to-emerald-600/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-purple-400/10 to-pink-600/10 rounded-full blur-3xl animate-pulse delay-500"></div>
-      </div>
-
       {/* Hero Section - vibrant theme */}
       <section className="relative pt-24 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-700"></div>
         <div className="absolute inset-0 bg-black/10"></div>
 
-        {/* Animated background elements */}
-        <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute bottom-10 right-10 w-40 h-40 bg-white/10 rounded-full blur-xl animate-pulse delay-1000"></div>
-
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-6">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/20 shadow-lg">
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/20 border border-white/20">
               <MessageCircle className="h-4 w-4 text-white mr-2" />
               <span className="text-sm font-medium text-white">
                 Professional Support Available
               </span>
             </div>
 
-            <h1 className="text-5xl md:text-6xl font-black bg-gradient-to-r from-white via-blue-100 to-indigo-100 bg-clip-text text-transparent leading-tight">
+            <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
               Get in Touch
             </h1>
 
@@ -233,7 +240,7 @@ const ContactPage = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-12">
               {stats.map((stat, index) => (
                 <div key={index} className="group">
-                  <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                  <div className="bg-white/20 rounded-xl p-4 border border-white/20 transition-all duration-300">
                     <div className="text-white mb-2 flex justify-center group-hover:scale-110 transition-transform duration-300">
                       {stat.icon}
                     </div>
@@ -266,7 +273,7 @@ const ContactPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {contactInfo.map((info, index) => (
               <div key={index} className="group">
-                <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                <div className="relative bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-md transition-all duration-500">
                   {/* Icon */}
                   <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white mb-4 group-hover:scale-110 transition-transform duration-300">
                     {info.icon}
@@ -302,7 +309,7 @@ const ContactPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Form */}
             <div className="order-2 lg:order-1">
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-2xl border border-white/20">
+              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-md border border-slate-100">
                 <div className="mb-6">
                   <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">
                     Send us a Message
@@ -392,7 +399,7 @@ const ContactPage = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-3 disabled:opacity-50 disabled:cursor-not-allowed group"
+                      className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 py-3 rounded-xl font-semibold shadow-sm transition-all duration-300 flex items-center justify-center space-x-3 disabled:opacity-50 disabled:cursor-not-allowed group"
                     >
                       {isSubmitting ? (
                         <>
@@ -413,7 +420,7 @@ const ContactPage = () => {
 
             {/* Department Contacts */}
             <div className="order-1 lg:order-2">
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20">
+              <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
                 <h3 className="text-xl font-bold text-slate-900 mb-2">
                   Department Contacts
                 </h3>
@@ -486,7 +493,7 @@ const ContactPage = () => {
                 </div>
 
                 {/* Floating location pin */}
-                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-xl p-3 shadow-lg border border-white/20">
+                <div className="absolute top-4 right-4 bg-white/90 rounded-xl p-3 border border-white/20">
                   <div className="flex items-center space-x-2">
                     <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
                     <span className="text-xs font-medium text-slate-700">
@@ -499,7 +506,7 @@ const ContactPage = () => {
 
             {/* Office Details */}
             <div className="order-1 lg:order-2">
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-2xl border border-white/20">
+              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-md border border-slate-100">
                 <h3 className="text-2xl font-bold text-slate-900 mb-6">
                   Office Information
                 </h3>
@@ -580,10 +587,6 @@ const ContactPage = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-red-600 via-red-700 to-rose-700"></div>
         <div className="absolute inset-0 bg-black/10"></div>
 
-        {/* Animated background elements */}
-        <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute bottom-10 right-10 w-40 h-40 bg-white/10 rounded-full blur-xl animate-pulse delay-1000"></div>
-
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm mb-6 shadow-xl">
             <Zap className="h-8 w-8" />
@@ -597,7 +600,7 @@ const ContactPage = () => {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            <div className="bg-white/20 backdrop-blur-sm rounded-xl p-6 border border-white/20 shadow-xl hover:bg-white/25 transition-all duration-300 group">
+            <div className="bg-white/20 rounded-xl p-6 border border-white/20 hover:bg-white/25 transition-all duration-300 group">
               <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-3">
                 <div className="p-2 rounded-full bg-white/20 group-hover:bg-white/30 transition-all duration-300">
                   <Phone className="h-5 w-5" />
@@ -613,7 +616,7 @@ const ContactPage = () => {
               </div>
             </div>
 
-            <div className="bg-white/20 backdrop-blur-sm rounded-xl p-6 border border-white/20 shadow-xl hover:bg-white/25 transition-all duration-300 group">
+            <div className="bg-white/20 rounded-xl p-6 border border-white/20 hover:bg-white/25 transition-all duration-300 group">
               <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-3">
                 <div className="p-2 rounded-full bg-white/20 group-hover:bg-white/30 transition-all duration-300">
                   <Mail className="h-5 w-5" />
@@ -634,6 +637,48 @@ const ContactPage = () => {
             <p className="text-red-50 text-sm">
               <strong>Available 24/7</strong> for medical emergencies, safety
               concerns, and urgent program-related matters
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Book a Free Consultation */}
+      <section className="relative py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="card p-8 md:p-12 text-center">
+            <div className="inline-flex items-center gap-2 bg-primary-50 rounded-full px-4 py-2 mb-6">
+              <Calendar className="h-4 w-4 text-primary-600" />
+              <span className="text-primary-700 text-sm font-semibold">Free 15-minute video call</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-secondary-900 mb-4">
+              Book a Free Consultation
+            </h2>
+            <p className="text-secondary-600 max-w-xl mx-auto mb-8 leading-relaxed">
+              Speak directly with our program coordinator to discuss your specialty,
+              timing, accommodation preferences, and any questions before you apply.
+              No commitment required.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="https://calendly.com/medicalexchangenepal"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary text-base px-8 py-3 flex items-center justify-center gap-2"
+              >
+                <Calendar className="h-5 w-5" /> Schedule on Calendly
+              </a>
+              <a
+                href="https://wa.me/9779862728072?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20consultation%20about%20a%20medical%20elective%20in%20Nepal."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg px-8 py-3 font-semibold transition-colors text-base"
+              >
+                <MessageCircle className="h-4 w-4" /> Chat on WhatsApp
+              </a>
+            </div>
+            <p className="text-xs text-secondary-500 mt-6">
+              Typical response within 1 hour during office hours (Mon–Sat, 9 AM–6 PM NPT).
+              WhatsApp available 24/7 for urgent queries.
             </p>
           </div>
         </div>
